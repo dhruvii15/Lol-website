@@ -3,18 +3,16 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Col, Row, Offcanvas, OffcanvasBody, OffcanvasHeader, Button } from 'reactstrap';
 import NoInternet from '../NoInternet';
-import Loading from '../Loading';
 import MessageBtn from '../Messagebtn';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-// img
+// img imports
 import fontBg1 from "../../img/1.png";
 import fontBg2 from "../../img/2.png";
 import fontBg3 from "../../img/3.png";
 import fontBg4 from "../../img/4.png";
 import fontBg5 from "../../img/5.png";
 import NoDataFound from '../NoData';
-
 
 const capitalizeFirstLetter = (string) => {
     if (!string) return '';
@@ -140,7 +138,38 @@ const Page2 = () => {
     }
 
     if (loading) {
-        return <Loading />;
+        // Show default boxes while loading
+        return (
+            <div className='page1-bg orange-bg'>
+                <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
+                    <Col sm={9} xl={5}>
+                        <div className='py-3 pt-4 d-flex justify-content-center align-items-center'>
+                            <div className='num-circle bg-black rounded-circle text-white'><p>1</p></div>
+                            <div className='bg-black' style={{ width: '40px', height: '2px' }} />
+                            <div className='num-circle bg-black text-white'><p>2</p></div>
+                            <div className='bg-black' style={{ width: '40px', height: '2px' }} />
+                            <div className='num-circle bg-white rounded-circle'><p>3</p></div>
+                        </div>
+                        <h4 className='text-center text-white py-4'>Select a card background</h4>
+
+                        <Row className='px-3'>
+                            {Array.from({ length: 5 }).map((_, index) => (
+                                <Col xs={6} key={index} className='d-flex justify-content-center align-items-center p-3'>
+                                    <div
+                                        className='w-100 img-fluid rounded-4 defult-box'
+                                        style={{
+                                            background: "linear-gradient(to bottom, rgba(128, 128, 128, 0.2), rgba(255, 255, 255, 0.2))",
+                                            cursor: 'pointer'
+                                        }}
+                                    >
+                                    </div>
+                                </Col>
+                            ))}
+                        </Row>
+                    </Col>
+                </Row>
+            </div>
+        );
     }
 
     if (noData) {
@@ -164,23 +193,6 @@ const Page2 = () => {
 
                     <div className=''>
                         <Row className='px-3'>
-                            {data.length === 0 && (
-                                <>
-                                    {Array.from({ length: 5 }).map((_, index) => (
-                                        <Col xs={6} key={index} className='d-flex justify-content-center align-items-center p-3'>
-                                            <div
-                                                className='w-100 img-fluid rounded-4 defult-box'
-                                                style={{
-                                                    background: "linear-gradient(to bottom, rgba(128, 128, 128, 0.2), rgba(255, 255, 255, 0.2))",
-                                                    cursor: 'pointer'
-                                                }}
-                                            >
-                                            </div>
-                                        </Col>
-                                    ))}
-                                </>
-                            )}
-
                             {data.map((item, index) => (
                                 <Col xs={6} className='d-flex justify-content-center align-items-center p-3' key={index}>
                                     <img
