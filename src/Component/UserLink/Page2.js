@@ -138,7 +138,6 @@ const Page2 = () => {
     }
 
     if (loading) {
-        // Show default boxes while loading
         return (
             <div className='page1-bg orange-bg'>
                 <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
