@@ -242,16 +242,16 @@ const Page2 = () => {
 
                                     <img src={imageUrl} alt='avatar' className={`${shape} my-1`} />
                                     <div className='px-2 pt-2 d-flex justify-content-center align-items-center'>
-                                        <div className='bg-white rounded-2 d-flex justify-content-center align-items-center' style={{ height: "155px", width: "280px" }}>
+                                        <div className='bg-white d-flex justify-content-center align-items-center' style={{ height: "155px", width: "280px" , borderRadius:"10px"}}>
                                             <Row className='w-100 text-start px-3'>
                                                 <Col xs={6} className='p-0'>
                                                     {data2.map((value, index) => (
-                                                        <p key={index} className='mb-1' style={{ fontSize: "12px", fontWeight: "600" }}>{capitalizeFirstLetter(value)}</p>
+                                                        <p key={index} className='mb-2' style={{ fontSize: "12px", fontWeight: "600" }}>{capitalizeFirstLetter(value)}</p>
                                                     ))}
                                                 </Col>
                                                 <Col xs={6} className='p-0'>
                                                     {values.map((value, index) => (
-                                                        <p key={index} className='mb-1' style={{ fontSize: "12px", fontWeight: "600" }}><span className='pe-2 fw-bold'>:</span>{capitalizeFirstLetter(value)}</p>
+                                                        <p key={index} className='mb-2' style={{ fontSize: "12px", fontWeight: "600" }}><span className='pe-2 fw-bold'>:</span>{capitalizeFirstLetter(value)}</p>
                                                     ))}
                                                 </Col>
                                             </Row>
