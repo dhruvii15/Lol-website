@@ -237,7 +237,7 @@ input::placeholder {
 }
 
 .defult-box {
-  height: 320px !important;
+  height: 320px;
 }
 
 .relation-box {
