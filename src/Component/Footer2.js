@@ -36,7 +36,7 @@ const Footer2 = () => {
                 <hr />
                 <Row className='px-2 pt-3'>
                     <Col xs={12} md={6} className='mt-2'>
-                        <img src={lol} alt='lol' width={100} />
+                        <img src={lol} alt='lol' width={100} onClick={() => window.location.href = "/"} className='cursor'/>
                         <h3 className='BwGradual pt-2'>Join our newsletter</h3>
                         <p className='BwGradual'>Stay in the know on the latest alpha, <br />news and product updates.</p>
                     </Col>
