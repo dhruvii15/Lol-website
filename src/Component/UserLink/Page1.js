@@ -275,7 +275,7 @@ const Page1 = ({ username }) => {
                                             e.target.blur();
                                         }
                                     }}
-                                    maxLength={5}
+                                    maxLength={6}
                                     inputMode='text'
                                     enterKeyHint='next'
                                 />
@@ -299,7 +299,7 @@ const Page1 = ({ username }) => {
                                         value={inputValues[index] || ''}
                                         onChange={(e) => handleChange(e, index)}
                                         onKeyDown={(e) => handleKeyDown(e, index)}
-                                        maxLength={16}
+                                        maxLength={15}
                                         inputMode='text'
                                         enterKeyHint={index === data2.length - 1 ? 'done' : 'next'}  // Set 'done' for last input
                                     />
