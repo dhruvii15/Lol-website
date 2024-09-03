@@ -71,9 +71,9 @@ const Footer2 = () => {
 
                 <p className='text-center BwGradual pt-4 cursor hovertext' onClick={scrollToTop}>Back To Top <FontAwesomeIcon icon={faChevronUp} className='px-2' /></p>
                 <hr />
-                <div className='d-flex flex-wrap alig-items-center justify-content-center gap-5'>
-                    <p className='text-center BwGradual pb-3 m-0'>©2024 Cabin. All rights reserved</p>
-                    <p className='text-center BwGradual pb-3 m-0 cursor hovertext' onClick={() => window.location.href = "/privacy-policy"}>Privacy Policy</p>
+                <div className='d-flex flex-wrap alig-items-center justify-content-center gap-3 gap-sm-5 pb-3'>
+                    <p className='text-center BwGradual m-0'>©2024 Cabin. All rights reserved</p>
+                    <p className='text-center BwGradual m-0 cursor hovertext' onClick={() => window.location.href = "/privacy-policy"}>Privacy Policy</p>
                 </div>
             </Container>
         </div>

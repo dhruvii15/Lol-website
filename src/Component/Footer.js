@@ -69,9 +69,9 @@ const Footer = () => {
 
                 <p className='text-center BwGradual text-white pt-4 cursor hovertext' onClick={scrollToTop}>Back To Top <FontAwesomeIcon icon={faChevronUp} className='px-2' /></p>
                 <hr style={{ color: "#FFFFFF", border: "1px solid #FFFFFF" }} />
-                <div className='d-flex flex-wrap alig-items-center justify-content-center gap-5'>
-                    <p className='text-center BwGradual text-white pb-3 m-0'>©2024 Cabin. All rights reserved</p>
-                    <p className='text-center BwGradual text-white pb-3 m-0 cursor hovertext' onClick={() => window.location.href = "/privacy-policy"}>Privacy Policy</p>
+                <div className='d-flex flex-wrap alig-items-center justify-content-center gap-sm-5 gap-3 pb-3'>
+                    <p className='text-center BwGradual text-white m-0'>©2024 Cabin. All rights reserved</p>
+                    <p className='text-center BwGradual text-white m-0 cursor hovertext' onClick={() => window.location.href = "/privacy-policy"}>Privacy Policy</p>
                 </div>
             </Container>
         </div>

@@ -22,38 +22,41 @@ const capitalizeFirstLetter = (string) => {
 
 const Page1 = ({ username }) => {
     const finallanguageMappings = {
-        1: {
+        en: {
             nickname: 'Nickname',
             placeholder: 'Enter',
         },
-        2: {
+        hi: {
             nickname: 'उपनाम',
             placeholder: 'दर्ज',
         },
-        3: {
+        es: {
             nickname: 'Apodo',
             placeholder: 'Introducir',
         },
-        4: {
+        ur: {
             nickname: 'عرفیت',
             placeholder: 'داخل کریں',
         },
-        5: {
+        fr: {
             nickname: 'Surnom',
             placeholder: 'Entrez le',
         }
     };
-    const [finallanguage, setfinallanguage] = useState('1');
+    
+    
 
 
     const getfinallanguageText = (key) => {
-        const finallanguageMapping = finallanguageMappings[finallanguage] || finallanguageMappings['1'];
+        const finallanguageMapping = finallanguageMappings[finallanguage] || finallanguageMappings['en'];
         return finallanguageMapping[key] || '';
     };
 
 
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
+    const [linkStatus, setlinkStatus] = useState();
+    const [finallanguage, setfinallanguage] = useState('en');
     const [loading, setLoading] = useState(true);
     const [show, setShow] = useState(false);
     const [online, setOnline] = useState(navigator.onLine);
@@ -68,6 +71,7 @@ const Page1 = ({ username }) => {
     const [isEmojiView, setIsEmojiView] = useState(false);
     const [selectedColumn, setSelectedColumn] = useState(null);
     const inputRefs = useRef([]);
+    
 
     const handleFileColumnClick = () => {
         setSelectedColumn('file');
@@ -121,17 +125,18 @@ const Page1 = ({ username }) => {
             return;
         }
         setLoading(true);
-        axios.post('https://lolcards.link/api/findTitle', { username })
+        axios.post('http://localhost:5000/api/findTitle', { username })
             .then((res) => {
-                const { selectedCardTitle, finallanguage } = res.data.data;
+                const { selectedCardTitle, finallanguage, linkStatus } = res.data.data;
 
                 if (Array.isArray(selectedCardTitle) && selectedCardTitle.length > 0) {
                     setData2(selectedCardTitle);
-                    setfinallanguage(finallanguage || "1");
+                    setfinallanguage(finallanguage || "en");
+                    setlinkStatus(linkStatus);
                     setOnline(true);
                 } else {
                     setData2([]);
-                    setfinallanguage("1");
+                    setfinallanguage("en");
                     setOnline(true);
                 }
             })
@@ -234,6 +239,10 @@ const Page1 = ({ username }) => {
         return <Loading />;
     }
 
+
+    if (linkStatus) {
+        return <NoDataFound style={{ height: '100vh' }}/>;
+    }
 
     return (
         <div className='page1-bg orange-bg'>
@@ -387,7 +396,7 @@ const Page1 = ({ username }) => {
                                             ))
                                         ) : (
                                             <Col className='text-center'>
-                                                <NoDataFound />
+                                                <NoDataFound  style={{ height: 'auto' }}/>
                                             </Col>
                                         )
                                     ) : (
