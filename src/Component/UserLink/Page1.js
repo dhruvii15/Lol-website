@@ -5,8 +5,6 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
-import Loading from '../Loading';
-import NoInternet from '../NoInternet';
 
 // img
 import avatar from "../../img/avatar.png";
@@ -55,11 +53,8 @@ const Page1 = ({ username }) => {
 
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
-    const [linkStatus, setlinkStatus] = useState();
     const [finallanguage, setfinallanguage] = useState('en');
-    const [loading, setLoading] = useState(true);
     const [show, setShow] = useState(false);
-    const [online, setOnline] = useState(navigator.onLine);
     const [selectedAvatar, setSelectedAvatar] = useState(null);
     const [Avatar, setAvatar] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
@@ -88,11 +83,9 @@ const Page1 = ({ username }) => {
         if (e.key === 'Enter') {
             e.preventDefault();
             if (index < data2.length - 1) {
-                // Focus the next input field
                 inputRefs.current[index + 1]?.focus();
             } else {
-                // Handle the last input field (e.g., submit form or dismiss keyboard)
-                e.target.blur();  // Dismiss the keyboard
+                e.target.blur();  
             }
         }
     };
@@ -100,53 +93,37 @@ const Page1 = ({ username }) => {
     const handleShow = () => setShow(true);
 
     const getData = useCallback(() => {
-        if (!navigator.onLine) {
-            setOnline(false);
-            return;
-        }
-        setLoading(true);
         axios.post('https://lolcards.link/api/avatar')
             .then((res) => {
                 setData(res.data.data);
-                setLoading(false);
-                setOnline(true);
             })
             .catch((err) => {
                 console.error(err);
-                setLoading(false);
-                setOnline(true);
                 toast.error("Failed to fetch data.");
             });
     }, []);
 
     const getData2 = useCallback(() => {
         if (!navigator.onLine) {
-            setOnline(false);
             return;
         }
-        setLoading(true);
         axios.post('https://lolcards.link/api/findTitle', { username })
             .then((res) => {
-                const { selectedCardTitle, finallanguage, linkStatus } = res.data.data;
+                const { selectedCardTitle, finallanguage } = res.data.data;
 
                 if (Array.isArray(selectedCardTitle) && selectedCardTitle.length > 0) {
                     setData2(selectedCardTitle);
                     setfinallanguage(finallanguage || "en");
-                    setlinkStatus(linkStatus);
-                    setOnline(true);
                 } else {
                     setData2([]);
                     setfinallanguage("en");
-                    setOnline(true);
                 }
             })
             .catch((err) => {
                 console.error(err);
                 toast.error("Failed to fetch data.");
-                setOnline(true);
             })
             .finally(() => {
-                setLoading(false);
             });
     }, [username]);
 
@@ -156,19 +133,6 @@ const Page1 = ({ username }) => {
         getData();
         getData2();
 
-        const handleOnline = () => setOnline(true);
-        const handleOffline = () => setOnline(false);
-
-        // Add event listeners
-        window.addEventListener('online', handleOnline);
-        window.addEventListener('offline', handleOffline);
-
-        // Cleanup function
-        return () => {
-            // Remove event listeners
-            window.removeEventListener('online', handleOnline);
-            window.removeEventListener('offline', handleOffline);
-        };
     }, [getData, getData2, username]);
 
     const handleAvatarClick = (avatarUrl) => {
@@ -209,17 +173,16 @@ const Page1 = ({ username }) => {
 
         if (!nickname || nickname.trim() === '') {
             setNicknameError(true);
-            return; // Stop navigation if there is an error
+            return; 
         } else {
             setNicknameError(false);
         }
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
-            return; // Stop navigation if there are errors
+            return; 
         }
 
-        // Prepare data for submission
         const formData = {
             avatar: Avatar,
             inputValues,
@@ -230,19 +193,6 @@ const Page1 = ({ username }) => {
 
         navigate(`/${username}/step2`, { state: formData });
     };
-
-    if (!online) {
-        return <NoInternet />;
-    }
-
-    if (loading) {
-        return <Loading />;
-    }
-
-
-    if (linkStatus) {
-        return <NoDataFound style={{ height: '100vh' }}/>;
-    }
 
     return (
         <div className='page1-bg orange-bg'>
