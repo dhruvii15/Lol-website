@@ -125,7 +125,7 @@ const Page1 = ({ username }) => {
             return;
         }
         setLoading(true);
-        axios.post('http://localhost:5000/api/findTitle', { username })
+        axios.post('https://lolcards.link/api/findTitle', { username })
             .then((res) => {
                 const { selectedCardTitle, finallanguage, linkStatus } = res.data.data;
 
