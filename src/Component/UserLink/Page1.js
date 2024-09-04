@@ -171,6 +171,7 @@ const Page1 = ({ username }) => {
         setNickname(value);
         setNicknameError(value.length === 0 || value.length > 10);
     };
+    
 
     const handleFileChange = (e) => {
         const file = e.currentTarget.files[0];
@@ -225,7 +226,7 @@ const Page1 = ({ username }) => {
                         <div className='num-circle bg-white rounded-circle'><p>3</p></div>
                     </div>
 
-                    <div className='bg-white page1-whitebox mx-1 rounded-5 shadow text-center overflow-y-scroll'>
+                    <div className='bg-white page1-whitebox mx-1 rounded-5 shadow text-center overflow-hidden'>
                         <h4 className='pt-3'>{name ? name.charAt(0).toUpperCase() + name.slice(1) : ''}</h4>
                         <img
                             src={selectedAvatar || imagePreview || avatar}
@@ -241,18 +242,18 @@ const Page1 = ({ username }) => {
                             <div className="form-group mb-3 position-relative text-start">
                                 <div className='d-flex justify-content-between pb-1'>
                                     <Label className='m-0' style={{ fontWeight: "500" }}>
-                                        {capitalizeFirstLetter('nickname')}
+                                        {getlanguageText('nickname')}
                                     </Label>
                                     <div className="text-end mt-1">
-                                        <small>{(inputValues.length || 0)} / 10</small>
+                                        <small>{(nickname.length || 0)} / 10</small>
                                     </div>
                                 </div>
                                 <input
-                                   className={`form-control border-black ${nicknameError ? 'is-invalid' : ''}`}
+                                    className={`form-control border-black ${nicknameError ? 'is-invalid' : ''}`}
                                     placeholder={getlanguageText('placeholder') + ' ' + getlanguageText('nickname')}
                                     type='text'
                                     value={nickname}
-                                    onChange={(e) => setNickname(e.target.value)}
+                                    onChange={(e) => handleNicknameChange(e)}
                                     onKeyDown={(e) => {
                                         if (e.key === 'Enter') {
                                             e.preventDefault();
@@ -269,6 +270,7 @@ const Page1 = ({ username }) => {
                                     </div>
                                 )}
                             </div>
+
                             {data2.map((item, index) => (
                                 <div className="form-group mb-3 position-relative text-start" key={index}>
                                     <div className='d-flex justify-content-between pb-1'>
@@ -276,7 +278,7 @@ const Page1 = ({ username }) => {
                                             {capitalizeFirstLetter(item)}
                                         </Label>
                                         <div className="text-end">
-                                            <small style={{fontSize:"13px"}}>{(inputValues[index]?.length || 0)} / 15</small>
+                                            <small style={{ fontSize: "13px" }}>{(inputValues[index]?.length || 0)} / 15</small>
                                         </div>
                                     </div>
                                     <input

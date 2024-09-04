@@ -51,6 +51,7 @@ const Page2 = () => {
     const [selectedImage, setSelectedImage] = useState('');
     const [avatarURL, setAvatarURL] = useState('');
     const imageUrl = avatarURL ? avatarURL : defaultAvatarURL;
+    
 
     const getRandomElement = (array) => array[Math.floor(Math.random() * array.length)];
 
