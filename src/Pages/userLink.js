@@ -17,7 +17,7 @@ const UserLink = () => {
 
   const getData2 = useCallback(() => {
     setLoading(true);
-    axios.post('http://localhost:5000/api/user/found', { username: username })
+    axios.post('https://lolcards.link/api/user/found', { username: username })
       .then((res) => {
         const { selectedCardTitle, pauseLink } = res.data.data;
 

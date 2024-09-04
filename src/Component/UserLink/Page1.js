@@ -108,7 +108,7 @@ const Page1 = ({ username }) => {
         if (!navigator.onLine) {
             return;
         }
-        axios.post('http://localhost:5000/api/user/found', { username })
+        axios.post('https://lolcards.link/api/user/found', { username })
             .then((res) => {
                 const { selectedCardTitle, language, name } = res.data.data;
 
@@ -245,7 +245,7 @@ const Page1 = ({ username }) => {
                                         {getlanguageText('nickname')}
                                     </Label>
                                     <div className="text-end mt-1">
-                                        <small>{(nickname.length || 0)} / 10</small>
+                                        <small style={{fontSize:"13px"}}>{(nickname.length || 0)} / 10</small>
                                     </div>
                                 </div>
                                 <input
