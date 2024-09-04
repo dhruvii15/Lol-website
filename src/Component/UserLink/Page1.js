@@ -41,8 +41,8 @@ const Page1 = ({ username }) => {
             placeholder: 'Entrez le',
         }
     };
-    
-    
+
+
 
 
     const getlanguageText = (key) => {
@@ -67,7 +67,7 @@ const Page1 = ({ username }) => {
     const [isEmojiView, setIsEmojiView] = useState(false);
     const [selectedColumn, setSelectedColumn] = useState(null);
     const inputRefs = useRef([]);
-    
+
 
     const handleFileColumnClick = () => {
         setSelectedColumn('file');
@@ -86,7 +86,7 @@ const Page1 = ({ username }) => {
             if (index < data2.length - 1) {
                 inputRefs.current[index + 1]?.focus();
             } else {
-                e.target.blur();  
+                e.target.blur();
             }
         }
     };
@@ -110,7 +110,7 @@ const Page1 = ({ username }) => {
         }
         axios.post('http://localhost:5000/api/user/found', { username })
             .then((res) => {
-                const { selectedCardTitle, language , name } = res.data.data;
+                const { selectedCardTitle, language, name } = res.data.data;
 
                 if (Array.isArray(selectedCardTitle) && selectedCardTitle.length > 0) {
                     setData2(selectedCardTitle);
@@ -148,10 +148,28 @@ const Page1 = ({ username }) => {
     };
 
     const handleChange = (e, index) => {
-        setInputValues((prevValues) => ({
-            ...prevValues,
-            [index]: e.target.value
-        }));
+        const value = e.target.value;
+        if (value.length <= 15) {
+            setInputValues((prevValues) => ({
+                ...prevValues,
+                [index]: value
+            }));
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                [index]: false
+            }));
+        } else {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                [index]: true
+            }));
+        }
+    };
+
+    const handleNicknameChange = (e) => {
+        const value = e.target.value;
+        setNickname(value);
+        setNicknameError(value.length === 0 || value.length > 10);
     };
 
     const handleFileChange = (e) => {
@@ -174,14 +192,14 @@ const Page1 = ({ username }) => {
 
         if (!nickname || nickname.trim() === '') {
             setNicknameError(true);
-            return; 
+            return;
         } else {
             setNicknameError(false);
         }
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
-            return; 
+            return;
         }
 
         const formData = {
@@ -208,7 +226,7 @@ const Page1 = ({ username }) => {
                     </div>
 
                     <div className='bg-white page1-whitebox mx-1 rounded-5 shadow text-center overflow-y-scroll'>
-                    <h4 className='pt-3'>{name ? name.charAt(0).toUpperCase() + name.slice(1) : ''}</h4>
+                        <h4 className='pt-3'>{name ? name.charAt(0).toUpperCase() + name.slice(1) : ''}</h4>
                         <img
                             src={selectedAvatar || imagePreview || avatar}
                             alt='avatar'
@@ -216,16 +234,21 @@ const Page1 = ({ username }) => {
                             width={130}
                             height={130}
                             onClick={handleShow}
-                            style={{ cursor: 'pointer' , objectFit:"cover"}}
+                            style={{ cursor: 'pointer', objectFit: "cover" }}
                         />
 
                         <div className='mx-3 mx-md-5 py-3'>
                             <div className="form-group mb-3 position-relative text-start">
-                                <Label className='m-0' style={{ fontWeight: "500" }}>
-                                    {getlanguageText('nickname')}
-                                </Label>
+                                <div className='d-flex justify-content-between pb-1'>
+                                    <Label className='m-0' style={{ fontWeight: "500" }}>
+                                        {capitalizeFirstLetter('nickname')}
+                                    </Label>
+                                    <div className="text-end mt-1">
+                                        <small>{(inputValues.length || 0)} / 10</small>
+                                    </div>
+                                </div>
                                 <input
-                                    className="form-control border-black"
+                                   className={`form-control border-black ${nicknameError ? 'is-invalid' : ''}`}
                                     placeholder={getlanguageText('placeholder') + ' ' + getlanguageText('nickname')}
                                     type='text'
                                     value={nickname}
@@ -236,25 +259,29 @@ const Page1 = ({ username }) => {
                                             e.target.blur();
                                         }
                                     }}
-                                    maxLength={6}
+                                    maxLength={10}
                                     inputMode='text'
                                     enterKeyHint='next'
                                 />
-
-                                <FontAwesomeIcon
-                                    icon={faCircleExclamation}
-                                    className="position-absolute end-0 translate-middle-y px-3"
-                                    style={{ top: "45px", color: nicknameError ? "red" : "black" }}
-                                />
+                                {nicknameError && (
+                                    <div className="invalid-feedback">
+                                        Nickname is required
+                                    </div>
+                                )}
                             </div>
                             {data2.map((item, index) => (
                                 <div className="form-group mb-3 position-relative text-start" key={index}>
-                                    <Label className='m-0' style={{ fontWeight: "500" }}>
-                                        {capitalizeFirstLetter(item)}
-                                    </Label>
+                                    <div className='d-flex justify-content-between pb-1'>
+                                        <Label className='m-0' style={{ fontWeight: "500" }}>
+                                            {capitalizeFirstLetter(item)}
+                                        </Label>
+                                        <div className="text-end">
+                                            <small style={{fontSize:"13px"}}>{(inputValues[index]?.length || 0)} / 15</small>
+                                        </div>
+                                    </div>
                                     <input
                                         ref={el => inputRefs.current[index] = el}
-                                        className="form-control border-black"
+                                        className={`form-control border-black ${errors[index] ? 'is-invalid' : ''}`}
                                         placeholder={`${getlanguageText('placeholder')} ${(item || '').replace(/\?/g, '')}`}
                                         type='text'
                                         value={inputValues[index] || ''}
@@ -262,13 +289,7 @@ const Page1 = ({ username }) => {
                                         onKeyDown={(e) => handleKeyDown(e, index)}
                                         maxLength={15}
                                         inputMode='text'
-                                        enterKeyHint={index === data2.length - 1 ? 'done' : 'next'}  // Set 'done' for last input
-                                    />
-
-                                    <FontAwesomeIcon
-                                        icon={faCircleExclamation}
-                                        className="position-absolute end-0 translate-middle-y px-3"
-                                        style={{ top: "45px", color: errors[index] ? "red" : "black" }}
+                                        enterKeyHint={index === data2.length - 1 ? 'done' : 'next'}
                                     />
                                 </div>
                             ))}
@@ -348,7 +369,7 @@ const Page1 = ({ username }) => {
                                             ))
                                         ) : (
                                             <Col className='text-center'>
-                                                <NoDataFound  style={{ height: 'auto' }}/>
+                                                <NoDataFound style={{ height: 'auto' }} />
                                             </Col>
                                         )
                                     ) : (
