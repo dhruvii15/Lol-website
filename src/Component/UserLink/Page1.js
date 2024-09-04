@@ -4,7 +4,7 @@ import { Button, Col, Container, Label, Offcanvas, OffcanvasBody, OffcanvasHeade
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 // img
 import avatar from "../../img/avatar.png";
