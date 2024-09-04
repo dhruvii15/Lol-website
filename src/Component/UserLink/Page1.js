@@ -227,7 +227,7 @@ const Page1 = ({ username }) => {
                     </div>
 
                     <div className='bg-white page1-whitebox mx-1 rounded-5 shadow text-center overflow-hidden'>
-                        <h4 className='pt-3'>{name ? name.charAt(0).toUpperCase() + name.slice(1) : ''}</h4>
+                        <h5 className='pt-3'>Create {name ? name.charAt(0).toUpperCase() + name.slice(1) : ''}'s Card</h5>
                         <img
                             src={selectedAvatar || imagePreview || avatar}
                             alt='avatar'
