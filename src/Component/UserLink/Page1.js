@@ -19,7 +19,7 @@ const capitalizeFirstLetter = (string) => {
 };
 
 const Page1 = ({ username }) => {
-    const finallanguageMappings = {
+    const languageMappings = {
         en: {
             nickname: 'Nickname',
             placeholder: 'Enter',
@@ -45,15 +45,16 @@ const Page1 = ({ username }) => {
     
 
 
-    const getfinallanguageText = (key) => {
-        const finallanguageMapping = finallanguageMappings[finallanguage] || finallanguageMappings['en'];
-        return finallanguageMapping[key] || '';
+    const getlanguageText = (key) => {
+        const languageMapping = languageMappings[language] || languageMappings['en'];
+        return languageMapping[key] || '';
     };
 
 
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
-    const [finallanguage, setfinallanguage] = useState('en');
+    const [language, setlanguage] = useState('en');
+    const [name, setname] = useState();
     const [show, setShow] = useState(false);
     const [selectedAvatar, setSelectedAvatar] = useState(null);
     const [Avatar, setAvatar] = useState(null);
@@ -107,16 +108,17 @@ const Page1 = ({ username }) => {
         if (!navigator.onLine) {
             return;
         }
-        axios.post('https://lolcards.link/api/findTitle', { username })
+        axios.post('http://localhost:5000/api/user/found', { username })
             .then((res) => {
-                const { selectedCardTitle, finallanguage } = res.data.data;
+                const { selectedCardTitle, language , name } = res.data.data;
 
                 if (Array.isArray(selectedCardTitle) && selectedCardTitle.length > 0) {
                     setData2(selectedCardTitle);
-                    setfinallanguage(finallanguage || "en");
+                    setlanguage(language || "en");
+                    setname(name);
                 } else {
                     setData2([]);
-                    setfinallanguage("en");
+                    setlanguage("en");
                 }
             })
             .catch((err) => {
@@ -126,7 +128,6 @@ const Page1 = ({ username }) => {
             .finally(() => {
             });
     }, [username]);
-
 
 
     useEffect(() => {
@@ -206,7 +207,8 @@ const Page1 = ({ username }) => {
                         <div className='num-circle bg-white rounded-circle'><p>3</p></div>
                     </div>
 
-                    <div className='bg-white page1-whitebox mx-1 rounded-5 shadow text-center overflow-hidden'>
+                    <div className='bg-white page1-whitebox mx-1 rounded-5 shadow text-center overflow-y-scroll'>
+                    <h4 className='pt-3'>{name ? name.charAt(0).toUpperCase() + name.slice(1) : ''}</h4>
                         <img
                             src={selectedAvatar || imagePreview || avatar}
                             alt='avatar'
@@ -220,11 +222,11 @@ const Page1 = ({ username }) => {
                         <div className='mx-3 mx-md-5 py-3'>
                             <div className="form-group mb-3 position-relative text-start">
                                 <Label className='m-0' style={{ fontWeight: "500" }}>
-                                    {getfinallanguageText('nickname')}
+                                    {getlanguageText('nickname')}
                                 </Label>
                                 <input
                                     className="form-control border-black"
-                                    placeholder={getfinallanguageText('placeholder') + ' ' + getfinallanguageText('nickname')}
+                                    placeholder={getlanguageText('placeholder') + ' ' + getlanguageText('nickname')}
                                     type='text'
                                     value={nickname}
                                     onChange={(e) => setNickname(e.target.value)}
@@ -253,7 +255,7 @@ const Page1 = ({ username }) => {
                                     <input
                                         ref={el => inputRefs.current[index] = el}
                                         className="form-control border-black"
-                                        placeholder={`${getfinallanguageText('placeholder')} ${(item || '').replace(/\?/g, '')}`}
+                                        placeholder={`${getlanguageText('placeholder')} ${(item || '').replace(/\?/g, '')}`}
                                         type='text'
                                         value={inputValues[index] || ''}
                                         onChange={(e) => handleChange(e, index)}

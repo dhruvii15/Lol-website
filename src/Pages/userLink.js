@@ -10,19 +10,20 @@ import Loading from '../Component/Loading';
 const UserLink = () => {
   const { username } = useParams();
   const [data2, setData2] = useState([]);
-  const [linkStatus, setlinkStatus] = useState(null);
+  const [pauseLink, setpauseLink] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  
 
   const getData2 = useCallback(() => {
     setLoading(true);
-    axios.post('https://lolcards.link/api/findTitle', { username: username })
+    axios.post('http://localhost:5000/api/user/found', { username: username })
       .then((res) => {
-        const { selectedCardTitle, linkStatus } = res.data.data;
+        const { selectedCardTitle, pauseLink } = res.data.data;
 
         if (Array.isArray(selectedCardTitle) && selectedCardTitle.length > 0) {
           setData2(selectedCardTitle);
-          setlinkStatus(linkStatus);
+          setpauseLink(pauseLink);
           setError(false);
         } else {
           setData2([]);
@@ -52,7 +53,7 @@ const UserLink = () => {
     return <NoUserFound />;
   }
 
-  if (linkStatus) {
+  if (pauseLink) {
     return <NoDataFound style={{ height: '100vh' }}/>;
   }
 
