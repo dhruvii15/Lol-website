@@ -212,11 +212,11 @@ const Page1 = ({ username }) => {
                         <img
                             src={selectedAvatar || imagePreview || avatar}
                             alt='avatar'
-                            className='mt-1 mb-2 mt-2'
+                            className='mt-1 mb-2 mt-2 rounded-3'
                             width={130}
                             height={130}
                             onClick={handleShow}
-                            style={{ cursor: 'pointer' }}
+                            style={{ cursor: 'pointer' , objectFit:"cover"}}
                         />
 
                         <div className='mx-3 mx-md-5 py-3'>
