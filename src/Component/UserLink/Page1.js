@@ -171,7 +171,7 @@ const Page1 = ({ username }) => {
         setNickname(value);
         setNicknameError(value.length === 0 || value.length > 10);
     };
-    
+
 
     const handleFileChange = (e) => {
         const file = e.currentTarget.files[0];
@@ -245,7 +245,14 @@ const Page1 = ({ username }) => {
                                         {getlanguageText('nickname')}
                                     </Label>
                                     <div className="text-end mt-1">
-                                        <small style={{fontSize:"13px"}}>{(nickname.length || 0)} / 10</small>
+                                        <small
+                                            style={{
+                                                fontSize: "13px",
+                                                color: nickname.length >= 10 ? "red" : "inherit" // Change color to red if limit is reached
+                                            }}
+                                        >
+                                            {nickname.length || 0} / 10
+                                        </small>
                                     </div>
                                 </div>
                                 <input
@@ -278,7 +285,14 @@ const Page1 = ({ username }) => {
                                             {capitalizeFirstLetter(item)}
                                         </Label>
                                         <div className="text-end">
-                                            <small style={{ fontSize: "13px" }}>{(inputValues[index]?.length || 0)} / 15</small>
+                                            <small
+                                                style={{
+                                                    fontSize: "13px",
+                                                    color: (inputValues[index]?.length || 0) >= 15 ? "red" : "inherit" // Change color to red if limit is reached
+                                                }}
+                                            >
+                                                {(inputValues[index]?.length || 0)} / 15
+                                            </small>
                                         </div>
                                     </div>
                                     <input
