@@ -235,7 +235,10 @@ const Page1 = ({ username }) => {
                             width={130}
                             height={130}
                             onClick={handleShow}
-                            style={{ cursor: 'pointer', objectFit: "cover" }}
+                            style={{
+                                cursor: 'pointer',
+                                objectFit: imagePreview ? 'cover' : 'unset'
+                            }}
                         />
 
                         <div className='mx-3 mx-md-5 py-3'>
