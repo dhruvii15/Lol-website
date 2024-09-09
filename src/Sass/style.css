@@ -294,7 +294,6 @@ input::placeholder {
   position: relative;
   width: 100%;
   height: 630px;
-  /* Adjust as needed */
   overflow: hidden;
   background-repeat: no-repeat;
   background: url("../img/main-bg2.svg") no-repeat center center;
@@ -456,7 +455,7 @@ input::placeholder {
 }
 
 .inbox-text {
-  font-size: 90px;
+  font-size: 55px;
 }
 
 .person-img img {
@@ -794,9 +793,6 @@ input::placeholder {
     transition: transform 0.4s ease-in-out;
     background-color: black;
   }
-  .inbox-text {
-    font-size: 50px;
-  }
   .rotate-img {
     width: 290px;
   }
@@ -988,6 +984,20 @@ input::placeholder {
     font-size: 25px;
   }
 }
+@media (max-width: 991px) and (min-width: 769px) {
+  .main-text {
+    font-size: 70px !important;
+  }
+  .main-box {
+    position: absolute;
+    top: 7%;
+  }
+  .emoji-width {
+    width: 50px;
+    top: -45px !important;
+    left: 50% !important;
+  }
+}
 @media (max-width: 768px) and (min-width: 575px) {
   .main-text {
     font-size: 60px !important;
@@ -1001,7 +1011,7 @@ input::placeholder {
     left: 50% !important;
   }
   .inbox-text {
-    font-size: 70px;
+    font-size: 55px !important;
   }
 }
 @media (max-width: 991px) and (min-width: 575px) {

@@ -24,7 +24,7 @@ const Home = () => {
     return (
         <>
             <Header />
-            <div className='bg-black rounded-5 about-bg2 overflow-hidden' >
+            <div className='bg-black about-bg2 overflow-hidden' style={{borderTopLeftRadius:"40px" , borderTopRightRadius:"40px"}}>
                 <Main />
                 <About />
                 <Inbox />

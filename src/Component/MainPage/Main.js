@@ -72,8 +72,8 @@ const Main = () => {
                         <img src={cartoon} alt='lol' className='position-absolute emoji-width d-none d-md-block' style={{ top: "-30px", left: "60%" }} />
                         <ReactSVG src={cartoon} className='position-absolute emoji-width d-block d-md-none' beforeInjection={(svg) => { svg.setAttribute('style', 'top: -30px; left: 60%; width: 40px;') }} />
                     </h1>
+                    <h1 className='main-text BwGradualBold'>fun with</h1>
                     <h1 className='main-text BwGradualBold'>friends</h1>
-                    <h1 className='main-text BwGradualBold'>realfun</h1>
                     <div className='rounded-pill fs-5 mt-3 text-white box9 common d-none d-sm-block'>
                         <div className="common1 overlay9-1"></div>
                         <div className="box9-content">

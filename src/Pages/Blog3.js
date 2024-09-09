@@ -17,7 +17,7 @@ const Blog3 = () => {
                 <div className='position-relative text-center'>
                     <img src={image} alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid' />
                     <div className='position-absolute blog-bottom'>
-                        <p className='BwGradualBold px-4 rounded-3 m-0 fs-2 bg-white text-start ps-0 ms-0 ps-xl-5 ms-xl-5'>Announcing Now</p>
+                        <p className='BwGradualBold px-4 rounded-3 m-0 fs-2 bg-white text-start ps-0 ms-0 ps-xl-5 ms-xl-5'>Announcing New</p>
                     </div>
                     <div className='position-absolute bottom-0'>
                         <p className='BwGradualBold px-5 rounded-3 m-0 fs-2 bg-white text-start ps-0 ms-0 ps-xl-5 ms-xl-5'>Features and user Controls</p>
@@ -47,10 +47,6 @@ const Blog3 = () => {
 
                     <div className='pt-5'>
                         <p className='BwGradualBold fs-2'>User controls: </p>
-                        <div className='d-flex gap-3 ps-4 pt-3'>
-                            <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "8px" }} className='pb-1' /></p>
-                            <p className='m-0'><b className='BwGradualBold'>Hidden words: </b> You can filter out any incoming messages containing unwanted words – just provide the words you don’t like, and you won’t receive any messages that contain them.</p>
-                        </div>
                         <div className='d-flex gap-3 ps-4 pt-3'>
                             <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "8px" }} className='pb-1' /></p>
                             <p className='m-0'><b className='BwGradualBold'>Block users: </b> You now have more control over which users can send messages to you.</p>

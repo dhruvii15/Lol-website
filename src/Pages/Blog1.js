@@ -33,7 +33,7 @@ const Blog1 = () => {
                     </div>
                     <div className='pt-5'>
                         <p className='BwGradualBold fs-2'>Make your own games</p>
-                        <p>While the LOL app offers a variety of social media platforms to which you can share your link, your inbox will work anywhere you place it as a tappable link. In order to use it in other places, just tap "copy link" under the game that you want to use, and paste it to your preferred destination. As long as the destination allows linking, your friends will be able to tap your LOL link and send you messages!</p>
+                        <p>While the NGL app offers a variety of social media platforms to which you can share your link, your inbox will work anywhere you place it as a tappable link. In order to use it in other places, just tap "copy link" under the game that you want to use, and paste it to your preferred destination. As long as the destination allows linking, your friends will be able to tap your NGL link and send you messages!</p>
                     </div>
                     <div className='pt-5'>
                         <p className='BwGradualBold fs-2'>Customize your replies</p>

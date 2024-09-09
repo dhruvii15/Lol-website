@@ -1,12 +1,13 @@
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
+import { ReactSVG } from 'react-svg';
 
 // img
 import mainimg from "../../img/aboutmain.svg"
 import aboutleft from "../../img/aboutleft.svg"
 import aboutright from "../../img/aboutright.svg"
 import lol from "../../img/logo2.png"
-import { ReactSVG } from 'react-svg';
+import about1 from "../../img/about.png"
 
 
 const About = () => {
@@ -16,14 +17,16 @@ const About = () => {
                 <div className='text-center BwGradual about-padding postion-absolute'>
                     <Row className='ps-0 ps-lg-5 ms-0 ms-xl-5'>
                         <Col xs={12} lg={9} className='ps-0 ps-xl-5 ms-0 ms-lg-5 order-2 order-lg-1'>
-                        <div>
-                            <h1 className='about-text fw-bold ps-0 ps-xl-5 m-0'>About us</h1>
-                            <svg width="140" height="23" viewBox="0 0 249 23" fill="none" xmlns="http://www.w3.org/2000/svg" className='ms-xl-5 ms-0'>
-                                <path d="M5 13.9833C14.4166 11.3127 23.8247 8.64205 28.5671 7.2439C33.3095 5.84575 33.3691 5.72793 31.198 7.58165C29.0269 9.43538 24.6166 13.2607 22.4454 15.2008C20.2743 17.1409 20.3425 17.2038 30.4402 15.35C40.5465 13.4963 60.6824 9.73386 70.7546 7.79373C80.8268 5.8536 80.8268 5.72793 75.9227 7.76231C71.0185 9.7967 61.2103 13.9833 56.3061 16.1434C51.402 18.2956 51.402 18.4212 68.1578 16.0805C84.9051 13.7398 118.408 8.94838 135.164 6.54482C151.911 4.14912 151.911 4.14912 149.153 6.57624C146.386 9.00337 140.86 13.8655 138.093 16.2926C135.326 18.7197 135.326 18.7197 146.879 17.1409C158.433 15.5621 181.532 12.4045 193.086 10.7314C204.639 9.05835 204.639 8.87769 203.916 10.0952C203.192 11.3127 201.744 13.9205 201.021 15.2243C200.297 16.5282 200.297 16.5282 207.568 15.7428C214.839 14.9573 229.39 13.3785 243.932 11.7997" stroke="white" stroke-width="8.52461" stroke-miterlimit="2.61313" stroke-linecap="round" />
-                            </svg>
-                        </div>
-                            <h1 className='w-75 text-white mx-auto m-0 ps-0 ps-xl-5' style={{ fontWeight: "600", fontSize: "40px" }}>A new way to known</h1>
-                            <h1 className='w-75 text-white mx-auto ps-0 ps-xl-5' style={{ fontWeight: "600", fontSize: "40px" }}>Annonymous</h1>
+                            <div className='pb-3'>
+                                <h1 className='about-text ps-0 ps-xl-5 m-0 BwGradualBold'>Test how much your <br></br>
+                                    friend knows you.</h1>
+                                <svg width="280" height="28" viewBox="0 0 354 28" fill="none" xmlns="http://www.w3.org/2000/svg" className='ms-xl-5 ms-0'>
+                                    <path d="M4.28027 17.3238C17.8945 13.5864 31.4964 9.84914 38.3528 7.89254C45.2091 5.93595 45.2953 5.77107 42.1564 8.3652C39.0175 10.9593 32.6412 16.3125 29.5023 19.0275C26.3634 21.7426 26.4619 21.8305 41.0608 19.2364C55.6721 16.6423 84.7839 11.377 99.346 8.66199C113.908 5.94694 113.908 5.77107 106.818 8.61802C99.7276 11.465 85.5471 17.3238 78.4569 20.3466C71.3667 23.3584 71.3667 23.5343 95.5916 20.2587C119.804 16.983 168.242 10.2778 192.467 6.91425C216.679 3.56166 216.679 3.56166 212.691 6.95821C208.691 10.3548 200.702 17.1589 196.701 20.5554C192.701 23.952 192.701 23.952 209.405 21.7426C226.108 19.5332 259.504 15.1144 276.208 12.773C292.912 10.4317 292.912 10.1789 291.865 11.8827C290.819 13.5864 288.727 17.2358 287.68 19.0605C286.634 20.8852 286.634 20.8852 297.146 19.786C307.658 18.6868 328.695 16.4774 349.72 14.268" stroke="white" stroke-width="8" stroke-miterlimit="2.61313" stroke-linecap="round" />
+                                </svg>
+
+                            </div>
+                            <h1 className='w-75 text-white mx-auto m-0 ps-0 ps-xl-5' style={{ fontWeight: "400", fontSize: "40px" }}>A new way to share.</h1>
+                            <h1 className='text-white mx-auto ps-0 ps-xl-5' style={{ fontWeight: "400", fontSize: "40px" }}> your question's link on IG & snapchat</h1>
                         </Col>
                         <Col className='about-bg order-1 order-lg-2 animation'> </Col>
                     </Row>
@@ -31,13 +34,14 @@ const About = () => {
                 <div className='py-5'>
                     <Row className='d-flex justify-content-center align-items-center'>
                         <Col xs={12} lg={4} className='p-0 text-center px-5 mt-3'>
-                            <div id='1' className='bg-white rounded-3 position-relative w-100 animation text-start p-4' style={{ height: "230px" }}>
+                            {/* <div id='1' className='bg-white rounded-3 position-relative w-100 animation text-start p-4' style={{ height: "230px" }}>
                                 <svg width="46" height="62" viewBox="0 0 56 72" fill="none" xmlns="http://www.w3.org/2000/svg" className='position-absolute d-none d-lg-block bottom-0' style={{ right: "-45px" }}>
                                     <path d="M55.5112 36.4104C4.25433 28.0959 0.895752 29.398 0.89576 71.8349L0.89576 0.986323L55.5112 36.4104Z" fill="white" />
                                 </svg>
                                 <p className='fs-5 BwGradual fw-bold'>Who We are?</p>
                                 <p className='BwGradual'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
+                            </div> */}
+                            <img id='2' alt="animation" src={about1} className='animation img-fluid'/>
 
                             <ReactSVG id='2' src={aboutleft} className='animation' />
 
@@ -51,7 +55,7 @@ const About = () => {
                         </Col>
 
                         <Col xs={12} lg={4} className='p-0 text-center mt-3'>
-                            <ReactSVG src={mainimg} className='img-fluid mx-auto' beforeInjection={(svg) => {svg.setAttribute('style', 'width: 400px')}}  />
+                            <ReactSVG src={mainimg} className='img-fluid mx-auto' beforeInjection={(svg) => { svg.setAttribute('style', 'width: 400px') }} />
                             <h1 className='about-text BwGradualBold'>Do you</h1>
                             <h1 className='about-text BwGradualBold'>Love the LOL app?</h1>
                         </Col>

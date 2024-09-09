@@ -57,7 +57,7 @@ const Blog6 = () => {
                         <p className='BwGradualBold fs-2'>Reach Out for Support</p>
                         <div className='d-flex gap-3 ps-4 pt-3'>
                             <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "8px" }} className='pb-1' /></p>
-                            <p className='m-0'>The LOL Community Team is here to help you, whatever you need; contact us at safety@LOLapp.com for any support.</p>
+                            <p className='m-0'>The LOL Community Team is here to help you, whatever you need; contact us at help@LOLapp.com for any support.</p>
                         </div>
                     </div>
 

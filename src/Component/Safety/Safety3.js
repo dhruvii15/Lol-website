@@ -223,7 +223,7 @@ const Safety3 = () => {
 
             <div className='pt-5'>
                 <p className='BwGradualBold fs-2'>Report it:</p>
-                <p>You can always hit the Report button in our app in order to report a message for Bullying or Harassment, Spam, or because you don’t like it. If you believe that a message needs immediate attention from our Support team, email us at safety@LOLapp.com.</p>
+                <p>You can always hit the Report button in our app in order to report a message for Bullying or Harassment, Spam, or because you don’t like it. If you believe that a message needs immediate attention from our Support team, email us at help@lolcards.link.</p>
             </div>
 
             <div className='pt-5'>

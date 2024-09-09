@@ -9,32 +9,29 @@ import Loading from '../Component/Loading';
 
 const PrivacyPolicy = () => {
 
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
 
     const title = "Privacy Policy";
-    const description = "Lorem ipsum dolor sit amet, ";
-    const description2 = "adipiscing elit ";
 
     useEffect(() => {
         setTimeout(() => {
-            setLoading(false); 
-        }, 1500); 
+            setLoading(false);
+        }, 1500);
     }, []);
 
     if (loading) {
-        return <Loading />; 
+        return <Loading />;
     }
 
     return (
         <div>
             <Header />
-            <div className='rounded-5' style={{backgroundColor:"#F6F6F6"}}>
-                <Title title={title} description={description} description2={description2} />
+            <div className='rounded-5' style={{ backgroundColor: "#F6F6F6" }}>
+                <Title title={title} />
                 <div>
                     <Container className='py-5 px-4 fs-5 BwGradual'>
                         <p className='BwGradual'>
-                        This Privacy Policy (the "Policy") explains the way of treatment of the information which is provided or collected in the websites on which this Policy is posted. In addition the Policy also explains the information which is provided or collected in the course of using the applications of the Company which exist in the websites or platforms of other company. Through this Policy, the Company regards personal information of the users as important and inform them of the purpose and method of Company's using the personal information provided by the users and the measures taken by the Company for protection of those personal information. This Policy will be effective on the 20th September, 2020 and, in case of modification thereof, the Company will make public notice of it through posting it on the bulletin board of Company's website or individual notice through sending mails or e-mails.
-                        </p>
+                            This Privacy Policy (the "Policy") explains the way of treatment of the information which is provided or collected in the websites on which this Policy is posted. In addition the Policy also explains the information which is provided or collected in the course of using the applications of the Company which exist in the websites or platforms of other company. Through this Policy, the Company regards personal information of the users as important and inform them of the purpose and method of Company's using the personal information provided by the users and the measures taken by the Company for protection of those personal information. This Policy will be effective on the 20th September, 2020 and, in case of modification thereof, the Company will make public notice of it through posting it on the bulletin board of Company's website or individual notice through sending mails or e-mails.                        </p>
                         <p className='BwGradualBold pt-3 m-0 fs-4'>1.Information to be collected and method of collection</p>
                         <p>-We do not take any information from user</p>
                         {/* == */}
@@ -64,15 +61,15 @@ const PrivacyPolicy = () => {
                         <p className='BwGradualBold pt-3 m-0 fs-4'>8. Responsible department of company</p>
                         <p>-The Company designates the following department and person in charge of personal information in order to protect personal information of customers and deal with complaints from customers:</p>
                         <p>-Department responsible for privacy protection and customer service :</p>
-                        <p className='m-0'>Contact No.: +91 99099 71516</p>
-                        <p className='m-0'>E-mail: info@plexus-technology.in</p>
-                        <p className='pb-5'>The latest update date: 31 July,2024</p>
+                        <p className='m-0'>Contact No.: +91 90238-38674</p>
+                        <p className='m-0'>E-mail: help@lolcards.link</p>
+                        <p className='pb-5'>The latest update date: 15 September,2024</p>
                         <hr />
                     </Container>
-                    
+
                 </div>
 
-                    <Footer2 />
+                <Footer2 />
             </div>
         </div>
     );

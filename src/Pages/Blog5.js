@@ -30,11 +30,11 @@ const Blog5 = () => {
                     </div>
                     <div className='pt-5'>
                         <p className='BwGradualBold fs-2'>Keeping users safe</p>
-                        <p>Our number one priority is keeping our users safe. That’s why we offer various ways to keep negative content at bay to make sure you have a great LOL experience. For starters, we use Hive's AI-enabled content moderation to keep our safety techniques up-to-date while helping keep our users’ inboxes free of negativity. We also have a dedicated, 24/7 safety team constantly working to combat abuse, bullying, and harassment on LOL. Email safety@LOLapp.com to get in touch with us; we’re here to help you!</p>
+                        <p>Our number one priority is keeping our users safe. That’s why we offer various ways to keep negative content at bay to make sure you have a great LOL experience. For starters, we use Hive's AI-enabled content moderation to keep our safety techniques up-to-date while helping keep our users’ inboxes free of negativity. We also have a dedicated, 24/7 safety team constantly working to combat abuse, bullying, and harassment on LOL. Email help@lolcards.link to get in touch with us; we’re here to help you!</p>
                     </div>
                     <div className='pt-5'>
                         <p className='BwGradualBold fs-2'>See something, say something</p>
-                        <p>What should you do if you see a friend receiving abusive messages on LOL? This is where the power of community comes in. If you see something, say something! Report abuse by emailing our safety team right away; get in touch with us at safety@LOLapp.com and we can review the situation and take the necessary steps to ensure all users’ safety. </p>
+                        <p>What should you do if you see a friend receiving abusive messages on LOL? This is where the power of community comes in. If you see something, say something! Report abuse by emailing our safety team right away; get in touch with us at help@lolcards.link and we can review the situation and take the necessary steps to ensure all users’ safety. </p>
                     </div>
                     <div className='pt-5'>
                         <p className='BwGradualBold fs-2'>I feel uncomfortable as a result of an LOL message; what do I do?</p>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-scroll';
 import { Col, Container, Row } from 'reactstrap';
 
 
@@ -26,6 +25,19 @@ const Footer2 = () => {
     //     history.push('/privacy-policy');
     //   };
 
+    const handleAppstoreClick = () => {
+        const appstore = 'https://apps.apple.com/in/app/carrom-king/id1227693816';
+
+        window.open(appstore, '_blank');
+    };
+
+
+    const handlePlaystoreClick = () => {
+        const playstore = 'https://play.google.com/store/apps/details?id=com.pazugames.avatarworld';
+        
+        window.open(playstore, '_blank');
+    };
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -41,18 +53,6 @@ const Footer2 = () => {
                         <p className='BwGradual'>Stay in the know on the latest alpha, <br />news and product updates.</p>
                     </Col>
                     <Col xs={6} md={3} className='pt-3 mt-2'>
-                        <p><Link
-                            to="aboutUsSection"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={200}
-                            className="text-black BwGradual fs-5 text-decoration-none hovertext"
-                            style={{ cursor: "pointer" }}
-                            onClick={() => window.location.href = "/"}
-                        >
-                            About
-                        </Link></p>
                         <p className='BwGradual fs-5 cursor hovertext' onClick={() => window.location.href = "/safety"}>Safety</p>
                         <a href="mailto:support@example.com?subject=Support%20Request&body=Please%20describe%20your%20issue%20here." className="text-decoration-none">
                             <p className="text-black BwGradual fs-5 cursor hovertext">Contact us</p>
@@ -63,8 +63,8 @@ const Footer2 = () => {
                         <p className='BwGradual ps-2 cursor hovertext' style={{ fontSize: "15px" }} onClick={handleInstaClick}><img src={insta} alt="instagram" width={20} className='me-2' />Instagram</p>
                         <p className='BwGradual fs-5 m-1 cursor'>Download: </p>
                         <div className='d-flex gap-2'>
-                            <img src={playstore} alt='playstore' />
-                            <img src={appstore} alt='appstore' />
+                            <img src={playstore} alt='playstore' className='cursor' onClick={handlePlaystoreClick}/>
+                            <img src={appstore} alt='appstore' className='cursor'  onClick={handleAppstoreClick}/>
                         </div>
                     </Col>
                 </Row>
