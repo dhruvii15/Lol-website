@@ -8,7 +8,7 @@ import aboutleft from "../../img/aboutleft.svg"
 import aboutright from "../../img/aboutright.svg"
 import lol from "../../img/logo2.png"
 import about1 from "../../img/about.png"
-
+import about2 from "../../img/about1.svg"
 
 const About = () => {
     return (
@@ -34,13 +34,6 @@ const About = () => {
                 <div className='py-5'>
                     <Row className='d-flex justify-content-center align-items-center'>
                         <Col xs={12} lg={4} className='p-0 text-center px-5 mt-3'>
-                            {/* <div id='1' className='bg-white rounded-3 position-relative w-100 animation text-start p-4' style={{ height: "230px" }}>
-                                <svg width="46" height="62" viewBox="0 0 56 72" fill="none" xmlns="http://www.w3.org/2000/svg" className='position-absolute d-none d-lg-block bottom-0' style={{ right: "-45px" }}>
-                                    <path d="M55.5112 36.4104C4.25433 28.0959 0.895752 29.398 0.89576 71.8349L0.89576 0.986323L55.5112 36.4104Z" fill="white" />
-                                </svg>
-                                <p className='fs-5 BwGradual fw-bold'>Who We are?</p>
-                                <p className='BwGradual'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div> */}
                             <img id='2' alt="animation" src={about1} className='animation img-fluid'/>
 
                             <ReactSVG id='2' src={aboutleft} className='animation' />
@@ -61,13 +54,7 @@ const About = () => {
                         </Col>
 
                         <Col xs={12} lg={4} className='p-0 text-center px-5 mt-3'>
-                            <div id='4' className='bg-white rounded-3 position-relative w-100 animation text-start p-4' style={{ height: "230px" }}>
-                                <svg width="56" height="72" viewBox="0 0 56 72" fill="none" xmlns="http://www.w3.org/2000/svg" className='position-absolute d-none d-lg-block bottom-0' style={{ left: "-50px" }}>
-                                    <path d="M0.93457 36.4104C52.1915 28.0959 55.55 29.398 55.55 71.8349L55.55 0.986323L0.93457 36.4104Z" fill="white" />
-                                </svg>
-                                <p className='fs-5 BwGradual fw-bold'><img src={lol} alt='LOL' width={80} /></p>
-                                <p className='BwGradual'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
+                        <ReactSVG id='2' src={about2} className='animation' />
 
                             <ReactSVG id='5' src={aboutright} className='animation' />
 
