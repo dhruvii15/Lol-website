@@ -6,8 +6,10 @@ import { ReactSVG } from 'react-svg';
 import mainimg from "../../img/aboutmain.svg"
 import aboutleft from "../../img/aboutleft.svg"
 import aboutright from "../../img/aboutright.svg"
-import about1 from "../../img/about.png"
-import about2 from "../../img/about1.svg"
+// import about1 from "../../img/about1.svg"
+import about2 from "../../img/about2.png"
+import about3 from "../../img/about3.svg"
+// import about4 from "../../img/about4.svg"
 
 const About = () => {
     return (
@@ -33,7 +35,7 @@ const About = () => {
                 <div className='py-5'>
                     <Row className='d-flex justify-content-center align-items-center'>
                         <Col xs={12} lg={4} className='p-0 text-center px-5 mt-3'>
-                            <img id='2' alt="animation" src={about1} className='animation img-fluid'/>
+                        <ReactSVG id='2' src={about3} className='animation' />
 
                             <ReactSVG id='2' src={aboutleft} className='animation' />
 
@@ -53,7 +55,7 @@ const About = () => {
                         </Col>
 
                         <Col xs={12} lg={4} className='p-0 text-center px-5 mt-3'>
-                        <ReactSVG id='2' src={about2} className='animation' />
+                        <img alt='cvc' id='2' src={about2} className='animation' />
 
                             <ReactSVG id='5' src={aboutright} className='animation' />
 
