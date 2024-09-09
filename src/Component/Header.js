@@ -60,7 +60,7 @@ const Header = ({ activeLink }) => {
                             </NavItem>
                             <NavItem>
                                 <a
-                                    href="mailto:support@example.com?subject=Support%20Request&body=Please%20describe%20your%20issue%20here."
+                                    href="mailto:help@lolcards.link?subject=Support%20Request&body=Please%20describe%20your%20issue%20here."
                                     className={`nav-link px-4 fw-bold ${activeLink === 'contact' ? 'active' : ''}`}
                                     style={{ fontSize: "19px" }}
                                 >

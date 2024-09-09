@@ -430,10 +430,10 @@ input::placeholder {
     transform: translateY(0) translateX(0);
   }
   50% {
-    transform: translateY(36px) translateX(10px);
+    transform: translateY(30px) translateX(10px);
   }
   75% {
-    transform: translateY(20px) translateX(-10px);
+    transform: translateY(18px) translateX(-10px);
   }
   100% {
     transform: translateY(0px) translateX(0px);
@@ -441,8 +441,16 @@ input::placeholder {
 }
 /* Apply the same animation to elements with IDs 1 to 6 */
 .animation {
-  animation: scale-up-down 8s infinite ease-in-out !important;
+  animation: scale-up-down 10s infinite ease-in-out !important;
   /* Adjust the duration as needed */
+}
+
+.acard1 {
+  rotate: 6deg;
+}
+
+.acard2 {
+  rotate: -6deg;
 }
 
 .inbox-bg {
@@ -976,6 +984,12 @@ input::placeholder {
   .join-main {
     height: 650px;
     margin-top: 55px;
+  }
+  .acard1 {
+    rotate: 0deg !important;
+  }
+  .acard2 {
+    rotate: 0deg !important;
   }
 }
 @media (max-width: 1199px) {

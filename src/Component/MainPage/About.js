@@ -6,10 +6,10 @@ import { ReactSVG } from 'react-svg';
 import mainimg from "../../img/aboutmain.svg"
 import aboutleft from "../../img/aboutleft.svg"
 import aboutright from "../../img/aboutright.svg"
-// import about1 from "../../img/about1.svg"
+import about1 from "../../img/about1.svg"
 import about2 from "../../img/about2.png"
 import about3 from "../../img/about3.svg"
-// import about4 from "../../img/about4.svg"
+import about4 from "../../img/about4.svg"
 
 const About = () => {
     return (
@@ -35,17 +35,11 @@ const About = () => {
                 <div className='py-5'>
                     <Row className='d-flex justify-content-center align-items-center'>
                         <Col xs={12} lg={4} className='p-0 text-center px-5 mt-3'>
-                        <ReactSVG id='2' src={about3} className='animation' />
+                            <img id='2' alt='cards' src={about1} className='animation img-fluid acard1' />
 
                             <ReactSVG id='2' src={aboutleft} className='animation' />
 
-                            <div id='3' className='bg-white rounded-3 position-relative w-100 animation text-start p-4' style={{ height: "230px" }}>
-                                <svg width="56" height="72" viewBox="0 0 56 72" fill="none" xmlns="http://www.w3.org/2000/svg" className='position-absolute d-none d-lg-block top-0' style={{ right: "-50px" }}>
-                                    <path d="M55.5112 35.6814C4.25433 43.9959 0.895753 42.6938 0.895759 0.256862L0.895758 71.1055L55.5112 35.6814Z" fill="white" />
-                                </svg>
-                                <p className='fs-5 BwGradual fw-bold'>Our Goal</p>
-                                <p className='BwGradual'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
+                            <img id='2' alt='cards' src={about2} className='animation img-fluid acard2' />
                         </Col>
 
                         <Col xs={12} lg={4} className='p-0 text-center mt-3'>
@@ -55,17 +49,11 @@ const About = () => {
                         </Col>
 
                         <Col xs={12} lg={4} className='p-0 text-center px-5 mt-3'>
-                        <img alt='cvc' id='2' src={about2} className='animation' />
+                            <img id='2' alt='cards' src={about3} className='animation img-fluid acard2' />
 
                             <ReactSVG id='5' src={aboutright} className='animation' />
 
-                            <div id='6' className='bg-white rounded-3 position-relative w-100 animation text-start p-4' style={{ height: "230px" }}>
-                                <svg width="56" height="72" viewBox="0 0 56 72" fill="none" xmlns="http://www.w3.org/2000/svg" className='position-absolute d-none d-lg-block top-0' style={{ left: "-50px" }}>
-                                    <path d="M0.93457 35.6814C52.1915 43.9959 55.55 42.6938 55.55 0.256858L55.55 71.1055L0.93457 35.6814Z" fill="white" />
-                                </svg>
-                                <p className='fs-5 BwGradual fw-bold'>Our Community</p>
-                                <p className='BwGradual'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
+                            <img id='2' alt='cards' src={about4} className='animation img-fluid acard1' />
                         </Col>
                     </Row>
                 </div>

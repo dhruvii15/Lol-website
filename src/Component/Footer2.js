@@ -54,7 +54,7 @@ const Footer2 = () => {
                     </Col>
                     <Col xs={6} md={3} className='pt-3 mt-2'>
                         <p className='BwGradual fs-5 cursor hovertext' onClick={() => window.location.href = "/safety"}>Safety</p>
-                        <a href="mailto:support@example.com?subject=Support%20Request&body=Please%20describe%20your%20issue%20here." className="text-decoration-none">
+                        <a href="mailto:help@lolcards.link?subject=Support%20Request&body=Please%20describe%20your%20issue%20here." className="text-decoration-none">
                             <p className="text-black BwGradual fs-5 cursor hovertext">Contact us</p>
                         </a>
                     </Col>
