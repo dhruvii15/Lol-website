@@ -7,7 +7,7 @@ import mainimg from "../../img/aboutmain.svg"
 import aboutleft from "../../img/aboutleft.svg"
 import aboutright from "../../img/aboutright.svg"
 import about1 from "../../img/about1.png"
-import about2 from "../../img/about2.svg"
+import about2 from "../../img/about2.png"
 import about3 from "../../img/about3.svg"
 import about4 from "../../img/about4.svg"
 
