@@ -6,7 +6,6 @@ import { ReactSVG } from 'react-svg';
 import mainimg from "../../img/aboutmain.svg"
 import aboutleft from "../../img/aboutleft.svg"
 import aboutright from "../../img/aboutright.svg"
-import lol from "../../img/logo2.png"
 import about1 from "../../img/about.png"
 import about2 from "../../img/about1.svg"
 
