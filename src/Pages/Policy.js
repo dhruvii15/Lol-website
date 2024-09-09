@@ -64,7 +64,6 @@ const PrivacyPolicy = () => {
                         <p className='m-0'>Contact No.: +91 90238-38674</p>
                         <p className='m-0'>E-mail: help@lolcards.link</p>
                         <p className='pb-5'>The latest update date: 15 September,2024</p>
-                        <hr />
                     </Container>
 
                 </div>

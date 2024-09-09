@@ -8,8 +8,8 @@ import aboutleft from "../../img/aboutleft.svg"
 import aboutright from "../../img/aboutright.svg"
 import about1 from "../../img/about1.png"
 import about2 from "../../img/about2.png"
-import about3 from "../../img/about3.svg"
-import about4 from "../../img/about4.svg"
+import about3 from "../../img/about3.png"
+import about4 from "../../img/about4.png"
 
 const About = () => {
     return (
@@ -35,11 +35,11 @@ const About = () => {
                 <div className='py-5'>
                     <Row className='d-flex justify-content-center align-items-center'>
                         <Col xs={12} lg={4} className='p-0 text-center px-5 mt-3'>
-                            <img id='2' alt='cards' src={about1} className='animation img-fluid acard1' />
+                            <img id='2' alt='cards' src={about2} className='animation img-fluid acard1' />
 
                             <ReactSVG id='2' src={aboutleft} className='animation' />
 
-                            <img id='2' alt='cards' src={about2} className='animation img-fluid acard2' />
+                            <img id='2' alt='cards' src={about4} className='animation img-fluid acard2' />
                         </Col>
 
                         <Col xs={12} lg={4} className='p-0 text-center mt-3'>
@@ -49,11 +49,11 @@ const About = () => {
                         </Col>
 
                         <Col xs={12} lg={4} className='p-0 text-center px-5 mt-3'>
-                            <img id='2' alt='cards' src={about3} className='animation img-fluid acard2' />
+                            <img id='2' alt='cards' src={about1} className='animation img-fluid acard2' />
 
                             <ReactSVG id='5' src={aboutright} className='animation' />
 
-                            <img id='2' alt='cards' src={about4} className='animation img-fluid acard1' />
+                            <img id='2' alt='cards' src={about3} className='animation img-fluid acard1' />
                         </Col>
                     </Row>
                 </div>

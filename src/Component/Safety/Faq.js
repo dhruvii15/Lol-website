@@ -54,7 +54,13 @@ const FAQ = () => {
                 </div>
                 {open === '3' && (
                     <div className="faq-body" style={{ padding: '1rem' }}>
-                        A: If a message leads you to believe that you or anyone else may be in immediate danger, please reach out to law enforcement immediately. Once you have ensured that any urgent concerns have been dealt with appropriately, please report the message to help@LOLapp.com so that we can take appropriate action to ensure your safety.
+                    A :
+                    <a
+                        href="mailto:help@lolcards.link?subject=Support%20Request&body=Please%20describe%20your%20issue%20here."
+                        className='text-black'
+                    >
+                         help@lolcards.link
+                    </a>
                     </div>
                 )}
             </div>
@@ -70,7 +76,13 @@ const FAQ = () => {
                 </div>
                 {open === '4' && (
                     <div className="faq-body" style={{ padding: '1rem' }}>
-                        A: If the concern is not an emergency, please send us an email at help@LOLapp.com so that we can look into this message and determine further actions to take. One of our Community Team members will read your report and assess your situation to figure out what next steps we can take together.
+                        A :
+                        <a
+                            href="mailto:help@lolcards.link?subject=Support%20Request&body=Please%20describe%20your%20issue%20here."
+                            className='text-black'
+                        >
+                             help@lolcards.link
+                        </a>
                     </div>
                 )}
             </div>
