@@ -28,7 +28,7 @@ const Blog = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 1000);
+        }, 10);
     }, []);
 
     if (loading) {

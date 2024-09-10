@@ -1,8 +1,6 @@
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link } from 'react-router-dom';
-
 
 const Safety5 = () => {
     return (
@@ -12,11 +10,16 @@ const Safety5 = () => {
                 <p className='fw-bold'>Argentina</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.asistenciaalsuicida.org.ar/"} className='active'>Centro de Asistencia al Suicida</Link> (suicide prevention)</p>
+                    <p className='m-0'>
+                        <a href="https://www.asistenciaalsuicida.org.ar/" target="_blank" rel="noopener noreferrer" className='active'>
+                            Centro de Asistencia al Suicida
+                        </a> (suicide prevention)
+                    </p>
+
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.chicos.net/"} className='active'>Chicos.net</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.chicos.net/"} target="_blank" rel="noopener noreferrer" className='active'>Chicos.net</a> (online safety)</p>
                 </div>
 
                 {/* ============== */}
@@ -24,31 +27,31 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Australia</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.beyondblue.org.au/"} className='active'>Beyond Blue</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://www.beyondblue.org.au/"} target="_blank" rel="noopener noreferrer" className='active'>Beyond Blue</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://bullyingnoway.gov.au/"} className='active'>Bullying No Way</Link> (bullying)</p>
+                    <p className='m-0'><a href={"https://bullyingnoway.gov.au/"} target="_blank" rel="noopener noreferrer" className='active'>Bullying No Way</a> (bullying)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.esafety.gov.au/"} className='active'>eSafety Commissioner</Link> (bullying, mental health, privacy and other topics)</p>
+                    <p className='m-0'><a href={"https://www.esafety.gov.au/"} target="_blank" rel="noopener noreferrer" className='active'>eSafety Commissioner</a> (bullying, mental health, privacy and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://headspace.org.au/"} className='active'>Headspace</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://headspace.org.au/"} target="_blank" rel="noopener noreferrer" className='active'>Headspace</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.lifeline.org.au/"} className='active'>Lifeline</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://www.lifeline.org.au/"} target="_blank" rel="noopener noreferrer" className='active'>Lifeline</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://qlife.org.au/"} className='active'>QLife</Link> (LGBTIQ+ support)</p>
+                    <p className='m-0'><a href={"https://qlife.org.au/"} target="_blank" rel="noopener noreferrer" className='active'>QLife</a> (LGBTIQ+ support)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://au.reachout.com/"} className='active'>Reach Out</Link> (bullying, identity, mental health and other topics)</p>
+                    <p className='m-0'><a href={"https://au.reachout.com/"} target="_blank" rel="noopener noreferrer" className='active'>Reach Out</a> (bullying, identity, mental health and other hrefpics)</p>
                 </div>
 
                 {/*  =============== */}
@@ -56,7 +59,7 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Belgium</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.zelfmoord1813.be/"} className='active'>Zelfmoord 1813</Link> (suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.zelfmoord1813.be/"} target="_blank" rel="noopener noreferrer" className='active'>Zelfmoord 1813</a> (suicide prevention)</p>
                 </div>
 
                 {/*  =============== */}
@@ -64,11 +67,11 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Brazil</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://cvv.org.br/"} className='active'>Comovaivocê</Link> (suicide prevention)</p>
+                    <p className='m-0'><a href={"https://cvv.org.br/"} target="_blank" rel="noopener noreferrer" className='active'>Comovaivocê</a> (suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://new.safernet.org.br/"} className='active'>SaferNet</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://new.safernet.org.br/"} target="_blank" rel="noopener noreferrer" className='active'>SaferNet</a> (online safety)</p>
                 </div>
 
                 {/*  =============== */}
@@ -76,31 +79,31 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Canada</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.ameliarising.ca/"} className='active'>Amelia Rising</Link> (sexual violence)</p>
+                    <p className='m-0'><a href={"https://www.ameliarising.ca/"} target="_blank" rel="noopener noreferrer" className='active'>Amelia Rising</a> (sexual violence)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://988.ca/"} className='active'>Canada Suicide Prevention Services</Link> (suicide prevention)</p>
+                    <p className='m-0'><a href={"https://988.ca/"} target="_blank" rel="noopener noreferrer" className='active'>Canada Suicide Prevention Services</a> (suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.crisistextline.org/"} className='active'>Crisis Text Line</Link> (mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.crisistextline.org/"} target="_blank" rel="noopener noreferrer" className='active'>Crisis Text Line</a> (mental health and suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.cybertip.ca/en/"} className='active'>Cybertip</Link> (sexual exploitation)</p>
+                    <p className='m-0'><a href={"https://www.cybertip.ca/en/"} target="_blank" rel="noopener noreferrer" className='active'>Cybertip</a> (sexual exploitation)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.getcybersafe.gc.ca/"} className='active'>Get Cyber Safe</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.getcybersafe.gc.ca/"} target="_blank" rel="noopener noreferrer" className='active'>Get Cyber Safe</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://mindyourmind.ca/"} className='active'>mindyourmind</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://mindyourmind.ca/"} target="_blank" rel="noopener noreferrer" className='active'>mindyourmind</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://988.ca/"} className='active'>The Canada Suicide Prevention Service</Link> (suicide prevention)</p>
+                    <p className='m-0'><a href={"https://988.ca/"} target="_blank" rel="noopener noreferrer" className='active'>The Canada Suicide Prevention Service</a> (suicide prevention)</p>
                 </div>
 
                 {/*  =============== */}
@@ -108,11 +111,11 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Chile</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.linealibre.cl/"} className='active'>Línea Libre</Link> (mental health, suicide prevention and other topics)</p>
+                    <p className='m-0'><a href={"https://www.linealibre.cl/"} target="_blank" rel="noopener noreferrer" className='active'>Línea Libre</a> (mental health, suicide prevention and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://todomejora.org/"} className='active'>Todo Mejora</Link> (bullying, identity and other topics)</p>
+                    <p className='m-0'><a href={"https://hrefdomejora.org/"} target="_blank" rel="noopener noreferrer" className='active'>hrefdo Mejora</a> (bullying, identity and other hrefpics)</p>
                 </div>
 
                 {/*  =============== */}
@@ -120,15 +123,15 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Colombia</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.sergiourrego.org/"} className='active'>Fundación Sergio Urrego</Link> (discrimination and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.sergiourrego.org/"} target="_blank" rel="noopener noreferrer" className='active'>Fundación Sergio Urrego</a> (discrimination and suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.teescuchamos.org/"} className='active'>Línea 106</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://www.teescuchamos.org/"} target="_blank" rel="noopener noreferrer" className='active'>Línea 106</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://teprotejo.org/"} className='active'>Te Protejo</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://teprotejo.org/"} target="_blank" rel="noopener noreferrer" className='active'>Te Protejo</a> (online safety)</p>
                 </div>
 
                 {/*  =============== */}
@@ -136,19 +139,19 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Denmark</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://bornetelefonen.dk/"} className='active'>BørneTelefonen</Link> (bullying, mental health, sexuality and other topics)</p>
+                    <p className='m-0'><a href={"https://bornetelefonen.dk/"} target="_blank" rel="noopener noreferrer" className='active'>BørneTelefonen</a> (bullying, mental health, sexuality and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.livslinien.dk/"} className='active'>Livslinien</Link> (suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.livslinien.dk/"} target="_blank" rel="noopener noreferrer" className='active'>Livslinien</a> (suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://medieraadet.dk/node/43196"} className='active'>Medierådet for Børn og Unge</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://medieraadet.dk/node/43196"} target="_blank" rel="noopener noreferrer" className='active'>Medierådet for Børn og Unge</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://redbarnet.dk/"} className='active'>Red Barnet</Link> (bullying, sexual abuse and other topics)</p>
+                    <p className='m-0'><a href={"https://redbarnet.dk/"} target="_blank" rel="noopener noreferrer" className='active'>Red Barnet</a> (bullying, sexual abuse and other hrefpics)</p>
                 </div>
 
                 {/*  =============== */}
@@ -156,11 +159,11 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Finland</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.nuortennetti.fi/"} className='active'>Nuorten-netti</Link> (mental health, online safety and other topics)</p>
+                    <p className='m-0'><a href={"https://www.nuortennetti.fi/"} target="_blank" rel="noopener noreferrer" className='active'>Nuorten-netti</a> (mental health, online safety and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://mieli.fi/"} className='active'>Suomen Mielenterveys ry</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://mieli.fi/"} target="_blank" rel="noopener noreferrer" className='active'>Suomen Mielenterveys ry</a> (mental health)</p>
                 </div>
 
                 {/*  =============== */}
@@ -168,23 +171,23 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>France</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.internetsanscrainte.fr/"} className='active'>Internet Sans Crainte</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.internetsanscrainte.fr/"} target="_blank" rel="noopener noreferrer" className='active'>Internet Sans Crainte</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://le-refuge.org/"} className='active'>Le Refuge</Link> (LGBT+ support)</p>
+                    <p className='m-0'><a href={"https://le-refuge.org/"} target="_blank" rel="noopener noreferrer" className='active'>Le Refuge</a> (LGBT+ support)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://e-enfance.org/"} className='active'>Net Ecoute</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://e-enfance.org/"} target="_blank" rel="noopener noreferrer" className='active'>Net Ecoute</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.pointdecontact.net/"} className='active'>Point de Contact</Link> (illegal content and online safety)</p>
+                    <p className='m-0'><a href={"https://www.pointdecontact.net/"} target="_blank" rel="noopener noreferrer" className='active'>Point de Contact</a> (illegal content and online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://suicideecoute.pads.fr/"} className='active'>Suicide Ecoute</Link> (suicide prevention)</p>
+                    <p className='m-0'><a href={"https://suicideecoute.pads.fr/"} target="_blank" rel="noopener noreferrer" className='active'>Suicide Ecoute</a> (suicide prevention)</p>
                 </div>
 
                 {/*  =============== */}
@@ -192,15 +195,15 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Germany</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.klicksafe.de/"} className='active'>Klicksafe</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.klicksafe.de/"} target="_blank" rel="noopener noreferrer" className='active'>Klicksafe</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.nummergegenkummer.de/"} className='active'>Nummer gegen Kummer</Link> (grief)</p>
+                    <p className='m-0'><a href={"https://www.nummergegenkummer.de/"} target="_blank" rel="noopener noreferrer" className='active'>Nummer gegen Kummer</a> (grief)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.telefonseelsorge.de/"} className='active'>TelefonSeelsorge</Link> (mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.telefonseelsorge.de/"} target="_blank" rel="noopener noreferrer" className='active'>TelefonSeelsorge</a> (mental health and suicide prevention)</p>
                 </div>
 
                 {/*  =============== */}
@@ -208,11 +211,11 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Hungary</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://kek-vonal.hu/hu/"} className='active'>Kek Vonal</Link> (mental health, online safety and other topics)</p>
+                    <p className='m-0'><a href={"https://kek-vonal.hu/hu/"} target="_blank" rel="noopener noreferrer" className='active'>Kek Vonal</a> (mental health, online safety and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.saferinternet.hu/"} className='active'>Saferinternet</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.saferinternet.hu/"} target="_blank" rel="noopener noreferrer" className='active'>Saferinternet</a> (online safety)</p>
                 </div>
 
                 {/*  =============== */}
@@ -220,15 +223,15 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>India</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"http://www.aasra.info/"} className='active'>AASRA</Link> (mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"http://www.aasra.info/"} target="_blank" rel="noopener noreferrer" className='active'>AASRA</a> (mental health and suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.discfoundation.com/lander"} className='active'>DISC Foundation</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.discfoundation.com/lander"} target="_blank" rel="noopener noreferrer" className='active'>DISC Foundation</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.snehamumbai.org/"} className='active'>SNEHA</Link> (health, sexuality, violence and other topics)</p>
+                    <p className='m-0'><a href={"https://www.snehamumbai.org/"} target="_blank" rel="noopener noreferrer" className='active'>SNEHA</a> (health, sexuality, violence and other hrefpics)</p>
                 </div>
 
                 {/*  =============== */}
@@ -236,35 +239,35 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Ireland</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.belongto.org/"} className='active'>Belong to</Link> (LGBT+ support)</p>
+                    <p className='m-0'><a href={"https://www.belonghref.org/"} target="_blank" rel="noopener noreferrer" className='active'>Belong href</a> (LGBT+ support)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.crisistextline.org/"} className='active'>Crisis Text Line</Link> (mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.crisistextline.org/"} target="_blank" rel="noopener noreferrer" className='active'>Crisis Text Line</a> (mental health and suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://jigsaw.ie/"} className='active'>Jigsaw</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://jigsaw.ie/"} target="_blank" rel="noopener noreferrer" className='active'>Jigsaw</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.pieta.ie/"} className='active'>Pieta</Link> (mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.pieta.ie/"} target="_blank" rel="noopener noreferrer" className='active'>Pieta</a> (mental health and suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.samaritans.org/samaritans-ireland/"} className='active'>Samaritans</Link> (mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.samaritans.org/samaritans-ireland/"} target="_blank" rel="noopener noreferrer" className='active'>Samaritans</a> (mental health and suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://spunout.ie/"} className='active'>SpunOut</Link> (education, mental health, relationships and other topics))</p>
+                    <p className='m-0'><a href={"https://spunout.ie/"} target="_blank" rel="noopener noreferrer" className='active'>SpunOut</a> (education, mental health, relationships and other hrefpics))</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://turn2me.ie/"} className='active'>Turn2Me</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://turn2me.ie/"} target="_blank" rel="noopener noreferrer" className='active'>Turn2Me</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.webwise.ie/"} className='active'>Webwise</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.webwise.ie/"} target="_blank" rel="noopener noreferrer" className='active'>Webwise</a> (online safety)</p>
                 </div>
 
                 {/*  =============== */}
@@ -272,15 +275,15 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Italy</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.generazioniconnesse.it/site/"} className='active'>Generazioni Connesse</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.generazioniconnesse.it/site/"} target="_blank" rel="noopener noreferrer" className='active'>Generazioni Connesse</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://azzurro.it/"} className='active'>Telefono Azzurro</Link> (bullying, mental health, online safety and other topics)</p>
+                    <p className='m-0'><a href={"https://azzurro.it/"} target="_blank" rel="noopener noreferrer" className='active'>Telefono Azzurro</a> (bullying, mental health, online safety and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.telefonoamico.it/"} className='active'>Telefono Amico</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://www.telefonoamico.it/"} target="_blank" rel="noopener noreferrer" className='active'>Telefono Amico</a> (mental health)</p>
                 </div>
 
                 {/*  =============== */}
@@ -288,11 +291,11 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Luxembourg</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.kjt.lu/de/"} className='active'>Kanner-Jugendtelefon</Link> (bullying, identity, mental health and other topics)</p>
+                    <p className='m-0'><a href={"https://www.kjt.lu/de/"} target="_blank" rel="noopener noreferrer" className='active'>Kanner-Jugendtelefon</a> (bullying, identity, mental health and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.bee-secure.lu/fr/"} className='active'>BEE SECURE</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.bee-secure.lu/fr/"} target="_blank" rel="noopener noreferrer" className='active'>BEE SECURE</a> (online safety)</p>
                 </div>
 
 
@@ -301,19 +304,19 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>The Netherlands</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.113.nl/"} className='active'>113 Zelfmoordpreventie</Link> (suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.113.nl/"} target="_blank" rel="noopener noreferrer" className='active'>113 Zelfmoordpreventie</a> (suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.kindertelefoon.nl/"} className='active'>De Kindertelefoon</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.kindertelefoon.nl/"} target="_blank" rel="noopener noreferrer" className='active'>De Kindertelefoon</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://meld.onlinediscriminatie.nl/"} className='active'>MIND</Link> (online discrimination)</p>
+                    <p className='m-0'><a href={"https://meld.onlinediscriminatie.nl/"} target="_blank" rel="noopener noreferrer" className='active'>MIND</a> (online discrimination)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.saferinternetcentre.nl/"} className='active'>Safer Internet Centre</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.saferinternetcentre.nl/"} target="_blank" rel="noopener noreferrer" className='active'>Safer Internet Centre</a> (online safety)</p>
                 </div>
 
                 {/*  =============== */}
@@ -321,15 +324,15 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Norway</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.kirkens-sos.no/"} className='active'>Kirkens SOS</Link> (suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.kirkens-sos.no/"} target="_blank" rel="noopener noreferrer" className='active'>Kirkens SOS</a> (suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.medietilsynet.no/"} className='active'>Medietilsynet</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.medietilsynet.no/"} target="_blank" rel="noopener noreferrer" className='active'>Medietilsynet</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://mentalhelse.no/"} className='active'>Mental Helse</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://mentalhelse.no/"} target="_blank" rel="noopener noreferrer" className='active'>Mental Helse</a> (mental health)</p>
                 </div>
 
                 {/*  =============== */}
@@ -337,11 +340,11 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Spain</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.incibe.es/menores/"} className='active'>Internet Segura for Kids</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.incibe.es/menores/"} target="_blank" rel="noopener noreferrer" className='active'>Internet Segura for Kids</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://telefonodelaesperanza.org/"} className='active'>Telefono de la Esperanza</Link> (mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://telefonodelaesperanza.org/"} target="_blank" rel="noopener noreferrer" className='active'>Telefono de la Esperanza</a> (mental health and suicide prevention)</p>
                 </div>
 
                 {/*  =============== */}
@@ -349,15 +352,15 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>Sweden</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://mind.se/"} className='active'>Mind</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://mind.se/"} target="_blank" rel="noopener noreferrer" className='active'>Mind</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.mediemyndigheten.se/"} className='active'>Safer Internet Centre</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.mediemyndigheten.se/"} target="_blank" rel="noopener noreferrer" className='active'>Safer Internet Centre</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.143.ch/en/"} className='active'>Tel 143 </Link>(lifeline)</p>
+                    <p className='m-0'><a href={"https://www.143.ch/en/"} target="_blank" rel="noopener noreferrer" className='active'>Tel 143 </a>(lifeline)</p>
                 </div>
 
                 {/*  =============== */}
@@ -365,83 +368,83 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>The United Kingdom</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.antibullyingpro.com/"} className='active'>Antibullyingpro from The Diana Award</Link> (bullying and online safety)</p>
+                    <p className='m-0'><a href={"https://www.antibullyingpro.com/"} target="_blank" rel="noopener noreferrer" className='active'>Antibullyingpro from The Diana Award</a> (bullying and online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://anti-bullyingalliance.org.uk/"} className='active'>Anti-Bullying Alliance</Link> (bullying)</p>
+                    <p className='m-0'><a href={"https://anti-bullyingalliance.org.uk/"} target="_blank" rel="noopener noreferrer" className='active'>Anti-Bullying Alliance</a> (bullying)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.ceop.police.uk/safety-centre/"} className='active'>CEOP</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.ceop.police.uk/safety-centre/"} target="_blank" rel="noopener noreferrer" className='active'>CEOP</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.crisistextline.org/"} className='active'>Crisis Text Line </Link>(mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.crisistextline.org/"} target="_blank" rel="noopener noreferrer" className='active'>Crisis Text Line </a>(mental health and suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.ditchthelabel.org/"} className='active'>Ditch the Label </Link>(bullying, mental health and other topics)</p>
+                    <p className='m-0'><a href={"https://www.ditchthelabel.org/"} target="_blank" rel="noopener noreferrer" className='active'>Ditch the Label </a>(bullying, mental health and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.getsafeonline.org/"} className='active'>Get Safe Online</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.getsafeonline.org/"} target="_blank" rel="noopener noreferrer" className='active'>Get Safe Online</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.good-thinking.uk/"} className='active'>Good Thinking </Link>(mental health)</p>
+                    <p className='m-0'><a href={"https://www.good-thinking.uk/"} target="_blank" rel="noopener noreferrer" className='active'>Good Thinking </a>(mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.internetmatters.org/"} className='active'>Internet Matters </Link>(online safety)</p>
+                    <p className='m-0'><a href={"https://www.internetmatters.org/"} target="_blank" rel="noopener noreferrer" className='active'>Internet Matters </a>(online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.iwf.org.uk/"} className='active'>Internet Watch Foundation </Link>(online safety and sexual exploitation)</p>
+                    <p className='m-0'><a href={"https://www.iwf.org.uk/"} target="_blank" rel="noopener noreferrer" className='active'>Internet Watch Foundation </a>(online safety and sexual exploitation)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.papyrus-uk.org/"} className='active'>Papyrus </Link>(suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.papyrus-uk.org/"} target="_blank" rel="noopener noreferrer" className='active'>Papyrus </a>(suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://parentzone.org.uk/"} className='active'>Parent Zone </Link>(online safety)</p>
+                    <p className='m-0'><a href={"https://parentzone.org.uk/"} target="_blank" rel="noopener noreferrer" className='active'>Parent Zone </a>(online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://revengepornhelpline.org.uk/"} className='active'>Revenge Porn Helpline</Link> (online safety and revenge porn)</p>
+                    <p className='m-0'><a href={"https://revengepornhelpline.org.uk/"} target="_blank" rel="noopener noreferrer" className='active'>Revenge Porn Helpline</a> (online safety and revenge porn)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://saferinternet.org.uk/"} className='active'>Safer Internet Centre</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://saferinternet.org.uk/"} target="_blank" rel="noopener noreferrer" className='active'>Safer Internet Centre</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.samaritans.org/"} className='active'>Samaritans</Link> (mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.samaritans.org/"} target="_blank" rel="noopener noreferrer" className='active'>Samaritans</a> (mental health and suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://giveusashout.org/"} className='active'>Shout </Link>(mental health)</p>
+                    <p className='m-0'><a href={"https://giveusashout.org/"} target="_blank" rel="noopener noreferrer" className='active'>Shout </a>(mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.stophateuk.org/"} className='active'>Stop Hate</Link> (discrimination and hate crime)</p>
+                    <p className='m-0'><a href={"https://www.shrefphateuk.org/"} target="_blank" rel="noopener noreferrer" className='active'>Shrefp Hate</a> (discrimination and hate crime)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://international.switchboard.lgbt/"} className='active'>Switchboard </Link>(LGBT+ support)</p>
+                    <p className='m-0'><a href={"https://international.switchboard.lgbt/"} target="_blank" rel="noopener noreferrer" className='active'>Switchboard </a>(LGBT+ support)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.themix.org.uk/"} className='active'>The Mix </Link>(finances, mental health, relationships and other topics)</p>
+                    <p className='m-0'><a href={"https://www.themix.org.uk/"} target="_blank" rel="noopener noreferrer" className='active'>The Mix </a>(finances, mental health, relationships and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://thepconversation.org/"} className='active'>The Porn Conversation</Link> (pornography)</p>
+                    <p className='m-0'><a href={"https://thepconversation.org/"} target="_blank" rel="noopener noreferrer" className='active'>The Porn Conversation</a> (pornography)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.ceopeducation.co.uk/"} className='active'>Thinkuknow</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.ceopeducation.co.uk/"} target="_blank" rel="noopener noreferrer" className='active'>Thinkuknow</a> (online safety)</p>
                 </div>
 
                 {/*  =============== */}
@@ -449,63 +452,63 @@ const Safety5 = () => {
                 <p className='fw-bold pt-5'>United States of America</p>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://amaze.org/"} className='active'>Amaze</Link> (sex education)</p>
+                    <p className='m-0'><a href={"https://amaze.org/"} target="_blank" rel="noopener noreferrer" className='active'>Amaze</a> (sex education)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.activeminds.org/"} className='active'>Active Minds</Link> (mental health awareness)</p>
+                    <p className='m-0'><a href={"https://www.activeminds.org/"} target="_blank" rel="noopener noreferrer" className='active'>Active Minds</a> (mental health awareness)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://adaa.org/"} className='active'>Anxiety and Depression Association America</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://adaa.org/"} target="_blank" rel="noopener noreferrer" className='active'>Anxiety and Depression Association America</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://cyberbullying.org/"} className='active'>Cyberbullying Research Center </Link>(bullying and online safety)</p>
+                    <p className='m-0'><a href={"https://cyberbullying.org/"} target="_blank" rel="noopener noreferrer" className='active'>Cyberbullying Research Center </a>(bullying and online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.commonsensemedia.org/"} className='active'>Common Sense Media</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.commonsensemedia.org/"} target="_blank" rel="noopener noreferrer" className='active'>Common Sense Media</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://connectsafely.org/"} className='active'>ConnectSafely </Link>(online safety)</p>
+                    <p className='m-0'><a href={"https://connectsafely.org/"} target="_blank" rel="noopener noreferrer" className='active'>ConnectSafely </a>(online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.crisistextline.org/"} className='active'>Crisis Text Line</Link> (mental health and suicide prevention)</p>
+                    <p className='m-0'><a href={"https://www.crisistextline.org/"} target="_blank" rel="noopener noreferrer" className='active'>Crisis Text Line</a> (mental health and suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://cyberbullying.org/"} className='active'>Cyberbullying Research Center</Link> (bullying and online safety)</p>
+                    <p className='m-0'><a href={"https://cyberbullying.org/"} target="_blank" rel="noopener noreferrer" className='active'>Cyberbullying Research Center</a> (bullying and online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.fosi.org/"} className='active'>Family Online Safety Institute</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.fosi.org/"} target="_blank" rel="noopener noreferrer" className='active'>Family Online Safety Institute</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.nami.org/"} className='active'>National Alliance on Mental Illness</Link> (mental health)</p>
+                    <p className='m-0'><a href={"https://www.nami.org/"} target="_blank" rel="noopener noreferrer" className='active'>National Alliance on Mental Illness</a> (mental health)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://988lifeline.org/"} className='active'>National Suicide Prevention Lifeline</Link> (suicide prevention)</p>
+                    <p className='m-0'><a href={"https://988lifeline.org/"} target="_blank" rel="noopener noreferrer" className='active'>National Suicide Prevention Lifeline</a> (suicide prevention)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.netfamilynews.org/"} className='active'>NetFamilyNews</Link> (online safety)</p>
+                    <p className='m-0'><a href={"https://www.netfamilynews.org/"} target="_blank" rel="noopener noreferrer" className='active'>NetFamilyNews</a> (online safety)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://thatsnotcool.com/"} className='active'>Thatsnotcool</Link> (relationships, online safety and other topics)</p>
+                    <p className='m-0'><a href={"https://thatsnotcool.com/"} target="_blank" rel="noopener noreferrer" className='active'>Thatsnotcool</a> (relationships, online safety and other hrefpics)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://www.thetrevorproject.org/"} className='active'>The Trevor Project</Link> (LGBTQ+ support)</p>
+                    <p className='m-0'><a href={"https://www.thetrevorproject.org/"} target="_blank" rel="noopener noreferrer" className='active'>The Trevor Project</a> (LGBTQ+ support)</p>
                 </div>
                 <div className='d-flex gap-3 ps-4'>
                     <p className='m-0'><FontAwesomeIcon icon={faCircle} style={{ fontSize: "5px" }} className='pb-1' /></p>
-                    <p className='m-0'><Link to={"https://translifeline.org/"} className='active'>Trans Lifeline</Link> (trans people lifeline)</p>
+                    <p className='m-0'><a href={"https://translifeline.org/"} target="_blank" rel="noopener noreferrer" className='active'>Trans Lifeline</a> (trans people lifeline)</p>
                 </div>
             </div>
         </div>

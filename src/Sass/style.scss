@@ -277,9 +277,10 @@ input::placeholder {
     background-image: linear-gradient(to bottom, #FB614C, #FA5153);
     font-size: 30px;
 }
+
 // ============= Page 2 =====================
 
-.defult-box{
+.defult-box {
     height: 320px;
 }
 
@@ -338,14 +339,6 @@ input::placeholder {
 
 
 // ================== Main ======================
-
-// #Multi-bg {
-//     background-image: url("../img/main-bg.svg"), url('../img/black-bg.svg');
-//     background-position: center top, center 340px;
-//     background-repeat: no-repeat, no-repeat;
-//     background-size: auto;
-// }
-
 .Main-bg {
     background-image: url("../img/main-bg.svg");
     background-repeat: no-repeat;
@@ -359,8 +352,8 @@ input::placeholder {
     height: 630px;
     overflow: hidden;
     background-repeat: no-repeat;
-    background: url("../img/main-bg2.svg") no-repeat center center;
-
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: contain;
     transition: transform 0.4s ease-out;
     /* Smooth transition for transformation */
@@ -497,7 +490,7 @@ input::placeholder {
 }
 
 .about-bg2 {
-    background-image: url("../img/black-bg.svg");
+    background-image: url("../img/black-bg.png");
     background-repeat: repeat-y;
     background-size: 2500px auto;
     background-position: center;
@@ -534,11 +527,11 @@ input::placeholder {
     /* Adjust the duration as needed */
 }
 
-.acard1{
+.acard1 {
     rotate: 6deg;
 }
 
-.acard2{
+.acard2 {
     rotate: -6deg;
 }
 
@@ -556,7 +549,7 @@ input::placeholder {
     font-size: 55px;
 }
 
-.person-img img{
+.person-img img {
     width: 370px !important;
 }
 
@@ -781,6 +774,12 @@ input::placeholder {
     width: 1300px;
 }
 
+
+.scanner-width {
+    width: 100px;
+}
+
+
 // ================== Title Component ===================
 .title-bg {
     background-image: url("../img/title-bg.svg");
@@ -908,10 +907,10 @@ input::placeholder {
 }
 
 @media (max-width: 576px) {
-    .defult-box{
+    .defult-box {
         height: 180px !important;
     }
-    
+
     .new-app-btn {
         width: 90% !important;
     }
@@ -950,11 +949,11 @@ input::placeholder {
         width: 290px;
     }
 
-    .person-img img{
+    .person-img img {
         width: 200px !important;
     }
 
-    .inbox-cards{
+    .inbox-cards {
         width: 270px;
     }
 
@@ -1129,6 +1128,11 @@ input::placeholder {
         top: 0;
         height: 100vh;
     }
+
+    .scanner-width {
+        width: 200px !important;
+        height: 200px !important;
+    }
 }
 
 @media (max-width: 992px) {
@@ -1175,13 +1179,23 @@ input::placeholder {
         margin-top: 55px;
     }
 
-    
-    .acard1{
+
+    .acard1 {
         rotate: 0deg !important;
     }
-    
-    .acard2{
+
+    .acard2 {
         rotate: 0deg !important;
+    }
+
+    .about-card1 {
+        left: 180px !important;
+        width: 170px !important;
+    }
+
+    .about-card2 {
+        right: 180px !important;
+        width: 170px !important;
     }
 
 }
@@ -1233,11 +1247,11 @@ input::placeholder {
 
 
 @media (max-width:991px) and (min-width:575px) {
-    .defult-box{
+    .defult-box {
         height: 250px !important;
     }
 
-    .person-img img{
+    .person-img img {
         width: 400px !important;
     }
 
@@ -1403,7 +1417,7 @@ input::placeholder {
         margin-top: 100px;
     }
 
-    .person-img img{
+    .person-img img {
         width: 450px !important;
     }
 
@@ -1451,12 +1465,83 @@ input::placeholder {
         background-position: center top;
         height: 650px;
     }
-    
+
 }
 
 @media (min-width: 2000px) {
-    .defult-box{
+    .defult-box {
         height: 500px !important;
     }
 }
 
+
+@media (max-width:1400px) and (min-width:991px) {
+    .about-card1 {
+        left: 40px;
+        width: 120px !important;
+    }
+
+    .about-card2 {
+        right: 40px !important;
+        width: 120px !important;
+    }
+}
+
+@media (max-width: 992px) and (min-width:768px) {
+    .about-card1 {
+        left: 180px !important;
+        width: 170px !important;
+    }
+
+    .about-card2 {
+        right: 180px !important;
+        width: 170px !important;
+    }
+
+}
+
+
+@media (max-width: 767px) and (min-width:466px) {
+    .about-card1 {
+        left: 120px !important;
+        width: 150px !important;
+    }
+
+    .about-card2 {
+        right: 120px !important;
+        width: 150px !important;
+    }
+}
+
+@media (max-width: 467px) and (min-width:360px) {
+    .about-card1 {
+        left: 80px !important;
+        width: 120px !important;
+    }
+
+    .about-card2 {
+        right: 80px !important;
+        width: 120px !important;
+    }
+}
+
+
+@media (max-width: 359px) and (min-width:0px) {
+    .about-card1 {
+        left: 40px !important;
+        width: 120px !important;
+    }
+
+    .about-card2 {
+        right: 40px !important;
+        width: 120px !important;
+    }
+}
+
+.about-card1 {
+    left: 40px;
+}
+
+.about-card2 {
+    right: 80px;
+}
