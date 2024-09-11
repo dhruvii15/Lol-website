@@ -4,8 +4,6 @@
     font-style: normal;
 }
 
-// =========================================
-
 @font-face {
     font-family: 'BwGradual';
     src: url('../Font/BwGradualDEMO-Regular.otf') format('opentype');
@@ -29,8 +27,6 @@
     font-family: 'BwGradualBold', sans-serif;
 }
 
-// =========================================
-
 @font-face {
     font-family: 'BunnyFunny';
     src: url('../Font/BunnyFunny.ttf') format('truetype');
@@ -43,8 +39,6 @@
     padding-top: 20px !important;
     font-size: 22px !important;
 }
-
-// ========================================
 
 @font-face {
     font-family: 'CCKillJoy';
@@ -59,8 +53,6 @@
     font-size: 16px !important;
 }
 
-// ========================================
-
 @font-face {
     font-family: 'Pure';
     src: url('../Font/Pure\ Joy.ttf') format('truetype');
@@ -73,9 +65,6 @@
     padding-top: 15px !important;
     font-size: 17px !important;
 }
-
-// ========================================
-
 
 @font-face {
     font-family: 'SHOWG';
@@ -90,8 +79,6 @@
     font-size: 15px !important;
 }
 
-// ========================================
-
 @font-face {
     font-family: 'Spider';
     src: url('../Font/Spider\ Monkey_PersonalUseOnly.ttf') format('truetype');
@@ -105,7 +92,6 @@
     font-size: 21px !important;
 }
 
-// ========================================
 .cursor {
     cursor: pointer;
 }
@@ -125,7 +111,6 @@
             25% 100%,
             0% 60%,
             10% 20%);
-    /* Optionally, add border radius for smoothing */
     border-radius: 4px;
 }
 
@@ -162,8 +147,6 @@ input::placeholder {
     font-size: 14px;
 }
 
-// =========== Scroll-Bar ==================
-
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -184,7 +167,6 @@ input::placeholder {
 }
 
 
-// ==================== Loading ===================
 @keyframes zoom-in-zoom-out2 {
 
     0%,
@@ -197,7 +179,6 @@ input::placeholder {
     }
 }
 
-// =========== UserLink Page1 =================
 .page1-bg {
     min-height: 100vh;
 }
@@ -248,7 +229,6 @@ input::placeholder {
     }
 }
 
-// ================== Avtar Check =======================
 .avatar-container {
     position: relative;
     display: inline-block;
@@ -278,14 +258,10 @@ input::placeholder {
     font-size: 30px;
 }
 
-// ============= Page 2 =====================
-
 .defult-box {
     height: 320px;
 }
 
-
-// ============= Page 3 =================
 .relation-box {
     background-color: white;
     text-align: center;
@@ -297,32 +273,22 @@ input::placeholder {
     height: 160px;
 }
 
-// ============= Success Page ================
 .new-app-btn {
     width: 75%;
 }
 
 
-
-// ========================================================================================
-// WEBSITE //
-// =========================================================================================
-
-// ================== Header ======================
 .nav-border {
     border: none !important;
 }
 
 .nav-link {
     color: black !important;
-    /* Default color */
     transition: color 0.3s ease;
-    /* Smooth transition */
 }
 
 .nav-link:hover {
     color: #FB644B !important;
-    /* Hover color */
 }
 
 .active {
@@ -338,7 +304,6 @@ input::placeholder {
 }
 
 
-// ================== Main ======================
 .Main-bg {
     background-image: url("../img/main-bg.svg");
     background-repeat: no-repeat;
@@ -356,7 +321,6 @@ input::placeholder {
     background-position: center center;
     background-size: contain;
     transition: transform 0.4s ease-out;
-    /* Smooth transition for transformation */
 }
 
 .Main-bg2 {
@@ -367,9 +331,7 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     transition: transform 0.4s ease-out;
-    /* Smooth transition for scaling and positioning */
 }
-
 
 .main-text {
     font-size: 100px !important;
@@ -401,8 +363,6 @@ input::placeholder {
     }
 }
 
-
-// ------------- Btn Animation ------------
 .common {
     width: 260px;
     height: 60px;
@@ -439,7 +399,6 @@ input::placeholder {
         0 4px 8px rgba(0, 0, 0, 0.2),
         0 6px 20px rgba(0, 0, 0, 0.19),
         0 0 15px 5px rgba(255, 255, 255, 0.7),
-        /* More pronounced white sprinkle shadow */
         0 0 30px 10px rgba(255, 255, 255, 0.5) !important;
 }
 
@@ -470,9 +429,6 @@ input::placeholder {
     top: 0;
 }
 
-// ------------------------------
-
-// ================== About US ===================
 .about-text {
     background: linear-gradient(to bottom, #FB614C, #FA5153);
     -webkit-background-clip: text;
@@ -489,8 +445,6 @@ input::placeholder {
     height: 150px;
 }
 
-
-/* Keyframes for scaling animation */
 @keyframes scale-up-down {
     0% {
 
@@ -514,10 +468,8 @@ input::placeholder {
 }
 
 
-/* Apply the same animation to elements with IDs 1 to 6 */
 .animation {
     animation: scale-up-down 10s infinite ease-in-out !important;
-    /* Adjust the duration as needed */
 }
 
 .acard1 {
@@ -528,7 +480,6 @@ input::placeholder {
     rotate: -6deg;
 }
 
-// ================== Inbox Page ===================
 .inbox-bg {
     background-image: url("../img/inbox-bg.svg");
     background-repeat: no-repeat;
@@ -560,9 +511,6 @@ input::placeholder {
     }
 }
 
-
-
-// ================== Cards Page ===================
 .cards-bg {
     background-image: url("../img/cards-bg.svg");
     background-repeat: no-repeat;
@@ -659,7 +607,6 @@ input::placeholder {
     }
 }
 
-
 .cards4 {
     position: absolute;
     animation: cards4 2s linear 1 forwards;
@@ -680,8 +627,6 @@ input::placeholder {
         opacity: 1;
     }
 }
-
-
 
 .cards5 {
     position: absolute;
@@ -726,7 +671,6 @@ input::placeholder {
     }
 }
 
-
 .cards7 {
     position: absolute;
     animation: cards7 2s linear 1 forwards;
@@ -749,7 +693,6 @@ input::placeholder {
 }
 
 
-// ================== Join Us Page ====================
 .join-bg {
     background-image: url("../img/join-bg.svg");
     background-repeat: no-repeat;
@@ -773,7 +716,6 @@ input::placeholder {
 }
 
 
-// ================== Title Component ===================
 .title-bg {
     background-image: url("../img/title-bg.svg");
     background-repeat: no-repeat;
@@ -787,7 +729,6 @@ input::placeholder {
 }
 
 
-//  ================== Safety Page ======================
 .sticky {
     position: -webkit-sticky;
     position: static;
@@ -799,7 +740,6 @@ input::placeholder {
     background-color: #FEEBEA !important;
 }
 
-//  ================== Blog Page ======================
 .blog-padding {
     padding: 50px 70px !important;
 }
@@ -823,7 +763,6 @@ input::placeholder {
     bottom: 48px !important;
 }
 
-// ------------- MorePosts --------------
 
 .slider-container {
     overflow: hidden;
@@ -882,7 +821,6 @@ input::placeholder {
     }
 }
 
-// ------------------------------------------------------------------------------------------------------------------------------------
 
 @media (min-width: 610px) {
     .icon-width {
@@ -1238,7 +1176,6 @@ input::placeholder {
     }
 }
 
-
 @media (max-width:991px) and (min-width:575px) {
     .defult-box {
         height: 250px !important;
@@ -1380,7 +1317,6 @@ input::placeholder {
         }
     }
 
-
     @keyframes cards7 {
         0% {
             transform: scale(0) rotate(-360deg);
@@ -1399,8 +1335,6 @@ input::placeholder {
 
 }
 
-
-// ==================
 @media (min-width: 1441px) {
     .inbox-bg {
         background-image: url("../img/inbox-bg.svg");

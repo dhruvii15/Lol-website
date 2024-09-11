@@ -9,7 +9,6 @@ import monkey from "../../img/monkey.svg";
 import card1 from "../../img/card1.png";
 import card2 from "../../img/card2.png";
 import emoji1 from "../../img/emoji1.svg";
-import emoji2 from "../../img/emoji2.svg";
 import mainBgImage from "../../img/main-bg.svg";
 import mainBgImage2 from "../../img/main-bg2.png";
 import { ReactSVG } from 'react-svg';
@@ -107,9 +106,7 @@ const Main = () => {
                     <LazyLoad>
                         <ReactSVG src={emoji1} className='d-block d-md-none' beforeInjection={(svg) => { svg.setAttribute('style', 'width: 100px') }} />
                     </LazyLoad>
-                    <LazyLoad>
-                        <ReactSVG src={emoji2} className='d-block d-md-none ms-auto' beforeInjection={(svg) => { svg.setAttribute('style', 'width: 100px') }} />
-                    </LazyLoad>
+                    
                 </div>
                 <div className='mt-5 pt-5 pt-md-5 w-100 pe-4 pe-lg-0 text-center d-flex flex-column align-items-center justify-content-center main-box'>
                     <h1 className='main-text BwGradualBold position-relative'>real

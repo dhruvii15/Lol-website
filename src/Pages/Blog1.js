@@ -15,7 +15,7 @@ const Blog1 = () => {
             <Header />
             <Container>
                 <div className='position-relative text-center'>
-                    <Image alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid' />
+                    <Image alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid'/>
                     <div className='position-absolute blog-bottom'>
                         <p className='BwGradualBold px-4 rounded-3 m-0 fs-2 bg-white text-start ps-0 ms-0 ps-xl-5 ms-xl-5'>Hidden Gems: Tips &</p>
                     </div>

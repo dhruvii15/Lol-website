@@ -60,9 +60,9 @@ const Cards = () => {
                         </h1>
                     </Col>
                     <Col xs={12} lg={4} className='text-center overflow-hidden mt-3 px-3 position-relative p-0 py-5'>
-                        <LazyLoad height={120} offset={100}>
-                            <img src={spinner} alt='spin' className='rotate2 img-fluid' loading="lazy" />
-                        </LazyLoad>
+                        
+                            <img src={spinner} alt='spin' className='rotate2 img-fluid'/>
+                        
                         <div className='position-absolute pointer-position'>
                             <img src={point} alt='point' loading="lazy" />
                         </div>

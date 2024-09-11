@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { LoadingProvider } from './Component/LoadingContext';
+import LoadingIndicator from './Component/LoadingIndicator';
 import Home from './Pages/Home';
 import UserLink from './Pages/userLink';
 import Page2 from './Component/UserLink/Page2';
@@ -16,11 +18,11 @@ import Safety from './Pages/Safety';
 import Blog from './Pages/Blog';
 import Blog1 from './Pages/Blog1';
 import Blog2 from './Pages/Blog2';
-import Blog7 from './Pages/Blog7';
 import Blog3 from './Pages/Blog3';
 import Blog4 from './Pages/Blog4';
 import Blog5 from './Pages/Blog5';
 import Blog6 from './Pages/Blog6';
+import Blog7 from './Pages/Blog7';
 
 const queryClient = new QueryClient();
 
@@ -92,12 +94,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <LoadingProvider>
+        <LoadingIndicator />
+        <RouterProvider router={router} />
+      </LoadingProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
