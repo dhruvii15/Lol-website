@@ -418,13 +418,6 @@ input::placeholder {
   height: 150px;
 }
 
-.about-bg2 {
-  background-image: url("../img/black-bg.png");
-  background-repeat: repeat-y;
-  background-size: 2500px auto;
-  background-position: center;
-}
-
 /* Keyframes for scaling animation */
 @keyframes scale-up-down {
   0% {

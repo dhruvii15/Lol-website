@@ -8,11 +8,20 @@ import inboxcircle from "../../img/inbox-circle.png";
 import person from "../../img/inbox-person.png";
 import inboxBgImage from "../../img/inbox-bg.svg"; // Import your background image here
 
+// Preload the background image
+const preloadImage = (src) => {
+    const img = new Image();
+    img.src = src;
+};
+
 const Inbox = () => {
     const inboxBgRef = useRef(null);
 
     useEffect(() => {
         const inboxBgElement = inboxBgRef.current;
+
+        // Preload the background image
+        preloadImage(inboxBgImage);
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -36,7 +45,7 @@ const Inbox = () => {
                 <Row className='d-flex justify-content-center align-items-center my-5' style={{ padding: "0 0 50px 0", minHeight: "500px" }}>
                     <Col xs={12} lg={3} className='text-center mt-3'>
                         <h1 className='m-0 BwGradualBold text-white inbox-text'>
-                        flood your inbox of your friends & strangers
+                            flood your inbox of your friends & strangers
                         </h1>
                     </Col>
                     <Col xs={12} lg={6} className='position-relative text-center overflow-hidden mt-3 h-100'>

@@ -14,10 +14,23 @@ import mainBgImage from "../../img/main-bg.svg";
 import mainBgImage2 from "../../img/main-bg2.png";
 import { ReactSVG } from 'react-svg';
 
+// Preload the background images
+const preloadImage = (src) => {
+    const img = new Image();
+    img.src = src;
+};
+
 const Main = () => {
     const framerContainerRef = useRef(null);
     const mainBgRef = useRef(null);
 
+    const handlePlaystoreClick = () => {
+        const playstore = 'https://play.google.com/store/apps/details?id=com.pazugames.avatarworld';
+        
+        window.open(playstore, '_blank');
+    };
+
+    // Mouse move parallax effect
     useEffect(() => {
         const handleMouseMove = (e) => {
             const { clientX: mouseX, clientY: mouseY } = e;
@@ -42,9 +55,14 @@ const Main = () => {
         };
     }, []);
 
+    // Background image loading based on scroll
     useEffect(() => {
         const mainBgElement = mainBgRef.current;
         const framerContainer = framerContainerRef.current;
+
+        // Preload background images
+        preloadImage(mainBgImage);
+        preloadImage(mainBgImage2);
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -102,7 +120,7 @@ const Main = () => {
                     </h1>
                     <h1 className='main-text BwGradualBold'>fun with</h1>
                     <h1 className='main-text BwGradualBold'>friends</h1>
-                    <div className='rounded-pill fs-5 mt-3 text-white box9 common d-none d-sm-block'>
+                    <div className='rounded-pill fs-5 mt-3 text-white box9 common d-none d-sm-block cursor' onClick={handlePlaystoreClick}>
                         <div className="common1 overlay9-1"></div>
                         <div className="box9-content">
                             <div className="box9-text">Download the app!</div>
@@ -112,7 +130,7 @@ const Main = () => {
                     <div className='border border-2 border-white rounded-5 py-2 mt-3 d-none d-sm-block' style={{ width: "35px", height: "54px" }}>
                         <p className='border border-white rounded-2 border-2 m-0 scroll-mouse mx-auto' style={{ width: "2px", height: "12px" }}></p>
                     </div>
-                    <div className='rounded-pill fs-6 mt-3 text-white box9 common2 mx-auto d-block d-sm-none' style={{ width: "180px", height: "55px" }} >
+                    <div className='rounded-pill fs-6 mt-3 text-white box9 common2 mx-auto d-block d-sm-none cursor' onClick={handlePlaystoreClick} style={{ width: "180px", height: "55px" }} >
                         <div className="common1 overlay9-1"></div>
                         <div className="box9-content">
                             <div className="box9-text pt-1">Download the app!</div>
