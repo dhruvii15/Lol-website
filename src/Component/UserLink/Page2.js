@@ -213,13 +213,13 @@ const Page2 = () => {
                 <OffcanvasHeader className='mx-auto w-100 d-flex flex-column justify-content-center'>
                     <p className='bg-secondary rounded-pill mx-auto' style={{ width: "50px", height: "4px" }}></p>
                 </OffcanvasHeader>
-                <OffcanvasBody className='text-center'>
+                <OffcanvasBody className='text-center p-0'>
                     <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
                         <Col sm={9} xl={5}>
                             <div
-                                className="shadow rounded-4 mx-auto"
+                                className="shadow rounded-4 mx-auto p-0"
                                 style={{
-                                    width: "310px",
+                                    width: "300px",
                                     height: "400px",
                                     backgroundImage: `url(${selectedImage})`,
                                     backgroundRepeat: "no-repeat",
@@ -247,12 +247,12 @@ const Page2 = () => {
                                             <Row className='w-100 text-start px-3'>
                                                 <Col xs={6} className='p-0'>
                                                     {data2.map((value, index) => (
-                                                        <p key={index} className='mb-2' style={{ fontSize: "12px", fontWeight: "600" }}>{capitalizeFirstLetter(value)}</p>
+                                                        <p key={index} className='mb-2' style={{ fontSize: "10px", fontWeight: "600" }}>{capitalizeFirstLetter(value)}</p>
                                                     ))}
                                                 </Col>
                                                 <Col xs={6} className='p-0'>
                                                     {values.map((value, index) => (
-                                                        <p key={index} className='mb-2' style={{ fontSize: "12px", fontWeight: "600" }}><span className='pe-2 fw-bold'>:</span>{capitalizeFirstLetter(value)}</p>
+                                                        <p key={index} className='mb-2' style={{ fontSize: "10px", fontWeight: "600" }}><span className='pe-2 fw-bold'>:</span>{capitalizeFirstLetter(value)}</p>
                                                     ))}
                                                 </Col>
                                             </Row>

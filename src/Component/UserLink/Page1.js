@@ -149,7 +149,7 @@ const Page1 = ({ username }) => {
 
     const handleChange = (e, index) => {
         const value = e.target.value;
-        if (value.length <= 15) {
+        if (value.length <= 20) {
             setInputValues((prevValues) => ({
                 ...prevValues,
                 [index]: value
@@ -291,10 +291,10 @@ const Page1 = ({ username }) => {
                                             <small
                                                 style={{
                                                     fontSize: "13px",
-                                                    color: (inputValues[index]?.length || 0) >= 15 ? "red" : "inherit" // Change color to red if limit is reached
+                                                    color: (inputValues[index]?.length || 0) >= 20 ? "red" : "inherit" // Change color to red if limit is reached
                                                 }}
                                             >
-                                                {(inputValues[index]?.length || 0)} / 15
+                                                {(inputValues[index]?.length || 0)} / 20
                                             </small>
                                         </div>
                                     </div>
@@ -306,7 +306,7 @@ const Page1 = ({ username }) => {
                                         value={inputValues[index] || ''}
                                         onChange={(e) => handleChange(e, index)}
                                         onKeyDown={(e) => handleKeyDown(e, index)}
-                                        maxLength={15}
+                                        maxLength={20}
                                         inputMode='text'
                                         enterKeyHint={index === data2.length - 1 ? 'done' : 'next'}
                                     />

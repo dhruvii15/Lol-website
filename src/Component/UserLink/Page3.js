@@ -56,7 +56,7 @@ const Page3 = () => {
                 }
             }
 
-            const response = await axios.post('https://lolcards.link/api/inbox/create', formData, {
+            const response = await axios.post('http://localhost:5000/api/inbox/create', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
