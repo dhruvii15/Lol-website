@@ -11,6 +11,12 @@ const Success = () => {
 
     const location = useLocation();
     const { username } = location.state || {};
+
+    const handlePlaystoreClick = () => {
+        const playstore = 'https://play.google.com/store/apps/details?id=com.pazugames.avatarworld';
+        
+        window.open(playstore, '_blank');
+    };
     
     // console.log(username);
     
@@ -27,7 +33,7 @@ const Success = () => {
                                 <MessageBtn />
                                 <Link to={`/${username}`} className="text-white mt-2" style={{ fontSize: "18px" }}>Send another message</Link>
                             </div>
-                            <Button className="mb-5 rounded-pill fs-4 text-black border-0 py-2 new-app-btn px-3" style={{ fontWeight: "600", backgroundColor: "rgba(255, 255, 255, 0.7)" }}>New App From LOL</Button>
+                            <Button className="mb-5 rounded-pill fs-4 text-black border-0 py-2 new-app-btn px-3" onClick={handlePlaystoreClick} style={{ fontWeight: "600", backgroundColor: "rgba(255, 255, 255, 0.7)" }}>New App From LOL</Button>
                         </div>
                     </Col>
 

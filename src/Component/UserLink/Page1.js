@@ -211,6 +211,8 @@ const Page1 = ({ username }) => {
             data2
         };
 
+        window.scrollTo(0, 0);
+        
         navigate(`/${username}/step2`, { state: formData });
     };
 

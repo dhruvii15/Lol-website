@@ -131,6 +131,7 @@ const Page2 = () => {
             nickname,
             cardBg: selectedImage
         };
+        window.scrollTo(0, 0);
         navigate(`/${username}/step3`, { state: formData });
     };
 
