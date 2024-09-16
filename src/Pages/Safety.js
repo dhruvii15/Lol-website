@@ -35,7 +35,7 @@ const Safety = () => {
     };
 
     const description = {
-        1: 'Lorem ipsum dolor sit amet,',
+        1: 'Our users safety is our priority',
         2: '',
         3: '',
         4: '',
@@ -43,19 +43,10 @@ const Safety = () => {
         6: '',
     };
 
-    const description2 = {
-        1: 'adipiscing elit',
-        2: ' ',
-        3: ' ',
-        4: '',
-        5: '',
-        6: '',
-    };
 
     const title = title1[activeItem] || 'Safety center';
     const titles = title2[activeItem] || '';
     const descriptions = description[activeItem] || '';
-    const descriptionss = description2[activeItem] || '';
 
 
     useEffect(() => {
@@ -72,7 +63,7 @@ const Safety = () => {
         <div>
             <Header activeLink={'safety'}/>
             <div className='rounded-top-5 overflow-hidden'>
-                <Title title={title} title2={titles} description={descriptions} description2={descriptionss} />
+                <Title title={title} title2={titles} description={descriptions} />
             </div>
                 <SafetyComponent activeItem={activeItem} onItemClick={handleItemClick} />
                 <Footer2 />

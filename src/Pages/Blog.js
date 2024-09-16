@@ -21,8 +21,8 @@ const Blog = () => {
 
     const title = 'Blog';
     const titles = '';
-    const descriptions = 'Lorem ipsum dolor sit amet,';
-    const descriptionss = 'adipiscing elit';
+    const descriptions = 'My favorite app is the one that tells me';
+    const descriptionss = "how much time I've wasted on other apps.";
 
 
     useEffect(() => {
