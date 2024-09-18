@@ -131,8 +131,24 @@ const Page2 = () => {
             nickname,
             cardBg: selectedImage
         };
-        window.scrollTo(0, 0);
+        smoothScrollToTop();
         navigate(`/${username}/step3`, { state: formData });
+    };
+
+
+    const smoothScrollToTop = () => {
+        const scrollOptions = {
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        };
+    
+        if ('scrollBehavior' in document.documentElement.style) {
+            window.scrollTo(scrollOptions);
+        } else {
+            window.scrollTo(0, 0);
+            document.body.focus();
+        }
     };
 
     if (!online) {

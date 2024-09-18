@@ -63,8 +63,6 @@ const Page3 = () => {
             });
 
             if (response.status === 201) {
-                // console.log('Form submitted successfully:', response.data);
-                // Navigate to success page with state including username
                 navigate(`/${username}/success`, { state: { username } });
             } else {
                 toast.error(response.data.message || 'Error submitting form');
