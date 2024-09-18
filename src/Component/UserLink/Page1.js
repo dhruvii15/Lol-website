@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 // img
-import avatar from "../../img/avatar.png";
 import gallery from "../../img/gallery.svg";
 import emoji from "../../img/avataremoji.svg";
 import MessageBtn from '../Messagebtn';
@@ -251,7 +250,7 @@ const Page1 = ({ username }) => {
                     <div className='bg-white page1-whitebox mx-1 rounded-5 shadow text-center overflow-hidden'>
                         <p className='pt-3 fs-5'>Create <small className='fw-bolder'>{name ? name.charAt(0).toUpperCase() + name.slice(1) : ''}'s</small> Card</p>
                         <img
-                            src={selectedAvatar || imagePreview || avatar}
+                            src={selectedAvatar || imagePreview || 'https://lolcards.link/api/public/images/avatar.png'}
                             alt='avatar'
                             className='mt-1 mb-2 mt-2 rounded-3'
                             width={130}
