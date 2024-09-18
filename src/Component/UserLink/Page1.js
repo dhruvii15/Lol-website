@@ -9,8 +9,10 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 // img
 import gallery from "../../img/gallery.svg";
 import emoji from "../../img/avataremoji.svg";
-import MessageBtn from '../Messagebtn';
-import NoDataFound from '../NoData';
+
+const MessageBtn = React.lazy(() => import('../Messagebtn'));
+const NoDataFound = React.lazy(() => import('../NoData'));
+
 
 const capitalizeFirstLetter = (string) => {
     if (!string) return '';
@@ -41,14 +43,10 @@ const Page1 = ({ username }) => {
         }
     };
 
-
-
-
     const getlanguageText = (key) => {
         const languageMapping = languageMappings[language] || languageMappings['en'];
         return languageMapping[key] || '';
     };
-
 
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
@@ -171,7 +169,6 @@ const Page1 = ({ username }) => {
         setNicknameError(value.length === 0 || value.length > 10);
     };
 
-
     const handleFileChange = (e) => {
         const file = e.currentTarget.files[0];
         if (file) {
@@ -189,19 +186,19 @@ const Page1 = ({ username }) => {
                 newErrors[index] = true;
             }
         });
-    
+
         if (!nickname || nickname.trim() === '') {
             setNicknameError(true);
             return;
         } else {
             setNicknameError(false);
         }
-    
+
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
         }
-    
+
         const formData = {
             avatar: Avatar,
             inputValues,
@@ -209,28 +206,22 @@ const Page1 = ({ username }) => {
             nickname,
             data2
         };
-    
-        // Scroll to top
         smoothScrollToTop();
-        
+
         navigate(`/${username}/step2`, { state: formData });
     };
-    
-    // Smooth scroll function
+
     const smoothScrollToTop = () => {
         const scrollOptions = {
             top: 0,
             left: 0,
             behavior: 'smooth'
         };
-    
+
         if ('scrollBehavior' in document.documentElement.style) {
-            // Modern browsers
             window.scrollTo(scrollOptions);
         } else {
-            // Fallback for older browsers and iOS
             window.scrollTo(0, 0);
-            // For iOS, we need to focus on an element at the top
             document.body.focus();
         }
     };
@@ -272,7 +263,7 @@ const Page1 = ({ username }) => {
                                         <small
                                             style={{
                                                 fontSize: "13px",
-                                                color: nickname.length >= 10 ? "red" : "inherit" // Change color to red if limit is reached
+                                                color: nickname.length >= 10 ? "red" : "inherit" 
                                             }}
                                         >
                                             {nickname.length || 0} / 10

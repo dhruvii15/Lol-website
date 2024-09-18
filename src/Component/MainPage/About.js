@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import { ReactSVG } from 'react-svg';
 import LazyLoad from 'react-lazyload';
+
+
 import mainimg from "../../img/monkey.png";
 import aboutleft from "../../img/aboutleft.svg";
 import aboutright from "../../img/aboutright.svg";
@@ -24,11 +26,9 @@ const About = () => {
   useEffect(() => {
     const aboutBgElement = aboutBgRef.current;
 
-    // Preload all images in the background
     const imagesToPreload = [mainimg, aboutleft, aboutright, about1, about2, about3, about4, card1, card2, aboutBgImage];
     imagesToPreload.forEach((image) => preloadImage(image));
 
-    // IntersectionObserver for background image
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

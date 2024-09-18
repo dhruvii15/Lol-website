@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Col, Row, Button } from 'reactstrap';
 import axios from 'axios';
@@ -12,13 +12,13 @@ import GirlFriend from "../../img/GirlFriend.svg";
 import BoyFriend from "../../img/BoyFriend.svg";
 import Enemy from "../../img/Enemy.svg";
 import Stranger from "../../img/Stranger.svg";
-import MessageBtn from '../Messagebtn';
+
+const MessageBtn = React.lazy(() => import('../Messagebtn'));
 
 const Page3 = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { avatar, inputValues, cardBg, username, nickname } = location.state || {};
-    
 
     const [hint, setHint] = useState('');
     const [selectedRelation, setSelectedRelation] = useState(null);
@@ -39,6 +39,11 @@ const Page3 = () => {
     ];
 
     const handleSendClick = async () => {
+        if (!hint) {
+            toast.error('Please select a relation.');
+            return;
+        }
+
         try {
             setLoading(true);
 
@@ -68,7 +73,7 @@ const Page3 = () => {
                 toast.error(response.data.message || 'Error submitting form');
             }
         } catch (error) {
-            toast.error((error.response?.data?.message || error.message));
+            toast.error(error.response?.data?.message || error.message);
         } finally {
             setLoading(false);
         }
@@ -123,7 +128,9 @@ const Page3 = () => {
                                 <span className='fs-5 text-decoration-none text-black'>{loading ? 'Sending...' : 'Send'}</span>
                             </Button>
 
-                            <MessageBtn />
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <MessageBtn />
+                            </Suspense>
                         </div>
                     </Col>
                 </Row>
@@ -133,4 +140,4 @@ const Page3 = () => {
     );
 };
 
-export default Page3;
+export default React.memo(Page3);

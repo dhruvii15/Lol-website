@@ -1,6 +1,7 @@
 import React from 'react';
-import FAQ from './Faq';
 
+
+const FAQ = React.lazy(() => import('./Faq'));
 
 const Safety1 = () => {
     return (
