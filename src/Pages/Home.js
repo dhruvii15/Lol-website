@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { useLoading } from '../Component/LoadingContext';
-import Header from '../Component/Header';
-import Main from '../Component/MainPage/Main';
-import About from '../Component/MainPage/About';
-import Inbox from '../Component/MainPage/Inbox';
-import Footer from '../Component/Footer';
-import Cards from '../Component/MainPage/Cards';
-import Join from '../Component/MainPage/Join';
+
+// Lazy load components
+const Header = React.lazy(() => import('../Component/Header'));
+const Main = React.lazy(() => import('../Component/MainPage/Main'));
+const About = React.lazy(() => import('../Component/MainPage/About'));
+const Inbox = React.lazy(() => import('../Component/MainPage/Inbox'));
+const Footer = React.lazy(() => import('../Component/Footer'));
+const Cards = React.lazy(() => import('../Component/MainPage/Cards'));
+const Join = React.lazy(() => import('../Component/MainPage/Join'));
 
 const Home = () => {
     const { setIsLoading } = useLoading();
@@ -35,13 +37,11 @@ const Home = () => {
             };
         }
     }, [setIsLoading]);
-    
 
     console.log(document.readyState);
-    
 
     return (
-        <>
+        <Suspense fallback={<div>Loading...</div>}>
             <Header />
             <div className='bg-black overflow-hidden' style={{ borderTopLeftRadius: "40px", borderTopRightRadius: "40px" }}>
                 <Main />
@@ -51,7 +51,7 @@ const Home = () => {
                 <Join />
                 <Footer />
             </div>
-        </>
+        </Suspense>
     );
 };
 

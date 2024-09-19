@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import Header from '../Component/Header';
-import Title from '../Component/Title';
-import Footer2 from '../Component/Footer2';
-import Loading from '../Component/Loading';
-import SafetyComponent from '../Component/Safety/SafetyComponent';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 
-
+// Lazy load components
+const Header = lazy(() => import('../Component/Header'));
+const Title = lazy(() => import('../Component/Title'));
+const Footer2 = lazy(() => import('../Component/Footer2'));
+const Loading = lazy(() => import('../Component/Loading'));
+const SafetyComponent = lazy(() => import('../Component/Safety/SafetyComponent'));
 
 const Safety = () => {
-    const [loading, setLoading] = useState(true); 
-
+    const [loading, setLoading] = useState(true);
     const [activeItem, setActiveItem] = useState(1);
 
     const handleItemClick = (itemNumber) => {
@@ -43,30 +42,43 @@ const Safety = () => {
         6: '',
     };
 
-
     const title = title1[activeItem] || 'Safety center';
     const titles = title2[activeItem] || '';
     const descriptions = description[activeItem] || '';
 
-
     useEffect(() => {
-        setTimeout(() => {
-            setLoading(false); 
-        }, 10); 
+        // Simulate loading process
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 10); // Loading timeout duration
+
+        return () => clearTimeout(timer); // Cleanup the timer on unmount
     }, []);
 
     if (loading) {
-        return <Loading />; 
+        return (
+            <Suspense fallback={<div>Loading...</div>}>
+                <Loading />
+            </Suspense>
+        );
     }
 
     return (
         <div>
-            <Header activeLink={'safety'}/>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Header activeLink={'safety'} />
+            </Suspense>
             <div className='rounded-top-5 overflow-hidden'>
-                <Title title={title} title2={titles} description={descriptions} />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Title title={title} title2={titles} description={descriptions} />
+                </Suspense>
             </div>
+            <Suspense fallback={<div>Loading...</div>}>
                 <SafetyComponent activeItem={activeItem} onItemClick={handleItemClick} />
+            </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
                 <Footer2 />
+            </Suspense>
         </div>
     );
 };

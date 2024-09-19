@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Button, Col, Row } from 'reactstrap';
-import MessageBtn from '../Messagebtn';
 import { Link, useLocation } from 'react-router-dom';
 
 // img
 import check from "../../img/check.svg"
 
+
+const MessageBtn = React.lazy(() => import('../Messagebtn'));
 
 const Success = () => {
 
@@ -14,12 +15,12 @@ const Success = () => {
 
     const handlePlaystoreClick = () => {
         const playstore = 'https://play.google.com/store/apps/details?id=com.pazugames.avatarworld';
-        
+
         window.open(playstore, '_blank');
     };
-    
+
     // console.log(username);
-    
+
     return (
         <>
             <div className="page1-bg orange-bg">
@@ -30,7 +31,9 @@ const Success = () => {
                                 <div className='mb-5'>
                                     <img src={check} alt='check' width={130} />
                                 </div>
-                                <MessageBtn />
+                                <Suspense fallback={<div>Loading...</div>}>
+                                    <MessageBtn />
+                                </Suspense>
                                 <Link to={`/${username}`} className="text-white mt-2" style={{ fontSize: "18px" }}>Send another message</Link>
                             </div>
                             <Button className="mb-5 rounded-pill fs-4 text-black border-0 py-2 new-app-btn px-3" onClick={handlePlaystoreClick} style={{ fontWeight: "600", backgroundColor: "rgba(255, 255, 255, 0.7)" }}>New App From LOL</Button>

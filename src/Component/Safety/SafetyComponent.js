@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import Safety1 from './Safety1';
-import Safety2 from './Safety2';
-import Safety3 from './Safety3';
-import Safety4 from './Safety4';
-import Safety5 from './Safety5';
-import Safety6 from './Safety6';
+
+// Lazy load the Safety components
+const Safety1 = lazy(() => import('./Safety1'));
+const Safety2 = lazy(() => import('./Safety2'));
+const Safety3 = lazy(() => import('./Safety3'));
+const Safety4 = lazy(() => import('./Safety4'));
+const Safety5 = lazy(() => import('./Safety5'));
+const Safety6 = lazy(() => import('./Safety6'));
 
 const SafetyComponent = ({ activeItem, onItemClick }) => {
     const renderSafetyContent = () => {
@@ -46,7 +48,9 @@ const SafetyComponent = ({ activeItem, onItemClick }) => {
                     </div>
                 </Col>
                 <Col xs={12} lg={8} className='p-4'>
-                    {renderSafetyContent()}
+                    <Suspense fallback={<div>Loading...</div>}>
+                        {renderSafetyContent()}
+                    </Suspense>
                 </Col>
             </Row>
         </Container>

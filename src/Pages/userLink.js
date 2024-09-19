@@ -1,11 +1,13 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, lazy, Suspense, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import Page1 from '../Component/UserLink/Page1';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import NoUserFound from '../Component/NoUser';
-import NoDataFound from '../Component/NoData';
-import Loading from '../Component/Loading';
+
+// Lazy load components
+const Page1 = lazy(() => import('../Component/UserLink/Page1'));
+const NoUserFound = lazy(() => import('../Component/NoUser'));
+const NoDataFound = lazy(() => import('../Component/NoData'));
+const Loading = lazy(() => import('../Component/Loading'));
 
 const UserLink = () => {
   const { username } = useParams();
@@ -13,7 +15,6 @@ const UserLink = () => {
   const [pauseLink, setpauseLink] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  
 
   const getData2 = useCallback(() => {
     setLoading(true);
@@ -45,26 +46,41 @@ const UserLink = () => {
     document.title = username ? `@${username}` : 'LOL';
   }, [getData2, username]);
 
+  // Memoized derived state
+  const memoizedData2 = useMemo(() => data2, [data2]);
+
   if (loading) {
-    return <Loading />;
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Loading />
+      </Suspense>
+    );
   }
 
   if (error) {
-    return <NoUserFound />;
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <NoUserFound />
+      </Suspense>
+    );
   }
 
   if (pauseLink) {
-    return <NoDataFound style={{ height: '100vh' }}/>;
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <NoDataFound style={{ height: '100vh' }} />
+      </Suspense>
+    );
   }
 
   return (
-    <div>
-      {data2.length === 0 ? (
+    <Suspense fallback={<div>Loading...</div>}>
+      {memoizedData2.length === 0 ? (
         <NoUserFound />
       ) : (
-        <Page1 username={username} data={data2} />
+        <Page1 username={username} data={memoizedData2} />
       )}
-    </div>
+    </Suspense>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 
 const FAQ = React.lazy(() => import('./Faq'));
@@ -30,7 +30,9 @@ const Safety1 = () => {
 
             <div className='pt-5'>
                 <p className='BwGradualBold fs-1'>faq</p>
-                <FAQ />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <FAQ />
+                </Suspense>
             </div>
 
 

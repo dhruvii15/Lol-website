@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import React, { useEffect, useState, useCallback, useRef, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Col, Container, Label, Offcanvas, OffcanvasBody, OffcanvasHeader, Row } from 'reactstrap';
 import axios from 'axios';
@@ -263,7 +263,7 @@ const Page1 = ({ username }) => {
                                         <small
                                             style={{
                                                 fontSize: "13px",
-                                                color: nickname.length >= 10 ? "red" : "inherit" 
+                                                color: nickname.length >= 10 ? "red" : "inherit"
                                             }}
                                         >
                                             {nickname.length || 0} / 10
@@ -335,7 +335,9 @@ const Page1 = ({ username }) => {
                         >
                             <span className='fs-5 text-decoration-none text-black'>Next</span>
                         </Button>
-                        <MessageBtn />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <MessageBtn />
+                        </Suspense>
                     </div>
 
                     <Offcanvas isOpen={show} toggle={handleClose} direction="bottom" className="h-50 offcanvas-custom">
@@ -400,7 +402,9 @@ const Page1 = ({ username }) => {
                                             ))
                                         ) : (
                                             <Col className='text-center'>
-                                                <NoDataFound style={{ height: 'auto' }} />
+                                                <Suspense fallback={<div>Loading...</div>}>
+                                                    <NoDataFound style={{ height: 'auto' }} />
+                                                </Suspense>
                                             </Col>
                                         )
                                     ) : (

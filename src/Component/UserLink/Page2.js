@@ -1,11 +1,8 @@
-import React, { useCallback, useEffect, useState, useMemo } from 'react';
+import React, { useCallback, useEffect, useState, useMemo, Suspense } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Col, Row, Offcanvas, OffcanvasBody, OffcanvasHeader, Button } from 'reactstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
-import NoInternet from '../NoInternet';
-import MessageBtn from '../Messagebtn';
-import NoDataFound from '../NoData';
 
 
 // Import images
@@ -14,6 +11,10 @@ import fontBg2 from "../../img/2.png";
 import fontBg3 from "../../img/3.png";
 import fontBg4 from "../../img/4.png";
 import fontBg5 from "../../img/5.png";
+
+const MessageBtn = React.lazy(() => import('../Messagebtn'));
+const NoDataFound = React.lazy(() => import('../NoData'));
+const NoInternet = React.lazy(() => import('../NoInternet'));
 
 const capitalizeFirstLetter = (string) => {
     if (!string) return '';
@@ -121,7 +122,9 @@ const Page2 = () => {
         navigate(`/${username}/step3`, { state: formData });
     }, [avatar, inputValues, username, nickname, selectedImage, navigate]);
 
-    if (!online) return <NoInternet />;
+    if (!online) return <Suspense fallback={<div>Loading...</div>}>
+        <NoInternet />
+    </Suspense>;
     if (loading) return <LoadingComponent />;
     if (noData) return <NoDataComponent />;
 
@@ -180,7 +183,9 @@ const LoadingComponent = () => (
 
 const NoDataComponent = () => (
     <div style={{ height: "100vh" }} className='d-flex flex-column justify-content-center'>
-        <NoDataFound />
+        <Suspense fallback={<div>Loading...</div>}>
+            <NoDataFound />
+        </Suspense>
     </div>
 );
 
@@ -272,7 +277,9 @@ const PreviewOffcanvas = React.memo(({ show, handleClose, selectedImage, fontBg,
                         </Button>
                     </div>
                     <div className='w-100 p-3 pt-0'>
-                        <MessageBtn />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <MessageBtn />
+                        </Suspense>
                     </div>
                 </Col>
             </Row>

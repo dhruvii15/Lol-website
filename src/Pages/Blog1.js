@@ -1,21 +1,25 @@
-import React from 'react';
-import MorePosts from '../Component/MorePosts';
-import Header from '../Component/Header';
-import Footer2 from '../Component/Footer2';
+import React, { Suspense } from 'react';
 import { Container } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
 // img
-import { ReactComponent as Image} from "../img/blog1-2.svg"
+import { ReactComponent as Image } from "../img/blog1-2.svg"
+
+//  Lazy load components
+const Header = React.lazy(() => import('../Component/Header'));
+const MorePosts = React.lazy(() => import('../Component/MorePosts'));
+const Footer2 = React.lazy(() => import('../Component/Footer2'));
 
 const Blog1 = () => {
     return (
         <div className='BwGradual fs-5'>
-            <Header />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Header />
+            </Suspense>
             <Container>
                 <div className='position-relative text-center'>
-                    <Image alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid'/>
+                    <Image alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid' />
                     <div className='position-absolute blog-bottom'>
                         <p className='BwGradualBold px-4 rounded-3 m-0 fs-2 bg-white text-start ps-0 ms-0 ps-xl-5 ms-xl-5'>Hidden Gems: Tips &</p>
                     </div>
@@ -53,10 +57,14 @@ const Blog1 = () => {
                     </div>
                     <p className='pt-5 fw-bold'>No matter how you choose to share your LOL link, the app offers a variety of ways to customize your in-app experience and have the most fun possible.</p>
 
-                    <MorePosts />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <MorePosts />
+                    </Suspense>
                 </div>
             </Container>
-            <Footer2 />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Footer2 />
+            </Suspense>
 
         </div>
     );

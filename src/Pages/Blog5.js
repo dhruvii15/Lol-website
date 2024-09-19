@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Container } from 'reactstrap';
-import MorePosts from '../Component/MorePosts';
 
 // img
 import image from "../img/blog5.svg"
-import Header from '../Component/Header';
-import Footer2 from '../Component/Footer2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+
+//  Lazy load components
+const Header = React.lazy(() => import('../Component/Header'));
+const MorePosts = React.lazy(() => import('../Component/MorePosts'));
+const Footer2 = React.lazy(() => import('../Component/Footer2'));
 
 const Blog5 = () => {
     return (
         <div className='BwGradual fs-5'>
-            <Header />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Header />
+            </Suspense>
             <Container>
                 <div className='position-relative text-center'>
                     <img src={image} alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid' />
@@ -61,10 +65,14 @@ const Blog5 = () => {
                             <p className='ps-2'>Visit "Our Resources" to find help with getting back to feeling good!</p>
                         </div>
                     </div>
-                    <MorePosts />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <MorePosts />
+                    </Suspense>
                 </div>
             </Container>
-            <Footer2 />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Footer2 />
+            </Suspense>
 
         </div>
     );
