@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, {  useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import { ReactSVG } from 'react-svg';
 import LazyLoad from 'react-lazyload';

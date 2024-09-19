@@ -1,14 +1,15 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { Col, Container, Row } from 'reactstrap';
+import LazyLoad from 'react-lazyload';
 
 // SVG images
-import { ReactComponent as Blog1 } from "../img/blog1.svg";
-import { ReactComponent as Blog2 } from "../img/blog2.svg";
-import { ReactComponent as Blog3 } from "../img/blog3.svg";
-import { ReactComponent as Blog4 } from "../img/blog4.svg";
-import { ReactComponent as Blog5 } from "../img/blog5.svg";
-import { ReactComponent as Blog6 } from "../img/blog6.svg";
-import { ReactComponent as Blog7 } from "../img/blog7.svg";
+import Blog1 from "../img/blog1.jpg";
+import Blog2 from "../img/blog2.jpg";
+import Blog3 from "../img/blog3.jpg";
+import Blog4 from "../img/blog4.jpg";
+import Blog5 from "../img/blog5.jpg";
+import Blog6 from "../img/blog6.jpg";
+import Blog7 from "../img/blog7.jpg";
 
 // Lazy load components
 const Header = React.lazy(() => import('../Component/Header'));
@@ -32,14 +33,14 @@ const Blog = () => {
 
     if (loading) {
         return (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Loading />
             </Suspense>
         );
     }
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div><Loading /></div>}>
             <div>
                 <Header activeLink={'blog'} />
                 <div className='rounded-top-5 overflow-hidden'>
@@ -51,7 +52,9 @@ const Blog = () => {
                                     className='position-relative cursor blog-animation'
                                     onClick={() => window.location.href = "/blog/hidden-gems-tips-tricks-for-the-lol-app"}
                                 >
-                                    <Blog1 className='img-fluid' />
+                                    <LazyLoad height={300} offset={100}>
+                                        <img src={Blog1} alt='inbox person' className='img-fluid' />
+                                    </LazyLoad>
                                     <div className='position-absolute bottom-0'>
                                         <p className='BwGradual blog-box px-4 text-white'>Hidden Gems: Tips & Tricks for the LOL App</p>
                                     </div>
@@ -62,7 +65,9 @@ const Blog = () => {
                                     className='position-relative cursor blog-animation'
                                     onClick={() => window.location.href = "/blog/uplift-your-community"}
                                 >
-                                    <Blog2 className='img-fluid' />
+                                    <LazyLoad height={300} offset={100}>
+                                        <img src={Blog2} alt='inbox person' className='img-fluid' />
+                                    </LazyLoad>
                                     <div className='position-absolute bottom-0'>
                                         <p className='BwGradual blog-box px-4 text-white'>Uplift Your Community: Getting Involved IRL</p>
                                     </div>
@@ -71,7 +76,9 @@ const Blog = () => {
                                     className='position-relative cursor blog-animation'
                                     onClick={() => window.location.href = "/blog/announcing-new-features-and-user-controls"}
                                 >
-                                    <Blog3 className='img-fluid' />
+                                    <LazyLoad height={300} offset={100}>
+                                        <img src={Blog3} alt='inbox person' className='img-fluid' />
+                                    </LazyLoad>
                                     <div className='position-absolute bottom-0'>
                                         <p className='BwGradual blog-box px-4 text-white'>Announcing New Features and User Controls</p>
                                     </div>
@@ -84,7 +91,9 @@ const Blog = () => {
                                     className='position-relative cursor blog-animation'
                                     onClick={() => window.location.href = "/blog/lol-response-to-ftc-settlement"}
                                 >
-                                    <Blog4 className='img-fluid' />
+                                    <LazyLoad height={300} offset={100}>
+                                        <img src={Blog4} alt='inbox person' className='img-fluid' />
+                                    </LazyLoad>
                                     <div className='position-absolute bottom-0 text-start'>
                                         <p className='BwGradual blog-box px-4 text-white'>LOL Response to FTC Settlement</p>
                                     </div>
@@ -97,7 +106,9 @@ const Blog = () => {
                                     className='position-relative cursor blog-animation'
                                     onClick={() => window.location.href = "/blog/staying-safe-on-lol"}
                                 >
-                                    <Blog5 className='img-fluid' />
+                                    <LazyLoad height={300} offset={100}>
+                                        <img src={Blog5} alt='inbox person' className='img-fluid' />
+                                    </LazyLoad>
                                     <div className='position-absolute bottom-0'>
                                         <p className='BwGradual fs-5 fs-lg-3 px-4 w-75 text-white'>Staying Safe on LOL: Tips for User Safety</p>
                                     </div>
@@ -106,7 +117,9 @@ const Blog = () => {
                                     className='position-relative cursor blog-animation'
                                     onClick={() => window.location.href = "/blog/guide-to-online-privacy"}
                                 >
-                                    <Blog6 className='img-fluid' />
+                                    <LazyLoad height={300} offset={100}>
+                                        <img src={Blog6} alt='inbox person' className='img-fluid' />
+                                    </LazyLoad>
                                     <div className='position-absolute bottom-0'>
                                         <p className='BwGradual blog-box px-4 text-white'>A Guide to Online Privacy</p>
                                     </div>
@@ -117,7 +130,9 @@ const Blog = () => {
                                     className='position-relative cursor blog-animation'
                                     onClick={() => window.location.href = "/blog/lol-request-procedures"}
                                 >
-                                    <Blog7 className='img-fluid' />
+                                    <LazyLoad height={300} offset={100}>
+                                        <img src={Blog7} alt='inbox person' className='img-fluid' />
+                                    </LazyLoad>
                                     <div className='position-absolute bottom-0'>
                                         <p className='BwGradual blog-box px-4 text-white'>LOL Procedures for Information Requests</p>
                                     </div>

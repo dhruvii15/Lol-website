@@ -35,7 +35,7 @@ const Footer = () => {
 
     const handlePlaystoreClick = () => {
         const playstore = 'https://play.google.com/store/apps/details?id=com.pazugames.avatarworld';
-        
+
         window.open(playstore, '_blank');
     };
 
@@ -62,11 +62,13 @@ const Footer = () => {
                     </Col>
                     <Col xs={6} md={3} className='pt-3 mt-2'>
                         <p className='text-white BwGradual fs-5 m-1 cursor'>Follow us: </p>
-                        <p className='text-white BwGradual ps-2 cursor hovertext' style={{ fontSize: "15px" }} onClick={handleInstaClick}><img src={insta} alt="instagram" width={20} className='me-2' />Instagram</p>
+                        <p className='text-white BwGradual ps-2 cursor hovertext' style={{ fontSize: "15px" }} onClick={handleInstaClick}>
+                            <img src={insta} alt="instagram" width={20} className='me-2' />
+                            Instagram</p>
                         <p className='text-white BwGradual fs-5 m-1 cursor'>Download: </p>
                         <div className='d-flex gap-2'>
-                            <img src={playstore} alt='playstore' className='cursor' onClick={handlePlaystoreClick}/>
-                            <img src={appstore} alt='appstore' className='cursor'  onClick={handleAppstoreClick}/>
+                            <img src={playstore} alt='playstore' className='cursor' onClick={handlePlaystoreClick} />
+                            <img src={appstore} alt='appstore' className='cursor' onClick={handleAppstoreClick} />
                         </div>
                     </Col>
                 </Row>

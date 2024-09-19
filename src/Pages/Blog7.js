@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react';
 import { Container } from 'reactstrap';
+import Loading from '../Component/Loading';
 
 // img
-import image from "../img/blog7-2.svg"
+import image from "../img/blog7-2.jpg"
+import LazyLoad from 'react-lazyload';
 
 //  Lazy load components
 const Header = React.lazy(() => import('../Component/Header'));
@@ -12,12 +14,14 @@ const Footer2 = React.lazy(() => import('../Component/Footer2'));
 const Blog7 = () => {
     return (
         <div className='BwGradual fs-5'>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Header />
             </Suspense>
             <Container>
                 <div className='position-relative text-center'>
-                    <img src={image} alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid' />
+                    <LazyLoad >
+                        <img src={image} alt='LOL-Procedures' className='img-fluid' />
+                    </LazyLoad>
                     <div className='position-absolute blog-bottom'>
                         <p className='BwGradualBold px-4 rounded-3 m-0 fs-2 bg-white text-start ps-0 ms-0 ps-xl-5 ms-xl-5'>LOL Procedures</p>
                     </div>
@@ -37,12 +41,12 @@ const Blog7 = () => {
                             <p>After careful consideration by our team, we may deem which authorities are best to contact and may share the activity with the appropriate channels. We will comply with law enforcement and secure the LOL community from further criminal activity by ensuring that the user is banned, and law enforcement will determine the appropriate legal action to take going forward.</p>
                         </div>
                     </div>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<div><Loading /></div>}>
                         <MorePosts />
                     </Suspense>
                 </div>
             </Container>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Footer2 />
             </Suspense>
 

@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
 
     if (loading) {
         return (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Loading />
             </Suspense>
         );
@@ -30,7 +30,7 @@ const PrivacyPolicy = () => {
 
     return (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Header />
                 <div className='rounded-5' style={{ backgroundColor: "#F6F6F6" }}>
                     <Title title={title} />

@@ -57,7 +57,7 @@ const Safety = () => {
 
     if (loading) {
         return (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Loading />
             </Suspense>
         );
@@ -65,18 +65,18 @@ const Safety = () => {
 
     return (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Header activeLink={'safety'} />
             </Suspense>
             <div className='rounded-top-5 overflow-hidden'>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div><Loading /></div>}>
                     <Title title={title} title2={titles} description={descriptions} />
                 </Suspense>
             </div>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <SafetyComponent activeItem={activeItem} onItemClick={handleItemClick} />
             </Suspense>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Footer2 />
             </Suspense>
         </div>

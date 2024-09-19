@@ -1,5 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 
 // img
@@ -7,8 +9,6 @@ import lol from "../img/logo2.png"
 import insta from "../img/instagram.svg"
 import playstore from "../img/playstore.svg"
 import appstore from "../img/appstore.svg"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const Footer2 = () => {
 
@@ -60,7 +60,9 @@ const Footer2 = () => {
                     </Col>
                     <Col xs={6} md={3} className='pt-3 mt-2'>
                         <p className='BwGradual fs-5 m-1 cursor'>Follow us: </p>
-                        <p className='BwGradual ps-2 cursor hovertext' style={{ fontSize: "15px" }} onClick={handleInstaClick}><img src={insta} alt="instagram" width={20} className='me-2' />Instagram</p>
+                        <p className='BwGradual ps-2 cursor hovertext' style={{ fontSize: "15px" }} onClick={handleInstaClick}>
+                            <img src={insta} alt="instagram" width={20} className='me-2' />
+                            Instagram</p>
                         <p className='BwGradual fs-5 m-1 cursor'>Download: </p>
                         <div className='d-flex gap-2'>
                             <img src={playstore} alt='playstore' className='cursor' onClick={handlePlaystoreClick}/>

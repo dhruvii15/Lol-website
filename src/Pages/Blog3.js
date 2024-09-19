@@ -2,9 +2,11 @@ import React, { Suspense } from 'react';
 import { Container } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import Loading from '../Component/Loading';
 
 // img
-import image from "../img/blog3.svg"
+import image from "../img/blog3-2.jpg"
+import LazyLoad from 'react-lazyload';
 
 //  Lazy load components
 const Header = React.lazy(() => import('../Component/Header'));
@@ -14,12 +16,14 @@ const Footer2 = React.lazy(() => import('../Component/Footer2'));
 const Blog3 = () => {
     return (
         <div className='BwGradual fs-5'>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Header />
             </Suspense>
             <Container>
                 <div className='position-relative text-center'>
-                    <img src={image} alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid' />
+                    <LazyLoad >
+                        <img src={image} alt='Announcing-New-Features-and-user-Controls' className='img-fluid' />
+                    </LazyLoad>
                     <div className='position-absolute blog-bottom'>
                         <p className='BwGradualBold px-4 rounded-3 m-0 fs-2 bg-white text-start ps-0 ms-0 ps-xl-5 ms-xl-5'>Announcing New</p>
                     </div>
@@ -68,12 +72,12 @@ const Blog3 = () => {
                     <p className='pt-5 fw-bold'>As always, we do not tolerate bullying, harassment, or illegal activity, and encourage users to report messages and users who are violating our Community Guidelines or Terms of Service. It’s easy to report: Simply locate the message, tap on the Report button (⚠), select your Report reason, and tap “Get help from Safety Team.” This will immediately flag the message for review by LOL's Safety Team.</p>
                     <p className='pt-4 fw-bold'>By reporting messages that you deem harmful, you play a crucial role in maintaining a safe and respectful environment on LOL. Your actions help protect yourself and other users from harassment and bullying. Learn more at our Safety Center.</p>
                     <p className='pt-4 fw-bold'>We see LOL as an app where you can show up authentically, deepen your personal connections, and have genuine fun with your friends. We’re excited to see our community put these new features to good use.</p>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<div><Loading /></div>}>
                         <MorePosts />
                     </Suspense>
                 </div>
             </Container>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Footer2 />
             </Suspense>
 

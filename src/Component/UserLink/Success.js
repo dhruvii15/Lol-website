@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 // img
 import check from "../../img/check.svg"
+import Loading from '../Loading';
 
 
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
@@ -19,8 +20,6 @@ const Success = () => {
         window.open(playstore, '_blank');
     };
 
-    // console.log(username);
-
     return (
         <>
             <div className="page1-bg orange-bg">
@@ -31,7 +30,7 @@ const Success = () => {
                                 <div className='mb-5'>
                                     <img src={check} alt='check' width={130} />
                                 </div>
-                                <Suspense fallback={<div>Loading...</div>}>
+                                <Suspense fallback={<div><Loading /></div>}>
                                     <MessageBtn />
                                 </Suspense>
                                 <Link to={`/${username}`} className="text-white mt-2" style={{ fontSize: "18px" }}>Send another message</Link>

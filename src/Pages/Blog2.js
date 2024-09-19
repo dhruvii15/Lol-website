@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react';
 import { Container } from 'reactstrap';
+import Loading from '../Component/Loading';
+import LazyLoad from 'react-lazyload';
 
 // img
-import image from "../img/blog2.svg"
+import image from "../img/blog2-2.jpg"
 
 //  Lazy load components
 const Header = React.lazy(() => import('../Component/Header'));
@@ -12,12 +14,14 @@ const Footer2 = React.lazy(() => import('../Component/Footer2'));
 const Blog2 = () => {
     return (
         <div className='BwGradual fs-5'>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Header />
             </Suspense>
             <Container>
                 <div className='position-relative text-center'>
-                    <img src={image} alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid' />
+                    <LazyLoad >
+                        <img src={image} alt='Uplift Your Community' className='img-fluid' />
+                    </LazyLoad>
                     <div className='position-absolute blog-bottom'>
                         <p className='BwGradualBold px-4 rounded-3 m-0 fs-2 bg-white text-start ps-0 ms-0 ps-xl-5 ms-xl-5'>Uplift Your Community</p>
                     </div>
@@ -33,12 +37,12 @@ const Blog2 = () => {
                         <p className='pt-4'>Engaging in local government is a powerful way to shape your community. Attend city council meetings, voice your opinions on important issues, and consider running for office yourself. By participating in the decision-making process, you can ensure your community reflects the values and needs of its residents. Remember, even small actions can have a significant impact. Every act of kindness, volunteer hour, and purchase from a local business contributes to a stronger, more connected community.</p>
                         <p className='pt-5 fw-bold'>Remember - change doesn't happen without a catalyst. So get involved, make a difference, and watch your community flourish.</p>
                     </div>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<div><Loading /></div>}>
                         <MorePosts />
                     </Suspense>
                 </div>
             </Container>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Footer2 />
             </Suspense>
 

@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import LazyLoad from 'react-lazyload';
-import { ReactComponent as Cards } from '../../img/inbox-cards.svg';
 
 // img
 import inboxcircle from "../../img/inbox-circle.png";
 import person from "../../img/inbox-person.png";
 import inboxBgImage from "../../img/inbox-bg.svg"; // Import your background image here
+import Cards from "../../img/cards4.jpg"
 
 // Preload the background image
 const preloadImage = (src) => {
@@ -58,9 +58,9 @@ const Inbox = () => {
                             </LazyLoad>
                         </div>
                     </Col>
-                    <Col xs={12} lg={3} className='text-center mt-3'>
+                    <Col xs={12} lg={3} className='text-center pt-5'>
                         <LazyLoad height={300} offset={100}>
-                            <Cards alt='cards' className='img-fluid inbox-cards' />
+                            <img src={Cards} alt='inbox' className='img-fluid inbox-cards rounded-2 shadow' width={250} style={{ rotate: "10deg" }} />
                         </LazyLoad>
                     </Col>
                 </Row>

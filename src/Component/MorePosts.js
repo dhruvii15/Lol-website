@@ -1,13 +1,13 @@
 import React from 'react';
 
 // img
-import blog1 from "../img/blog1.svg"
-import blog2 from "../img/blog2.svg"
-import blog3 from "../img/blog3.svg"
-import blog4 from "../img/blog4.svg"
-import blog5 from "../img/blog5.svg"
-import blog6 from "../img/blog6.svg"
-import blog7 from "../img/blog7.svg"
+import blog1 from "../img/blog1.jpg"
+import blog2 from "../img/blog2.jpg"
+import blog3 from "../img/blog3.jpg"
+import blog4 from "../img/blog4.jpg"
+import blog5 from "../img/blog5.jpg"
+import blog6 from "../img/blog6.jpg"
+import blog7 from "../img/blog7.jpg"
 
 
 const ImageSlider = () => {

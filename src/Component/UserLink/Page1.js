@@ -9,6 +9,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 // img
 import gallery from "../../img/gallery.svg";
 import emoji from "../../img/avataremoji.svg";
+import Loading from '../Loading';
 
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
 const NoDataFound = React.lazy(() => import('../NoData'));
@@ -335,7 +336,7 @@ const Page1 = ({ username }) => {
                         >
                             <span className='fs-5 text-decoration-none text-black'>Next</span>
                         </Button>
-                        <Suspense fallback={<div>Loading...</div>}>
+                        <Suspense fallback={<div><Loading /></div>}>
                             <MessageBtn />
                         </Suspense>
                     </div>
@@ -402,7 +403,7 @@ const Page1 = ({ username }) => {
                                             ))
                                         ) : (
                                             <Col className='text-center'>
-                                                <Suspense fallback={<div>Loading...</div>}>
+                                                <Suspense fallback={<div><Loading /></div>}>
                                                     <NoDataFound style={{ height: 'auto' }} />
                                                 </Suspense>
                                             </Col>

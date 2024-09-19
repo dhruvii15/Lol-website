@@ -51,7 +51,7 @@ const UserLink = () => {
 
   if (loading) {
     return (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div><Loading /></div>}>
         <Loading />
       </Suspense>
     );
@@ -59,7 +59,7 @@ const UserLink = () => {
 
   if (error) {
     return (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div><Loading /></div>}>
         <NoUserFound />
       </Suspense>
     );
@@ -67,14 +67,14 @@ const UserLink = () => {
 
   if (pauseLink) {
     return (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div><Loading /></div>}>
         <NoDataFound style={{ height: '100vh' }} />
       </Suspense>
     );
   }
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div><Loading /></div>}>
       {memoizedData2.length === 0 ? (
         <NoUserFound />
       ) : (

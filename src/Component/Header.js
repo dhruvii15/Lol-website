@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React, { useState } from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
 import { Container, NavbarBrand, Navbar, Nav, NavItem, NavbarToggler, Collapse } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons/faBarsStaggered';
+
 // img
 import logo from '../img/logo.png';
 
@@ -41,22 +41,22 @@ const Header = ({ activeLink }) => {
                     <Collapse isOpen={isOpen} navbar className="font-18" id="h6-info">
                         <Nav navbar className='mx-auto rounded-pill nav-border BwGradual'>
                             <NavItem>
-                                <Link
-                                    className={`nav-link px-4 fw-bold ${activeLink === 'safety' ? 'active' : ''}`}
+                                <p
+                                    className={`nav-link px-4 fw-bold cursor m-0 ${activeLink === 'safety' ? 'active' : ''}`}
                                     style={{ fontSize: "19px" }}
-                                    to="/safety"
+                                    onClick={() => window.location.href = "/safety"}
                                 >
                                     Safety
-                                </Link>
+                                </p>
                             </NavItem>
                             <NavItem>
-                                <Link
-                                    className={`nav-link px-4 fw-bold ${activeLink === 'blog' ? 'active' : ''}`}
+                                <p
+                                    className={`nav-link px-4 fw-bold cursor m-0 ${activeLink === 'blog' ? 'active' : ''}`}
                                     style={{ fontSize: "19px" }}
-                                    to="/blog"
+                                    onClick={() => window.location.href = "/blog"}
                                 >
                                     Blog
-                                </Link>
+                                </p>
                             </NavItem>
                             <NavItem>
                                 <a

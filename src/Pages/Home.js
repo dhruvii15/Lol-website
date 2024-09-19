@@ -1,5 +1,6 @@
 import React, { useEffect, Suspense } from 'react';
 import { useLoading } from '../Component/LoadingContext';
+import Loading from '../Component/Loading';
 
 // Lazy load components
 const Header = React.lazy(() => import('../Component/Header'));
@@ -41,7 +42,7 @@ const Home = () => {
     console.log(document.readyState);
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div><Loading /></div>}>
             <Header />
             <div className='bg-black overflow-hidden' style={{ borderTopLeftRadius: "40px", borderTopRightRadius: "40px" }}>
                 <Main />

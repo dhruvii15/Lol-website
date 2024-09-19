@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Col, Container, Row } from 'reactstrap';
+import Loading from '../Loading';
 
 // Lazy load the Safety components
 const Safety1 = lazy(() => import('./Safety1'));
@@ -48,7 +49,7 @@ const SafetyComponent = ({ activeItem, onItemClick }) => {
                     </div>
                 </Col>
                 <Col xs={12} lg={8} className='p-4'>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<div><Loading /></div>}>
                         {renderSafetyContent()}
                     </Suspense>
                 </Col>

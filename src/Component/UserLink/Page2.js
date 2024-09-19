@@ -11,10 +11,10 @@ import fontBg2 from "../../img/2.png";
 import fontBg3 from "../../img/3.png";
 import fontBg4 from "../../img/4.png";
 import fontBg5 from "../../img/5.png";
+import Loading from '../Loading';
 
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
 const NoDataFound = React.lazy(() => import('../NoData'));
-const NoInternet = React.lazy(() => import('../NoInternet'));
 
 const capitalizeFirstLetter = (string) => {
     if (!string) return '';
@@ -47,7 +47,6 @@ const Page2 = () => {
     const [shape, setShape] = useState('');
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [online, setOnline] = useState(navigator.onLine);
     const [noData, setNoData] = useState(false);
     const [show, setShow] = useState(false);
     const [selectedImage, setSelectedImage] = useState('');
@@ -74,7 +73,6 @@ const Page2 = () => {
 
     const getData = useCallback(async () => {
         if (!navigator.onLine) {
-            setOnline(false);
             return;
         }
         try {
@@ -89,18 +87,11 @@ const Page2 = () => {
             toast.error("Failed to fetch data.");
         } finally {
             setLoading(false);
-            setOnline(true);
         }
     }, []);
 
     useEffect(() => {
         getData();
-
-        const handleOnline = () => setOnline(true);
-        const handleOffline = () => setOnline(false);
-
-        window.addEventListener('online', handleOnline);
-        window.addEventListener('offline', handleOffline);
 
         if (avatar instanceof File) {
             const url = URL.createObjectURL(avatar);
@@ -110,10 +101,6 @@ const Page2 = () => {
             setAvatarURL(avatar);
         }
 
-        return () => {
-            window.removeEventListener('online', handleOnline);
-            window.removeEventListener('offline', handleOffline);
-        };
     }, [getData, avatar]);
 
     const handleNextClick = useCallback(() => {
@@ -122,9 +109,6 @@ const Page2 = () => {
         navigate(`/${username}/step3`, { state: formData });
     }, [avatar, inputValues, username, nickname, selectedImage, navigate]);
 
-    if (!online) return <Suspense fallback={<div>Loading...</div>}>
-        <NoInternet />
-    </Suspense>;
     if (loading) return <LoadingComponent />;
     if (noData) return <NoDataComponent />;
 
@@ -183,7 +167,7 @@ const LoadingComponent = () => (
 
 const NoDataComponent = () => (
     <div style={{ height: "100vh" }} className='d-flex flex-column justify-content-center'>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div><Loading /></div>}>
             <NoDataFound />
         </Suspense>
     </div>
@@ -277,7 +261,7 @@ const PreviewOffcanvas = React.memo(({ show, handleClose, selectedImage, fontBg,
                         </Button>
                     </div>
                     <div className='w-100 p-3 pt-0'>
-                        <Suspense fallback={<div>Loading...</div>}>
+                        <Suspense fallback={<div><Loading /></div>}>
                             <MessageBtn />
                         </Suspense>
                     </div>

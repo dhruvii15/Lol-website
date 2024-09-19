@@ -12,6 +12,7 @@ import GirlFriend from "../../img/GirlFriend.svg";
 import BoyFriend from "../../img/BoyFriend.svg";
 import Enemy from "../../img/Enemy.svg";
 import Stranger from "../../img/Stranger.svg";
+import Loading from '../Loading';
 
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
 
@@ -128,7 +129,7 @@ const Page3 = () => {
                                 <span className='fs-5 text-decoration-none text-black'>{loading ? 'Sending...' : 'Send'}</span>
                             </Button>
 
-                            <Suspense fallback={<div>Loading...</div>}>
+                            <Suspense fallback={<div><Loading /></div>}>
                                 <MessageBtn />
                             </Suspense>
                         </div>

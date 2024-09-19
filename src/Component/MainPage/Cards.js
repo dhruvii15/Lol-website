@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {  useEffect, useRef, useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import LazyLoad from 'react-lazyload';
 
@@ -27,7 +27,7 @@ const Cards = () => {
         const currentRef = cardsRef.current;
 
         // Preload all images
-        const imagesToPreload = [spinner, point, cards1, cards2, cards3, cards4, cards5, cards6, cards7];
+        const imagesToPreload = [spinner, point, cards2, cards3, cards4, cards7];
         imagesToPreload.forEach((image) => preloadImage(image));
 
         const observer = new IntersectionObserver(

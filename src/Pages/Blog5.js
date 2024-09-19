@@ -1,10 +1,12 @@
 import React, { Suspense } from 'react';
 import { Container } from 'reactstrap';
-
-// img
-import image from "../img/blog5.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import Loading from '../Component/Loading';
+
+// img
+import image from "../img/blog5-2.jpg"
+import LazyLoad from 'react-lazyload';
 
 //  Lazy load components
 const Header = React.lazy(() => import('../Component/Header'));
@@ -14,12 +16,14 @@ const Footer2 = React.lazy(() => import('../Component/Footer2'));
 const Blog5 = () => {
     return (
         <div className='BwGradual fs-5'>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Header />
             </Suspense>
             <Container>
                 <div className='position-relative text-center'>
-                    <img src={image} alt='hidden-gems-tips-tricks-for-the-lol-app' className='img-fluid' />
+                    <LazyLoad >
+                        <img src={image} alt='Staying-Safe-ON-LOL' className='img-fluid' />
+                    </LazyLoad>
                     <div className='position-absolute blog-bottom'>
                         <p className='BwGradualBold px-4 rounded-3 m-0 fs-2 bg-white text-start ps-0 ms-0 ps-xl-5 ms-xl-5'>Staying Safe ON LOL:</p>
                     </div>
@@ -65,12 +69,12 @@ const Blog5 = () => {
                             <p className='ps-2'>Visit "Our Resources" to find help with getting back to feeling good!</p>
                         </div>
                     </div>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<div><Loading /></div>}>
                         <MorePosts />
                     </Suspense>
                 </div>
             </Container>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><Loading /></div>}>
                 <Footer2 />
             </Suspense>
 
