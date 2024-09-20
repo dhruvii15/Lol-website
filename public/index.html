@@ -31,33 +31,24 @@
   <title>LOL</title>
 
   <!-- Snap Pixel Code -->
-  <script type='text/javascript'>
-    (function (e, t, n) {
-      if (e.snaptr) return; var a = e.snaptr = function () { a.handleRequest ? a.handleRequest.apply(a, arguments) : a.queue.push(arguments) };
-      a.queue = []; var s = 'script'; r = t.createElement(s); r.async = !0;
-      r.src = n; var u = t.getElementsByTagName(s)[0];
-      u.parentNode.insertBefore(r, u);
-    })(window, document,
-      'https://sc-static.net/scevent.min.js');
-
-    snaptr('init', 'b769f3d9-f733-4afb-b0b6-8d3f6c81dc60', {});
-
-    snaptr('track', 'PAGE_VIEW');
-
-    // Check if the user came from a Snapchat ad
-    function getURLParameter(name) {
-      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
-    }
-
-    var snapSource = getURLParameter('utm_source');
-    var snapCampaign = getURLParameter('utm_campaign');
-
-    if (snapSource === 'snapchat' || snapCampaign) {
-      snaptr('track', 'AD_CLICK', {
-        'campaign': snapCampaign || 'unknown'
-      });
-    }
+  <script type="text/javascript">
+    (function(e,t,n){
+      if(e.snaptr)return;
+      var a=e.snaptr=function(){
+        a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments);
+      };
+      a.queue=[];
+      var s='script';
+      var r=t.createElement(s);
+      r.async=!0;
+      r.src=n;
+      var u=t.getElementsByTagName(s)[0];
+      u.parentNode.insertBefore(r,u);
+    })(window,document,'https://sc-static.net/scevent.min.js');
+  
+    snaptr('init', 'b769f3d9-f733-4afb-b0b6-8d3f6c81dc60');  // Replace with your actual Pixel ID
   </script>
+  
   <!-- End Snap Pixel Code -->
 
 </head>
@@ -76,5 +67,5 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 </body>
-
+<!-- sc_referrer=snapchat -->
 </html>

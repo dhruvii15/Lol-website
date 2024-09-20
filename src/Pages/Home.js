@@ -15,31 +15,43 @@ const Home = () => {
     const { setIsLoading } = useLoading();
 
     useEffect(() => {
+        const queryParams = new URLSearchParams(window.location.search);
+        const isFromSnapAd = queryParams.get('sc_referrer') === 'snapchat';
+
+        // Snap Pixel tracking for VIEW_CONTENT
+        if (isFromSnapAd && window.snaptr && typeof window.snaptr.tracked === 'undefined') {
+            console.log('Snaptr is available and user is from Snap ad. Sending VIEW_CONTENT event...');
+            window.snaptr('track', 'VIEW_CONTENT', {
+                'page_name': 'user_link',
+                'page_url': window.location.href,
+                'sc_referrer': 'snapchat'
+            });
+            window.snaptr.tracked = true; // Prevents multiple calls
+        } else if (!window.snaptr) {
+            console.warn('Snap Pixel (snaptr) is not available.');
+        } else if (!isFromSnapAd) {
+            console.log('User is not from a Snap ad. Skipping Snap Pixel tracking.');
+        }
+
         setIsLoading(true);
-        console.log('Loading started');
-    
+
         const handlePageLoad = () => {
             setIsLoading(false);
-            console.log('Loading finished');
         };
-    
+
+        // Check if the page is already loaded
         if (document.readyState === 'complete') {
             handlePageLoad();
         } else {
+            // Add load event listener
             window.addEventListener('load', handlePageLoad);
-    
-            const fallbackTimer = setTimeout(() => {
-                handlePageLoad();
-            }, 1500);
-    
+
             return () => {
                 window.removeEventListener('load', handlePageLoad);
-                clearTimeout(fallbackTimer);
             };
         }
-    }, [setIsLoading]);
 
-    console.log(document.readyState);
+    }, [setIsLoading]);
 
     return (
         <Suspense fallback={<div><Loading /></div>}>

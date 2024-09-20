@@ -31,7 +31,7 @@ const Blog4 = () => {
                 </div>
                 <div className='px-3 px-lg-5'>
                     <div className='pt-5'>
-                        <p>After nearly two years of cooperating with the FTC’s investigation, we view this resolution as an opportunity to make NGL better than ever for our users and we think the agreement is in our best interest. While we believe many of the allegations around the youth of our user base are factually incorrect, we anticipate that the agreed upon age-gating and other procedures will now provide direction for others in our space, and hopefully improve policies generally.</p>
+                        <p>After nearly two years of cooperating with the FTC’s investigation, we view this resolution as an opportunity to make LOL better than ever for our users and we think the agreement is in our best interest. While we believe many of the allegations around the youth of our user base are factually incorrect, we anticipate that the agreed upon age-gating and other procedures will now provide direction for others in our space, and hopefully improve policies generally.</p>
                     </div>
                     <Suspense fallback={<div><Loading /></div>}>
                         <MorePosts />

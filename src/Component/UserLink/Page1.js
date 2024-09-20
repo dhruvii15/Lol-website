@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback, useRef, Suspense } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button, Col, Container, Label, Offcanvas, OffcanvasBody, OffcanvasHeader, Row } from 'reactstrap';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -25,22 +24,50 @@ const Page1 = ({ username }) => {
         en: {
             nickname: 'Nickname',
             placeholder: 'Enter',
+            create: "Create",
+            card: "Card"
         },
         hi: {
             nickname: 'उपनाम',
             placeholder: 'दर्ज',
+            create: "बनाएं",
+            card: "कार्ड"
         },
         es: {
             nickname: 'Apodo',
             placeholder: 'Introducir',
+            create: "Crear",
+            card: "Tarjeta"
         },
         ur: {
             nickname: 'عرفیت',
             placeholder: 'داخل کریں',
+            create: "بنائیں",
+            card: "کارڈ"
         },
         fr: {
             nickname: 'Surnom',
             placeholder: 'Entrez le',
+            create: "Créer",
+            card: "Carte"
+        },
+        pt: {
+            nickname: 'Apelido',
+            placeholder: 'Digitar',
+            create: "Criar",
+            card: "Cartão"
+        },
+        in: {
+            nickname: 'Nama panggilan',
+            placeholder: 'Memasuki',
+            create: "Membuat",
+            card: "Kartu"
+        },
+        ar: {
+            nickname: 'كنية',
+            placeholder: 'يدخل',
+            create: "يخلق",
+            card: "بطاقة"
         }
     };
 
@@ -70,8 +97,6 @@ const Page1 = ({ username }) => {
     const handleFileColumnClick = () => {
         setSelectedColumn('file');
     };
-
-    const navigate = useNavigate();
 
     const handleClose = () => {
         setShow(false);
@@ -187,19 +212,19 @@ const Page1 = ({ username }) => {
                 newErrors[index] = true;
             }
         });
-    
+
         if (!nickname || nickname.trim() === '') {
             setNicknameError(true);
             return;
         } else {
             setNicknameError(false);
         }
-    
+
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
         }
-    
+
         // Prepare form data
         const formData = {
             avatar: Avatar,
@@ -208,10 +233,10 @@ const Page1 = ({ username }) => {
             nickname,
             data2
         };
-    
+
         // Store form data in sessionStorage
         sessionStorage.setItem('formData', JSON.stringify(formData));
-    
+
         // Navigate to the new page
         window.location.href = `/${username}/step2`;
     };
@@ -229,7 +254,14 @@ const Page1 = ({ username }) => {
                     </div>
 
                     <div className='bg-white page1-whitebox mx-1 rounded-5 shadow text-center overflow-hidden'>
-                        <p className='pt-3 fs-5'>Create <small className='fw-bolder'>{name ? name.charAt(0).toUpperCase() + name.slice(1) : ''}'s</small> Card</p>
+                        <p className='pt-3 fs-5'>
+                            {getlanguageText('create')}
+                            <small className='fw-bolder'>
+                            {name ? `  ${name.charAt(0).toUpperCase() + name.slice(1)}'s  ` : ''}
+                            </small>
+                            {getlanguageText('card')}
+                        </p>
+
                         <img
                             src={selectedAvatar || imagePreview || 'https://lolcards.link/api/public/images/avatar.png'}
                             alt='avatar'

@@ -14,7 +14,7 @@ const Safety4 = () => {
 
             <div className='pt-5 ps-4'>
                 <p className='BwGradualBold fs-2'>2. Pause my link</p>
-                <p>This feature allows LOL users to pause their NGL link, meaning that they can stop receiving messages in their LOL inbox for their chosen period of time. If a user becomes overwhelmed by their volume of incoming messages, they can pause their link for as long as they’d like, waiting to resume receiving messages until they’re once again ready to use LOL. Currently, users can choose to pause for preset times of 1, 6, or 24 hours, or they can choose to pause their link indefinitely and can unpause whenever they’re comfortable.</p>
+                <p>This feature allows LOL users to pause their LOL link, meaning that they can stop receiving messages in their LOL inbox for their chosen period of time. If a user becomes overwhelmed by their volume of incoming messages, they can pause their link for as long as they’d like, waiting to resume receiving messages until they’re once again ready to use LOL. Currently, users can choose to pause for preset times of 1, 6, or 24 hours, or they can choose to pause their link indefinitely and can unpause whenever they’re comfortable.</p>
             </div>
 
             <div className='pt-5 ps-4'>

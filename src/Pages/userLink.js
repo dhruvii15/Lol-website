@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState, lazy, Suspense, useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -10,21 +10,22 @@ const NoDataFound = lazy(() => import('../Component/NoData'));
 const Loading = lazy(() => import('../Component/Loading'));
 
 const UserLink = () => {
+  const location = useLocation();
   const { username } = useParams();
   const [data2, setData2] = useState([]);
-  const [pauseLink, setpauseLink] = useState(null);
+  const [pauseLink, setPauseLink] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const getData2 = useCallback(() => {
     setLoading(true);
-    axios.post('https://lolcards.link/api/user/found', { username: username })
+    axios.post('https://lolcards.link/api/user/found', { username })
       .then((res) => {
         const { selectedCardTitle, pauseLink } = res.data.data;
 
         if (Array.isArray(selectedCardTitle) && selectedCardTitle.length > 0) {
           setData2(selectedCardTitle);
-          setpauseLink(pauseLink);
+          setPauseLink(pauseLink);
           setError(false);
         } else {
           setData2([]);
@@ -45,6 +46,26 @@ const UserLink = () => {
     getData2();
     document.title = username ? `@${username}` : 'LOL';
   }, [getData2, username]);
+
+  // Snap Pixel tracking for page view
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const isFromSnapAd = queryParams.get('sc_referrer') === 'snapchat';
+  
+    if (isFromSnapAd && window.snaptr && typeof window.snaptr.tracked === 'undefined') {
+      console.log('Snaptr is available and user is from Snap ad. Sending VIEW_CONTENT event...');
+      window.snaptr('track', 'VIEW_CONTENT', {
+        'page_name': 'user_link',
+        'page_url': `https://lolcards.link/${username}`,
+        'sc_referrer': 'snapchat'
+      });
+      window.snaptr.tracked = true;
+    } else if (!window.snaptr) {
+      console.warn('Snap Pixel (snaptr) is not available.');
+    } else if (!isFromSnapAd) {
+      console.log('User is not from a Snap ad. Skipping Snap Pixel tracking.');
+    }
+  }, [username, location.search]);
 
   // Memoized derived state
   const memoizedData2 = useMemo(() => data2, [data2]);

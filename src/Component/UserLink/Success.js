@@ -42,7 +42,7 @@ const Success = () => {
                                 </p>
 
                             </div>
-                            <Button className="mb-5 rounded-pill fs-4 text-black border-0 py-2 new-app-btn px-3" onClick={handlePlaystoreClick} style={{ fontWeight: "600", backgroundColor: "rgba(255, 255, 255, 0.7)" }}>New App From LOL</Button>
+                            <Button className="mb-5 rounded-pill fs-5 text-black border-0 py-2 new-app-btn px-3" onClick={handlePlaystoreClick} style={{ fontWeight: "600", backgroundColor: "rgba(255, 255, 255, 0.7)" }}>New App From LOL</Button>
                         </div>
                     </Col>
 
