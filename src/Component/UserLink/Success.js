@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Button, Col, Row } from 'reactstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 // img
 import check from "../../img/check.svg"
@@ -33,7 +33,14 @@ const Success = () => {
                                 <Suspense fallback={<div><Loading /></div>}>
                                     <MessageBtn />
                                 </Suspense>
-                                <Link to={`/${username}`} className="text-white mt-2" style={{ fontSize: "18px" }}>Send another message</Link>
+                                <p
+                                    className="text-white mt-2"
+                                    style={{ fontSize: "18px", cursor: "pointer", textDecoration: "underline", }}
+                                    onClick={() => window.location.href = `/${username}`}
+                                >
+                                    Send another message
+                                </p>
+
                             </div>
                             <Button className="mb-5 rounded-pill fs-4 text-black border-0 py-2 new-app-btn px-3" onClick={handlePlaystoreClick} style={{ fontWeight: "600", backgroundColor: "rgba(255, 255, 255, 0.7)" }}>New App From LOL</Button>
                         </div>

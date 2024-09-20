@@ -2,8 +2,6 @@ import React, { useCallback, useEffect, useState, useMemo, Suspense } from 'reac
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Col, Row, Offcanvas, OffcanvasBody, OffcanvasHeader, Button } from 'reactstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
-
 
 // Import images
 import fontBg1 from "../../img/1.png";
@@ -24,15 +22,15 @@ const capitalizeFirstLetter = (string) => {
 const Page2 = () => {
     const defaultAvatarURL = 'https://lolcards.link/api/public/images/avatar.png';
 
-    const location = useLocation();
-    const navigate = useNavigate();
+    // Retrieve data from sessionStorage
+    const storedData = JSON.parse(sessionStorage.getItem('formData')) || {};
     const {
         avatar = '',
         inputValues = {},
         username = '',
         nickname = '',
         data2 = []
-    } = location.state || {};
+    } = storedData;
 
     const values = useMemo(() => Object.values(inputValues), [inputValues]);
 
@@ -104,10 +102,16 @@ const Page2 = () => {
     }, [getData, avatar]);
 
     const handleNextClick = useCallback(() => {
+        // Prepare the data to store
         const formData = { avatar, inputValues, username, nickname, cardBg: selectedImage };
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        navigate(`/${username}/step3`, { state: formData });
-    }, [avatar, inputValues, username, nickname, selectedImage, navigate]);
+        
+        // Store data in sessionStorage
+        sessionStorage.setItem('formData', JSON.stringify(formData));
+        
+        // Use window.location.href to navigate
+        window.location.href = `/${username}/step3`;
+    }, [avatar, inputValues, username, nickname, selectedImage]);
+    
 
     if (loading) return <LoadingComponent />;
     if (noData) return <NoDataComponent />;
@@ -198,6 +202,7 @@ const CardBackgrounds = React.memo(({ data, handleShow }) => (
         ))}
     </Row>
 ));
+
 
 const PreviewOffcanvas = React.memo(({ show, handleClose, selectedImage, fontBg, font, color, shape, nickname, imageUrl, data2, values, handleNextClick }) => (
     <Offcanvas isOpen={show} toggle={handleClose} direction="bottom" className="h-75 offcanvas-custom overflow-hidden">

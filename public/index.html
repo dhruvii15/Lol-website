@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#FA4957">
   <meta name="apple-mobile-web-app-status-bar-style" content="#FA4957">
-    
-    
+
+
 
   <meta name="msapplication-TileColor" content="#FA4957">
   <!--
@@ -29,6 +29,37 @@
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
   <title>LOL</title>
+
+  <!-- Snap Pixel Code -->
+  <script type='text/javascript'>
+    (function (e, t, n) {
+      if (e.snaptr) return; var a = e.snaptr = function () { a.handleRequest ? a.handleRequest.apply(a, arguments) : a.queue.push(arguments) };
+      a.queue = []; var s = 'script'; r = t.createElement(s); r.async = !0;
+      r.src = n; var u = t.getElementsByTagName(s)[0];
+      u.parentNode.insertBefore(r, u);
+    })(window, document,
+      'https://sc-static.net/scevent.min.js');
+
+    snaptr('init', 'b769f3d9-f733-4afb-b0b6-8d3f6c81dc60', {});
+
+    snaptr('track', 'PAGE_VIEW');
+
+    // Check if the user came from a Snapchat ad
+    function getURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+    }
+
+    var snapSource = getURLParameter('utm_source');
+    var snapCampaign = getURLParameter('utm_campaign');
+
+    if (snapSource === 'snapchat' || snapCampaign) {
+      snaptr('track', 'AD_CLICK', {
+        'campaign': snapCampaign || 'unknown'
+      });
+    }
+  </script>
+  <!-- End Snap Pixel Code -->
+
 </head>
 
 <body class="poppins-regular">

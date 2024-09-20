@@ -1,5 +1,5 @@
-import React, { useState, Suspense } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Col, Row, Button } from 'reactstrap';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
@@ -17,13 +17,30 @@ import Loading from '../Loading';
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
 
 const Page3 = () => {
-    const location = useLocation();
     const navigate = useNavigate();
-    const { avatar, inputValues, cardBg, username, nickname } = location.state || {};
 
+    const [avatar, setAvatar] = useState('');
+    const [inputValues, setInputValues] = useState({});
+    const [cardBg, setCardBg] = useState('');
+    const [username, setUsername] = useState('');
+    const [nickname, setNickname] = useState('');
+    
     const [hint, setHint] = useState('');
     const [selectedRelation, setSelectedRelation] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        // Retrieve data from sessionStorage
+        const storedData = sessionStorage.getItem('formData');
+        if (storedData) {
+            const { avatar, inputValues, username, nickname, cardBg } = JSON.parse(storedData);
+            setAvatar(avatar || '');
+            setInputValues(inputValues || {});
+            setUsername(username || '');
+            setNickname(nickname || '');
+            setCardBg(cardBg || '');
+        }
+    }, []);
 
     const handleSelectRelation = (relationLabel, index) => {
         setHint(relationLabel);

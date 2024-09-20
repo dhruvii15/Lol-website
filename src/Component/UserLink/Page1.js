@@ -187,19 +187,20 @@ const Page1 = ({ username }) => {
                 newErrors[index] = true;
             }
         });
-
+    
         if (!nickname || nickname.trim() === '') {
             setNicknameError(true);
             return;
         } else {
             setNicknameError(false);
         }
-
+    
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
         }
-
+    
+        // Prepare form data
         const formData = {
             avatar: Avatar,
             inputValues,
@@ -207,24 +208,12 @@ const Page1 = ({ username }) => {
             nickname,
             data2
         };
-        smoothScrollToTop();
-
-        navigate(`/${username}/step2`, { state: formData });
-    };
-
-    const smoothScrollToTop = () => {
-        const scrollOptions = {
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        };
-
-        if ('scrollBehavior' in document.documentElement.style) {
-            window.scrollTo(scrollOptions);
-        } else {
-            window.scrollTo(0, 0);
-            document.body.focus();
-        }
+    
+        // Store form data in sessionStorage
+        sessionStorage.setItem('formData', JSON.stringify(formData));
+    
+        // Navigate to the new page
+        window.location.href = `/${username}/step2`;
     };
 
     return (
