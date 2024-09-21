@@ -17,21 +17,39 @@ const Home = () => {
     useEffect(() => {
         const queryParams = new URLSearchParams(window.location.search);
         const isFromSnapAd = queryParams.get('sc_referrer') === 'snapchat';
+        const isFromFbAd = queryParams.get('fbclid') !== null; // Check for Facebook Click ID
 
-        // Snap Pixel tracking for VIEW_CONTENT
-        if (isFromSnapAd && window.snaptr && typeof window.snaptr.tracked === 'undefined') {
-            console.log('Snaptr is available and user is from Snap ad. Sending VIEW_CONTENT event...');
-            window.snaptr('track', 'VIEW_CONTENT', {
-                'page_name': 'user_link',
-                'page_url': window.location.href,
-                'sc_referrer': 'snapchat'
-            });
-            window.snaptr.tracked = true; // Prevents multiple calls
-        } else if (!window.snaptr) {
-            console.warn('Snap Pixel (snaptr) is not available.');
-        } else if (!isFromSnapAd) {
-            console.log('User is not from a Snap ad. Skipping Snap Pixel tracking.');
-        }
+        // Function to track Snap Pixel event
+        const trackSnapPixelEvent = () => {
+            if (window.snaptr) {
+                // console.log('Snaptr is available. Sending PAGE_VIEW event...');
+                window.snaptr('track', 'PAGE_VIEW', {
+                    'page_name': 'user_link',
+                    'page_url': window.location.href,
+                    'sc_referrer': isFromSnapAd ? 'snapchat' : 'other'
+                });
+            } else {
+                // console.warn('Snap Pixel (snaptr) is not available.');
+            }
+        };
+
+        // Function to track Facebook Pixel event
+        const trackFacebookPixelEvent = () => {
+            if (window.fbq) {
+                // console.log('Facebook Pixel is available. Sending PageView event...');
+                window.fbq('track', 'PageView', {
+                    page_name: 'user_link',
+                    page_url: window.location.href,
+                    fb_referrer: isFromFbAd ? 'facebook' : 'other'
+                });
+            } else {
+                // console.warn('Facebook Pixel (fbq) is not available.');
+            }
+        };
+
+        // Track events
+        trackSnapPixelEvent();
+        trackFacebookPixelEvent();
 
         setIsLoading(true);
 

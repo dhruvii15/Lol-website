@@ -51,20 +51,33 @@ const UserLink = () => {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const isFromSnapAd = queryParams.get('sc_referrer') === 'snapchat';
+    // const isFromFacebookAd = queryParams.get('fbclid') !== null; // Check for Facebook Click ID
   
-    if (isFromSnapAd && window.snaptr && typeof window.snaptr.tracked === 'undefined') {
-      console.log('Snaptr is available and user is from Snap ad. Sending VIEW_CONTENT event...');
+    // Snap Pixel tracking
+    if (window.snaptr) {
+      // console.log('Snaptr is available. Sending VIEW_CONTENT event...');
       window.snaptr('track', 'VIEW_CONTENT', {
         'page_name': 'user_link',
         'page_url': `https://lolcards.link/${username}`,
-        'sc_referrer': 'snapchat'
+        'sc_referrer': isFromSnapAd ? 'snapchat' : 'other'
       });
-      window.snaptr.tracked = true;
-    } else if (!window.snaptr) {
-      console.warn('Snap Pixel (snaptr) is not available.');
-    } else if (!isFromSnapAd) {
-      console.log('User is not from a Snap ad. Skipping Snap Pixel tracking.');
+    } else {
+      // console.warn('Snap Pixel (snaptr) is not available.');
     }
+  
+    // Facebook Pixel tracking
+    if (window.fbq) {
+      // console.log('Facebook Pixel is available. Sending ViewContent event...');
+      window.fbq('track', 'ViewContent', {
+        content_name: 'user_link',
+        content_category: 'UserProfile',
+        content_ids: [username],
+        content_type: 'product',
+      });
+    } else {
+      // console.warn('Facebook Pixel (fbq) is not available.');
+    }
+  
   }, [username, location.search]);
 
   // Memoized derived state
