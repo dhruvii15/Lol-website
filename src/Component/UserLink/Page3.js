@@ -13,11 +13,13 @@ import BoyFriend from "../../img/BoyFriend.svg";
 import Enemy from "../../img/Enemy.svg";
 import Stranger from "../../img/Stranger.svg";
 import Loading from '../Loading';
+import { useTranslation } from 'react-i18next';
 
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
 
 const Page3 = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const [avatar, setAvatar] = useState('');
     const [inputValues, setInputValues] = useState({});
@@ -48,12 +50,12 @@ const Page3 = () => {
     };
 
     const relations = [
-        { src: friend, alt: 'friend', label: 'Friend' },
-        { src: Family, alt: 'Family', label: 'Family' },
-        { src: GirlFriend, alt: 'GirlFriend', label: 'GirlFriend' },
-        { src: BoyFriend, alt: 'BoyFriend', label: 'BoyFriend' },
-        { src: Enemy, alt: 'Enemy', label: 'Enemy' },
-        { src: Stranger, alt: 'Stranger', label: 'Stranger' },
+        { src: friend, alt: t('page3.2'), label: t('page3.2') },
+        { src: Family, alt: t('page3.3'), label: t('page3.3') },
+        { src: GirlFriend, alt: t('page3.4'), label: t('page3.4') },
+        { src: BoyFriend, alt: t('page3.5'), label: t('page3.5') },
+        { src: Enemy, alt: t('page3.6'), label: t('page3.6') },
+        { src: Stranger, alt: t('page3.7'), label: t('page3.7') },
     ];
 
     const handleSendClick = async () => {
@@ -109,8 +111,8 @@ const Page3 = () => {
                             <div className='bg-black' style={{ width: '40px', height: '2px' }} />
                             <div className='num-circle bg-black text-white'><p>3</p></div>
                         </div>
-                        <h3 className='text-center text-white pt-4'>Select Your Relation</h3>
-                        <p className='text-center text-white fs-5 pb-3 m-0'>Give hint just for fun...</p>
+                        <h3 className='text-center text-white pt-4'>{t('page3.0')}</h3>
+                        <p className='text-center text-white fs-5 pb-3 m-0'>{t('page3.1')}</p>
 
                         <div className=''>
                             <Row className='px-3'>
@@ -130,7 +132,7 @@ const Page3 = () => {
                                                 className='img-fluid w-50'
                                                 style={{ cursor: 'pointer' }}
                                             />
-                                            <h4 className='pt-2'>{relation.label}</h4>
+                                            <h4 className='pt-4 fs-5'>{relation.label}</h4>
                                         </div>
                                     </Col>
                                 ))}
@@ -143,7 +145,7 @@ const Page3 = () => {
                                 onClick={handleSendClick}
                                 disabled={loading} // Disable button when loading
                             >
-                                <span className='fs-5 text-decoration-none text-black'>{loading ? 'Sending...' : 'Send'}</span>
+                                <span className='fs-5 text-decoration-none text-black'>{loading ? t('page3.9') : t('page3.8')}</span>
                             </Button>
 
                             <Suspense fallback={<div><Loading /></div>}>

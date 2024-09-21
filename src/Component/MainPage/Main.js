@@ -24,7 +24,7 @@ const Main = () => {
     const mainBgRef = useRef(null);
 
     const handlePlaystoreClick = () => {
-        const playstore = 'https://play.google.com/store/apps/details?id=com.pazugames.avatarworld';
+        const playstore = 'https://play.google.com/store/apps/details?id=com.lol.android';
         
         window.open(playstore, '_blank');
     };

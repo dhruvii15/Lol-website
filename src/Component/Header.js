@@ -6,23 +6,20 @@ import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons/faBarsStagger
 
 // img
 import logo from '../img/logo.png';
-import { useTranslation } from 'react-i18next';
 
 const Header = ({ activeLink }) => {
-
-    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
     const handleAppstoreClick = () => {
-        const appstore = 'https://apps.apple.com/in/app/carrom-king/id1227693816';
+        const appstore = 'https://apps.apple.com/us/app/lol-anonymous-funny-card/id6670788272';
 
         window.open(appstore, '_blank');
     };
 
 
     const handlePlaystoreClick = () => {
-        const playstore = 'https://play.google.com/store/apps/details?id=com.pazugames.avatarworld';
+        const playstore = 'https://play.google.com/store/apps/details?id=com.lol.android';
         
         window.open(playstore, '_blank');
     };
@@ -49,8 +46,7 @@ const Header = ({ activeLink }) => {
                                     style={{ fontSize: "19px" }}
                                     onClick={() => window.location.href = "/safety"}
                                 >
-                                    
-                <p>{t('welcome')}</p>
+                                    Safety
                                 </p>
                             </NavItem>
                             <NavItem>

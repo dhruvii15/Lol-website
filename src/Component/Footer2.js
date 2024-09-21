@@ -26,14 +26,14 @@ const Footer2 = () => {
     //   };
 
     const handleAppstoreClick = () => {
-        const appstore = 'https://apps.apple.com/in/app/carrom-king/id1227693816';
+        const appstore = 'https://apps.apple.com/us/app/lol-anonymous-funny-card/id6670788272';
 
         window.open(appstore, '_blank');
     };
 
 
     const handlePlaystoreClick = () => {
-        const playstore = 'https://play.google.com/store/apps/details?id=com.pazugames.avatarworld';
+        const playstore = 'https://play.google.com/store/apps/details?id=com.lol.android';
         
         window.open(playstore, '_blank');
     };

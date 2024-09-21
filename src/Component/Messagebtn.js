@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from 'reactstrap';
 
 const MessageBtn = () => {
     const [count, setCount] = useState(128);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -15,7 +17,7 @@ const MessageBtn = () => {
     }, []);
 
     const handlePlaystoreClick = () => {
-        const playstore = 'https://play.google.com/store/apps/details?id=com.pazugames.avatarworld';
+        const playstore = 'https://play.google.com/store/apps/details?id=com.lol.android';
     
         // Snapchat Pixel tracking for APP_REDIRECT
         if (window.snaptr) {
@@ -47,9 +49,9 @@ const MessageBtn = () => {
 
     return (
         <>
-            <p className='py-2 m-0' style={{ fontSize: "12px", color: "#D9D9D9" }}>👇 <span>{count}</span> people just tapped the button 👇</p>
+            <p className='py-2 m-0' style={{ fontSize: "12px", color: "#D9D9D9" }}>👇 <span>{count}</span> {t('tap')}</p>
             <Button className='bg-black rounded-pill w-100 border-0 py-2 mb-4 pulse mt-1' onClick={handlePlaystoreClick}>
-                <p className='fs-5 text-decoration-none text-white m-0'>Get own message!</p>
+                <p className='fs-5 text-decoration-none text-white m-0'>{t('msg')}</p>
             </Button>
         </>
     );

@@ -9,6 +9,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import gallery from "../../img/gallery.svg";
 import emoji from "../../img/avataremoji.svg";
 import Loading from '../Loading';
+import { useTranslation } from 'react-i18next';
 
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
 const NoDataFound = React.lazy(() => import('../NoData'));
@@ -21,51 +22,61 @@ const capitalizeFirstLetter = (string) => {
 
 const Page1 = ({ username }) => {
 
+    const { t } = useTranslation();
+
     const languageMappings = {
         en: {
             nickname: 'Nickname',
+            nicknamerequire: "Nickname is required",
             placeholder: 'Enter',
             create: "Create",
             card: "Card"
         },
         hi: {
             nickname: 'उपनाम',
+            nicknamerequire: "उपनाम आवश्यक है",
             placeholder: 'दर्ज',
             create: "बनाएं",
             card: "कार्ड"
         },
         es: {
             nickname: 'Apodo',
+            nicknamerequire: "Se requiere apodo",
             placeholder: 'Introducir',
             create: "Crear",
             card: "Tarjeta"
         },
         ur: {
             nickname: 'عرفیت',
+            nicknamerequire: "عرفی نام درکار ہے۔",
             placeholder: 'داخل کریں',
             create: "بنائیں",
             card: "کارڈ"
         },
         fr: {
             nickname: 'Surnom',
+            nicknamerequire: "Le pseudo est obligatoire",
             placeholder: 'Entrez le',
             create: "Créer",
             card: "Carte"
         },
         pt: {
             nickname: 'Apelido',
+            nicknamerequire: "O apelido é obrigatório",
             placeholder: 'Digitar',
             create: "Criar",
             card: "Cartão"
         },
         in: {
             nickname: 'Nama panggilan',
+            nicknamerequire: "Nama panggilan diperlukan",
             placeholder: 'Memasuki',
             create: "Membuat",
             card: "Kartu"
         },
         ar: {
             nickname: 'كنية',
+            nicknamerequire: "اللقب مطلوب",
             placeholder: 'يدخل',
             create: "يخلق",
             card: "بطاقة"
@@ -311,7 +322,7 @@ const Page1 = ({ username }) => {
                                 />
                                 {nicknameError && (
                                     <div className="invalid-feedback">
-                                        Nickname is required
+                                        {getlanguageText('nicknamerequire')}
                                     </div>
                                 )}
                             </div>
@@ -356,7 +367,7 @@ const Page1 = ({ username }) => {
                             className='bg-white rounded-pill w-75 border-0 py-2 my-4 mx-auto'
                             onClick={handleNextClick}
                         >
-                            <span className='fs-5 text-decoration-none text-black'>Next</span>
+                            <span className='fs-5 text-decoration-none text-black'>{t('next')}</span>
                         </Button>
                         <Suspense fallback={<div><Loading /></div>}>
                             <MessageBtn />

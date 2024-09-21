@@ -10,6 +10,7 @@ import fontBg3 from "../../img/3.png";
 import fontBg4 from "../../img/4.png";
 import fontBg5 from "../../img/5.png";
 import Loading from '../Loading';
+import { useTranslation } from 'react-i18next';
 
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
 const NoDataFound = React.lazy(() => import('../NoData'));
@@ -20,6 +21,8 @@ const capitalizeFirstLetter = (string) => {
 };
 
 const Page2 = () => {
+    const { t } = useTranslation();
+
     const defaultAvatarURL = 'https://lolcards.link/api/public/images/avatar.png';
 
     // Retrieve data from sessionStorage
@@ -104,14 +107,14 @@ const Page2 = () => {
     const handleNextClick = useCallback(() => {
         // Prepare the data to store
         const formData = { avatar, inputValues, username, nickname, cardBg: selectedImage };
-        
+
         // Store data in sessionStorage
         sessionStorage.setItem('formData', JSON.stringify(formData));
-        
+
         // Use window.location.href to navigate
         window.location.href = `/${username}/step3`;
     }, [avatar, inputValues, username, nickname, selectedImage]);
-    
+
 
     if (loading) return <LoadingComponent />;
     if (noData) return <NoDataComponent />;
@@ -121,7 +124,7 @@ const Page2 = () => {
             <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
                 <Col sm={9} xl={5}>
                     <StepIndicator />
-                    <h4 className='text-center text-white py-4'>Select a card background</h4>
+                    <h4 className='text-center text-white py-4'>{t('page2')}</h4>
                     <CardBackgrounds data={data} handleShow={handleShow} />
                 </Col>
             </Row>
@@ -139,35 +142,41 @@ const Page2 = () => {
                 data2={data2}
                 values={values}
                 handleNextClick={handleNextClick}
+                t={t}  // Pass t here
             />
+
         </div>
     );
 };
 
-const LoadingComponent = () => (
-    <div className='page1-bg orange-bg'>
-        <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
-            <Col sm={9} xl={5}>
-                <StepIndicator />
-                <h4 className='text-center text-white py-4'>Select a card background</h4>
-                <Row className='px-3'>
-                    {Array.from({ length: 5 }).map((_, index) => (
-                        <Col xs={6} key={index} className='d-flex justify-content-center align-items-center p-3'>
-                            <div
-                                className='w-100 img-fluid rounded-4 defult-box'
-                                style={{
-                                    background: "linear-gradient(to bottom, rgba(128, 128, 128, 0.2), rgba(255, 255, 255, 0.2))",
-                                    cursor: 'pointer'
-                                }}
-                            >
-                            </div>
-                        </Col>
-                    ))}
-                </Row>
-            </Col>
-        </Row>
-    </div>
-);
+const LoadingComponent = () => {
+    const { t } = useTranslation();
+
+    return (
+        <div className='page1-bg orange-bg'>
+            <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
+                <Col sm={9} xl={5}>
+                    <StepIndicator />
+                    <h4 className='text-center text-white py-4'>{t('page2')}</h4>
+                    <Row className='px-3'>
+                        {Array.from({ length: 5 }).map((_, index) => (
+                            <Col xs={6} key={index} className='d-flex justify-content-center align-items-center p-3'>
+                                <div
+                                    className='w-100 img-fluid rounded-4 default-box' // Corrected typo from "defult-box" to "default-box"
+                                    style={{
+                                        background: "linear-gradient(to bottom, rgba(128, 128, 128, 0.2), rgba(255, 255, 255, 0.2))",
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
+                </Col>
+            </Row>
+        </div>
+    );
+};
 
 const NoDataComponent = () => (
     <div style={{ height: "100vh" }} className='d-flex flex-column justify-content-center'>
@@ -204,7 +213,21 @@ const CardBackgrounds = React.memo(({ data, handleShow }) => (
 ));
 
 
-const PreviewOffcanvas = React.memo(({ show, handleClose, selectedImage, fontBg, font, color, shape, nickname, imageUrl, data2, values, handleNextClick }) => (
+const PreviewOffcanvas = React.memo(({
+    show,
+    handleClose,
+    selectedImage,
+    fontBg,
+    font,
+    color,
+    shape,
+    nickname,
+    imageUrl,
+    data2,
+    values,
+    handleNextClick,
+    t // Receive t here
+}) => (
     <Offcanvas isOpen={show} toggle={handleClose} direction="bottom" className="h-75 offcanvas-custom overflow-hidden">
         <OffcanvasHeader className='mx-auto w-100 d-flex flex-column justify-content-center'>
             <p className='bg-secondary rounded-pill mx-auto' style={{ width: "50px", height: "4px" }}></p>
@@ -262,7 +285,7 @@ const PreviewOffcanvas = React.memo(({ show, handleClose, selectedImage, fontBg,
                             className='orange-bg rounded-pill w-75 border-0 py-2 my-4 mx-auto'
                             onClick={handleNextClick}
                         >
-                            <span className='fs-5 text-decoration-none text-white'>Next</span>
+                            <span className='fs-5 text-decoration-none text-white'>{t('next')}</span> {/* Use t here */}
                         </Button>
                     </div>
                     <div className='w-100 p-3 pt-0'>
@@ -275,5 +298,6 @@ const PreviewOffcanvas = React.memo(({ show, handleClose, selectedImage, fontBg,
         </OffcanvasBody>
     </Offcanvas>
 ));
+
 
 export default React.memo(Page2);
