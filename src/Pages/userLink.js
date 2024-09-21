@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useState, lazy, Suspense, useMemo } from
 import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../Component/firebase-config';
 
 // Lazy load components
 const Page1 = lazy(() => import('../Component/UserLink/Page1'));
@@ -77,6 +79,13 @@ const UserLink = () => {
     } else {
       // console.warn('Facebook Pixel (fbq) is not available.');
     }
+
+    // Log page view event with Firebase Analytics
+    logEvent(analytics, 'view_content', {
+      page_title: 'user_link',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+  });
   
   }, [username, location.search]);
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'reactstrap';
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../Component/firebase-config';
 
 const MessageBtn = () => {
     const [count, setCount] = useState(128);
@@ -21,30 +23,37 @@ const MessageBtn = () => {
     
         // Snapchat Pixel tracking for APP_REDIRECT
         if (window.snaptr) {
-            // console.log('Snaptr is available. Sending APP_REDIRECT event...');
             window.snaptr('track', 'CUSTOM_EVENT_1', {
-                'event_name': 'APP_REDIRECT', // You can add custom metadata like this
+                'event_name': 'APP_REDIRECT', // Custom metadata
                 'page_name': 'LOL',
                 'page_url': 'Get own message!',
             });
         } else {
-            // console.log('Snap Pixel (snaptr) is not available.');
+            console.warn('Snap Pixel (snaptr) is not available.');
         }
     
         // Facebook Pixel tracking for APP_REDIRECT
         if (window.fbq) {
-            // console.log('Facebook Pixel is available. Sending APP_REDIRECT event...');
             window.fbq('track', 'APP_REDIRECT', {
                 page_name: 'LOL',
                 page_url: 'Get own message!',
             });
         } else {
-            // console.log('Facebook Pixel (fbq) is not available.');
+            console.warn('Facebook Pixel (fbq) is not available.');
         }
+    
+        // Firebase Analytics custom event for app_redirect
+        logEvent(analytics, 'app_redirect', {
+            event_category: 'engagement',
+            event_action: 'playstore_redirect',
+            page_name: 'LOL',
+            page_url: window.location.href
+        });
     
         // Open Play Store link
         window.open(playstore, '_blank');
     };
+    
     
 
     return (
