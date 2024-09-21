@@ -6,8 +6,11 @@ import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons/faBarsStagger
 
 // img
 import logo from '../img/logo.png';
+import { useTranslation } from 'react-i18next';
 
 const Header = ({ activeLink }) => {
+
+    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
@@ -46,7 +49,8 @@ const Header = ({ activeLink }) => {
                                     style={{ fontSize: "19px" }}
                                     onClick={() => window.location.href = "/safety"}
                                 >
-                                    Safety
+                                    
+                <p>{t('welcome')}</p>
                                 </p>
                             </NavItem>
                             <NavItem>
