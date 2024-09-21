@@ -149,7 +149,7 @@ const Page3 = () => {
                             </Button>
 
                             <Suspense fallback={<div><Loading /></div>}>
-                                <MessageBtn />
+                                <MessageBtn color="#fff"/>
                             </Suspense>
                         </div>
                     </Col>

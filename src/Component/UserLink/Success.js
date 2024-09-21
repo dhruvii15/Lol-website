@@ -34,7 +34,7 @@ const Success = () => {
                                     <img src={check} alt='check' width={130} />
                                 </div>
                                 <Suspense fallback={<div><Loading /></div>}>
-                                    <MessageBtn />
+                                    <MessageBtn color="#fff"/>
                                 </Suspense>
                                 <p
                                     className="text-white mt-2"

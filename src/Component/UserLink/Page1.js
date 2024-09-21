@@ -370,7 +370,7 @@ const Page1 = ({ username }) => {
                             <span className='fs-5 text-decoration-none text-black'>{t('next')}</span>
                         </Button>
                         <Suspense fallback={<div><Loading /></div>}>
-                            <MessageBtn />
+                            <MessageBtn color="#fff"/>
                         </Suspense>
                     </div>
 

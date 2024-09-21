@@ -72,6 +72,16 @@ const Page2 = () => {
 
     const handleClose = useCallback(() => setShow(false), []);
 
+    const shuffleArray = (array) => {
+        let currentIndex = array.length, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    };
+
     const getData = useCallback(async () => {
         if (!navigator.onLine) {
             return;
@@ -80,8 +90,9 @@ const Page2 = () => {
             setLoading(true);
             const res = await axios.post('https://lolcards.link/api/cardBackground');
             const fetchedData = res.data.data;
-            setData(fetchedData);
-            setNoData(fetchedData.length === 0);
+            const shuffledData = shuffleArray([...fetchedData]); // Create a shuffled copy of the fetched data
+            setData(shuffledData);
+            setNoData(shuffledData.length === 0);
         } catch (err) {
             console.error(err);
             setNoData(true);
@@ -290,7 +301,7 @@ const PreviewOffcanvas = React.memo(({
                     </div>
                     <div className='w-100 p-3 pt-0'>
                         <Suspense fallback={<div><Loading /></div>}>
-                            <MessageBtn />
+                            <MessageBtn color="#A9A9A9"/>
                         </Suspense>
                     </div>
                 </Col>
