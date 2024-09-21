@@ -9,6 +9,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import gallery from "../../img/gallery.svg";
 import emoji from "../../img/avataremoji.svg";
 import Loading from '../Loading';
+import { useTranslation } from 'react-i18next';
 
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
 const NoDataFound = React.lazy(() => import('../NoData'));
@@ -20,6 +21,9 @@ const capitalizeFirstLetter = (string) => {
 };
 
 const Page1 = ({ username }) => {
+
+    const { t } = useTranslation();
+
     const languageMappings = {
         en: {
             nickname: 'Nickname',
@@ -245,6 +249,7 @@ const Page1 = ({ username }) => {
         <div className='page1-bg orange-bg'>
             <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
                 <Col sm={9} xl={5}>
+                <p>{t('welcome')}</p>
                     <div className='py-3 pt-4 d-flex justify-content-center align-items-center'>
                         <div className='num-circle bg-black text-white'><p>1</p></div>
                         <div className='bg-black' style={{ width: '40px', height: '2px' }} />

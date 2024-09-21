@@ -23,6 +23,7 @@ import Blog4 from './Pages/Blog4';
 import Blog5 from './Pages/Blog5';
 import Blog6 from './Pages/Blog6';
 import Blog7 from './Pages/Blog7';
+import './Component/i18n';
 
 const queryClient = new QueryClient();
 
