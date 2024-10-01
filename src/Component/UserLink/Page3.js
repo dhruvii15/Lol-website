@@ -4,6 +4,8 @@ import { Col, Row, Button } from 'reactstrap';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../../Component/firebase-config';
 
 // img
 import friend from "../../img/friend.svg";
@@ -88,7 +90,34 @@ const Page3 = () => {
             });
 
             if (response.status === 201) {
-                navigate(`/${username}/success`, { state: { username } });
+                navigate(`/${username}/success`, { state: { username } });if (window.snaptr) {
+                    window.snaptr('track', 'CUSTOM_EVENT_2', {
+                        'event_name': 'Card_Send',
+                        'page_name': 'LOL',
+                        'message': 'Card successfully sent'
+                    });
+                } else {
+                    console.warn('Snap Pixel (snaptr) is not available.');
+                }
+    
+                // Facebook Pixel tracking
+                if (window.fbq) {
+                    window.fbq('track', 'Card_Send', {
+                        page_name: 'LOL',
+                        message: 'Card successfully sent'
+                    });
+                } else {
+                    console.warn('Facebook Pixel (fbq) is not available.');
+                }
+    
+                // Firebase Analytics custom event
+                logEvent(analytics, 'card_send', {
+                    event_category: 'engagement',
+                    event_action: 'card_sent',
+                    page_name: 'LOL',
+                    page_url: window.location.href,
+                    message: 'Card successfully sent'
+                });
             } else {
                 toast.error(response.data.message || 'Error submitting form');
             }
