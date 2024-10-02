@@ -24,19 +24,51 @@ const capitalizeFirstLetter = (string) => {
 const Page2 = () => {
     const handleCapture = (callback) => {
         const divToCapture = document.getElementById('captureDiv');
-
+    
         if (!divToCapture) {
             console.error("Div to capture not found.");
             return;
         }
-
-        html2canvas(divToCapture).then(canvas => {
-            const image = canvas.toDataURL('image/png');
-
+    
+        const scale = 2; // Increase this for higher resolution, but be mindful of performance
+    
+        html2canvas(divToCapture, {
+            scale: scale,
+            useCORS: true,
+            allowTaint: true,
+            logging: false,
+            backgroundColor: null,
+            scrollX: 0,
+            scrollY: -window.scrollY,
+            windowWidth: document.documentElement.offsetWidth,
+            windowHeight: document.documentElement.offsetHeight,
+            onclone: (clonedDoc) => {
+                const clonedDiv = clonedDoc.getElementById('captureDiv');
+                if (clonedDiv) {
+                    clonedDiv.classList.remove('rounded-4');
+                    clonedDiv.style.borderRadius = '0';
+                }
+            }
+        }).then(canvas => {
+            // Create a new canvas with the same dimensions
+            const perfectedCanvas = document.createElement('canvas');
+            perfectedCanvas.width = canvas.width;
+            perfectedCanvas.height = canvas.height;
+            const ctx = perfectedCanvas.getContext('2d');
+    
+            // Apply image smoothing
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+    
+            // Draw the original canvas onto the new one
+            ctx.drawImage(canvas, 0, 0);
+    
+            // Convert to a high-quality PNG
+            const image = perfectedCanvas.toDataURL('image/png', 1.0);
+    
             // Store the captured image in session storage
             sessionStorage.setItem('capturedImage', image);
-            console.log("Image captured and stored in session:", image);
-
+    
             // Execute the callback to proceed to the next step
             if (callback) {
                 callback();
@@ -296,50 +328,50 @@ const PreviewOffcanvas = React.memo(({
             <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
                 <Col sm={9} xl={5}>
                     {/* save gallery */}
-                    <div
-                        className="shadow rounded-4 mx-auto p-0 overflow-hidden"
-                        style={{
-                            width: "300px",
-                            height: "400px",
-                            backgroundImage: `url(${selectedImage})`,
-                            backgroundRepeat: "no-repeat",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center"
-                        }}
-                    >
-                        <div className='py-2'  id='captureDiv'>
-                            <div className='mx-auto d-flex justify-content-center align-items-center ' 
-                                style={{
-                                    width: "150px",
-                                    height: "100px",
-                                    backgroundImage: `url(${fontBg})`,
-                                    backgroundRepeat: "no-repeat",
-                                    backgroundSize: "150px 100px",
-                                    backgroundPosition: "center"
-                                }}
-                            >
-                                <p className={`${font} ps-2`} style={{ color: color }}>{nickname}</p>
-                            </div>
+                        <div
+                            className="shadow rounded-4 mx-auto p-0 overflow-hidden" id='captureDiv'
+                            style={{
+                                width: "300px",
+                                height: "400px",
+                                backgroundImage: `url(${selectedImage})`,
+                                backgroundRepeat: "no-repeat",
+                                backgroundSize: "cover",
+                                backgroundPosition: "center"
+                            }}
+                        >
+                            <div className='py-2' >
+                                <div className='mx-auto d-flex justify-content-center align-items-center '
+                                    style={{
+                                        width: "150px",
+                                        height: "100px",
+                                        backgroundImage: `url(${fontBg})`,
+                                        backgroundRepeat: "no-repeat",
+                                        backgroundSize: "150px 100px",
+                                        backgroundPosition: "center"
+                                    }}
+                                >
+                                    <p className={`${font} ps-2`} style={{ color: color }}>{nickname}</p>
+                                </div>
 
-                            <img src={imageUrl} alt='avatar' className={`${shape} my-1`} />
-                            <div className='px-2 pt-2 d-flex justify-content-center align-items-center'>
-                                <div className='bg-white d-flex justify-content-center align-items-center' style={{ height: "155px", width: "280px", borderRadius: "10px" }}>
-                                    <Row className='w-100 text-start px-3'>
-                                        <Col xs={6} className='p-0'>
-                                            {data2.map((value, index) => (
-                                                <p key={index} className='mb-2' style={{ fontSize: "10px", fontWeight: "600" }}>{capitalizeFirstLetter(value)}</p>
-                                            ))}
-                                        </Col>
-                                        <Col xs={6} className='p-0'>
-                                            {values.map((value, index) => (
-                                                <p key={index} className='mb-2' style={{ fontSize: "10px", fontWeight: "600" }}><span className='pe-2 fw-bold'>:</span>{capitalizeFirstLetter(value)}</p>
-                                            ))}
-                                        </Col>
-                                    </Row>
+                                <img src={imageUrl} alt='avatar' className={`${shape} my-1`} />
+                                <div className='px-2 pt-2 d-flex justify-content-center align-items-center'>
+                                    <div className='bg-white d-flex justify-content-center align-items-center' style={{ height: "155px", width: "280px", borderRadius: "10px" }}>
+                                        <Row className='w-100 text-start px-3'>
+                                            <Col xs={6} className='p-0'>
+                                                {data2.map((value, index) => (
+                                                    <p key={index} className='mb-2' style={{ fontSize: "10px", fontWeight: "600" }}>{capitalizeFirstLetter(value)}</p>
+                                                ))}
+                                            </Col>
+                                            <Col xs={6} className='p-0'>
+                                                {values.map((value, index) => (
+                                                    <p key={index} className='mb-2' style={{ fontSize: "10px", fontWeight: "600" }}><span className='pe-2 fw-bold'>:</span>{capitalizeFirstLetter(value)}</p>
+                                                ))}
+                                            </Col>
+                                        </Row>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {/* save gallery */}
 
                     <div className='d-flex flex-column justify-content-center align-items-center mx-2 mx-sm-5'>
