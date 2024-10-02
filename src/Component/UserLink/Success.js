@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Button, Col, Row } from 'reactstrap';
 import { useLocation } from 'react-router-dom';
 
@@ -6,11 +6,34 @@ import { useLocation } from 'react-router-dom';
 import check from "../../img/check.svg"
 import Loading from '../Loading';
 import { useTranslation } from 'react-i18next';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 
 const MessageBtn = React.lazy(() => import('../Messagebtn'));
 
 const Success = () => {
+    const [capturedImage, setCapturedImage] = useState(null);
+
+    // Retrieve the image from session storage when the component mounts
+    useEffect(() => {
+        const image = sessionStorage.getItem('capturedImage');
+        setCapturedImage(image);
+    }, []);
+
+    const handleSaveToGallery = () => {
+        if (capturedImage) {
+            const link = document.createElement('a');
+            link.href = capturedImage;
+            link.download = 'captured-image.png'; // Download image as PNG
+            link.click();
+
+            // Clear the image from session storage after download
+            sessionStorage.removeItem('capturedImage');
+            setCapturedImage(null); // Clear from state as well
+        }
+    };
+
     const { t } = useTranslation();
 
 
@@ -22,19 +45,27 @@ const Success = () => {
 
         window.open(playstore, '_blank');
     };
-
+    
     return (
         <>
             <div className="page1-bg orange-bg">
                 <Row className="d-flex justify-content-center align-items-center h-100 m-0">
                     <Col sm={9} xl={5}>
                         <div className="d-flex flex-column mx-sm-3 mx-1 justify-content-between align-items-center vh-100">
+                            {username === "frnd" && (
+                                <button
+                                    onClick={handleSaveToGallery}
+                                    className='ms-auto pt-5 bg-transparent border-0 text-white'
+                                    style={{ fontSize: "18px" }}>
+                                    <FontAwesomeIcon icon={faDownload} /> Save Card
+                                </button>
+                            )}
                             <div className="d-flex flex-column w-100 justify-content-center align-items-center flex-grow-1">
                                 <div className='mb-5'>
                                     <img src={check} alt='check' width={130} />
                                 </div>
                                 <Suspense fallback={<div><Loading /></div>}>
-                                    <MessageBtn color="#fff"/>
+                                    <MessageBtn color="#fff" />
                                 </Suspense>
                                 <p
                                     className="text-white mt-2"

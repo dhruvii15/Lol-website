@@ -11,9 +11,10 @@ import fontBg4 from "../../img/4.png";
 import fontBg5 from "../../img/5.png";
 import Loading from '../Loading';
 import { useTranslation } from 'react-i18next';
+import html2canvas from 'html2canvas';
 
-const MessageBtn = React.lazy(() => import('../Messagebtn'));
-const NoDataFound = React.lazy(() => import('../NoData'));
+import MessageBtn  from "../Messagebtn";
+import NoDataFound  from "../NoData";
 
 const capitalizeFirstLetter = (string) => {
     if (!string) return '';
@@ -21,6 +22,31 @@ const capitalizeFirstLetter = (string) => {
 };
 
 const Page2 = () => {
+    const handleCapture = (callback) => {
+        const divToCapture = document.getElementById('captureDiv');
+    
+        if (!divToCapture) {
+            console.error("Div to capture not found.");
+            return;
+        }
+    
+        html2canvas(divToCapture).then(canvas => {
+            const image = canvas.toDataURL('image/png');
+    
+            // Store the captured image in session storage
+            sessionStorage.setItem('capturedImage', image);
+            console.log("Image captured and stored in session:", image);
+    
+            // Execute the callback to proceed to the next step
+            if (callback) {
+                callback();
+            }
+        }).catch(error => {
+            console.error("Error capturing image:", error);
+        });
+    };
+    
+
     const { t } = useTranslation();
 
     const defaultAvatarURL = 'https://lolcards.link/api/public/images/avatar.png';
@@ -54,7 +80,7 @@ const Page2 = () => {
     const [avatarURL, setAvatarURL] = useState('');
 
     const imageUrl = avatarURL || defaultAvatarURL;
-
+    
     const getRandomElement = useCallback((array) => array[Math.floor(Math.random() * array.length)], []);
 
     const selectRandomStyles = useCallback(() => {
@@ -83,24 +109,32 @@ const Page2 = () => {
     };
 
     const getData = useCallback(async () => {
-        if (!navigator.onLine) {
-            return;
-        }
-        try {
-            setLoading(true);
-            const res = await axios.post('https://lolcards.link/api/cardBackground');
-            const fetchedData = res.data.data;
-            const shuffledData = shuffleArray([...fetchedData]); // Create a shuffled copy of the fetched data
-            setData(shuffledData);
-            setNoData(shuffledData.length === 0);
-        } catch (err) {
-            console.error(err);
-            setNoData(true);
-            toast.error("Failed to fetch data.");
-        } finally {
-            setLoading(false);
+        const MAX_RETRIES = 3;
+        let attempts = 0;
+        let success = false;
+        
+        while (attempts < MAX_RETRIES && !success) {
+            try {
+                setLoading(true);
+                const res = await axios.post('https://lolcards.link/api/cardBackground');
+                const fetchedData = res.data.data;
+                const shuffledData = shuffleArray([...fetchedData]); 
+                setData(shuffledData);
+                setNoData(shuffledData.length === 0);
+                success = true;  // Mark success if data is fetched
+            } catch (err) {
+                console.error(err);
+                setNoData(true);
+                if (attempts === MAX_RETRIES - 1) {
+                    toast.error("Failed to fetch data after multiple attempts.");
+                }
+            } finally {
+                setLoading(false);
+                attempts++;
+            }
         }
     }, []);
+    
 
     useEffect(() => {
         getData();
@@ -117,14 +151,28 @@ const Page2 = () => {
 
     const handleNextClick = useCallback(() => {
         // Prepare the data to store
-        const formData = { avatar, inputValues, username, nickname, cardBg: selectedImage };
-
+        const formData = { 
+            avatar, 
+            inputValues, 
+            username, 
+            nickname, 
+            data2,
+            cardBg: selectedImage,
+            font,    // Add font
+            color,   // Add color
+            shape    // Add shape
+        };
+    
         // Store data in sessionStorage
         sessionStorage.setItem('formData', JSON.stringify(formData));
-
-        // Use window.location.href to navigate
-        window.location.href = `/${username}/step3`;
-    }, [avatar, inputValues, username, nickname, selectedImage]);
+    
+        // Capture the image and store it before navigation
+        handleCapture(() => {
+            // Use window.location.href to navigate after capture is complete
+            window.location.href = `/${username}/step3`;
+        });
+    }, [avatar, inputValues, username, nickname, data2, selectedImage, font, color, shape]);
+    
 
 
     if (loading) return <LoadingComponent />;
@@ -153,7 +201,7 @@ const Page2 = () => {
                 data2={data2}
                 values={values}
                 handleNextClick={handleNextClick}
-                t={t}  // Pass t here
+                t={t}
             />
 
         </div>
@@ -237,7 +285,7 @@ const PreviewOffcanvas = React.memo(({
     data2,
     values,
     handleNextClick,
-    t // Receive t here
+    t,
 }) => (
     <Offcanvas isOpen={show} toggle={handleClose} direction="bottom" className="h-75 offcanvas-custom overflow-hidden">
         <OffcanvasHeader className='mx-auto w-100 d-flex flex-column justify-content-center'>
@@ -246,8 +294,9 @@ const PreviewOffcanvas = React.memo(({
         <OffcanvasBody className='text-center p-0'>
             <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
                 <Col sm={9} xl={5}>
-                    <div
-                        className="shadow rounded-4 mx-auto p-0"
+                {/* save gallery */}
+                <div
+                        className="shadow rounded-4 mx-auto p-0 " id='captureDiv'
                         style={{
                             width: "300px",
                             height: "400px",
@@ -290,6 +339,7 @@ const PreviewOffcanvas = React.memo(({
                             </div>
                         </div>
                     </div>
+                    {/* save gallery */}
 
                     <div className='d-flex flex-column justify-content-center align-items-center mx-2 mx-sm-5'>
                         <Button
