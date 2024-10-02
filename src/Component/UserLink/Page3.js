@@ -26,6 +26,7 @@ const Page3 = () => {
     const [avatar, setAvatar] = useState('');
     const [inputValues, setInputValues] = useState({});
     const [cardBg, setCardBg] = useState('');
+    const [userLocation, setuserLocation] = useState('');
     const [username, setUsername] = useState('');
     const [nickname, setNickname] = useState('');
     
@@ -37,11 +38,12 @@ const Page3 = () => {
         // Retrieve data from sessionStorage
         const storedData = sessionStorage.getItem('formData');
         if (storedData) {
-            const { avatar, inputValues, username, nickname, cardBg } = JSON.parse(storedData);
+            const { avatar, inputValues, username, nickname, cardBg , userLocation} = JSON.parse(storedData);
             setAvatar(avatar || '');
             setInputValues(inputValues || {});
             setUsername(username || '');
             setNickname(nickname || '');
+            setuserLocation(userLocation || '');
             setCardBg(cardBg || '');
         }
     }, []);
@@ -74,6 +76,7 @@ const Page3 = () => {
             formData.append('nickname', nickname);
             formData.append('hint', hint);
             formData.append('bgUrl', cardBg);
+            formData.append('userLocation', userLocation);
             if (avatar) {
                 formData.append('avatar', avatar);
             }

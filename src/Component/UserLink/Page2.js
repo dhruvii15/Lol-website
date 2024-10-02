@@ -13,8 +13,8 @@ import Loading from '../Loading';
 import { useTranslation } from 'react-i18next';
 import html2canvas from 'html2canvas';
 
-import MessageBtn  from "../Messagebtn";
-import NoDataFound  from "../NoData";
+import MessageBtn from "../Messagebtn";
+import NoDataFound from "../NoData";
 
 const capitalizeFirstLetter = (string) => {
     if (!string) return '';
@@ -24,19 +24,19 @@ const capitalizeFirstLetter = (string) => {
 const Page2 = () => {
     const handleCapture = (callback) => {
         const divToCapture = document.getElementById('captureDiv');
-    
+
         if (!divToCapture) {
             console.error("Div to capture not found.");
             return;
         }
-    
+
         html2canvas(divToCapture).then(canvas => {
             const image = canvas.toDataURL('image/png');
-    
+
             // Store the captured image in session storage
             sessionStorage.setItem('capturedImage', image);
             console.log("Image captured and stored in session:", image);
-    
+
             // Execute the callback to proceed to the next step
             if (callback) {
                 callback();
@@ -45,7 +45,7 @@ const Page2 = () => {
             console.error("Error capturing image:", error);
         });
     };
-    
+
 
     const { t } = useTranslation();
 
@@ -58,7 +58,8 @@ const Page2 = () => {
         inputValues = {},
         username = '',
         nickname = '',
-        data2 = []
+        data2 = [],
+        userLocation
     } = storedData;
 
     const values = useMemo(() => Object.values(inputValues), [inputValues]);
@@ -80,7 +81,7 @@ const Page2 = () => {
     const [avatarURL, setAvatarURL] = useState('');
 
     const imageUrl = avatarURL || defaultAvatarURL;
-    
+
     const getRandomElement = useCallback((array) => array[Math.floor(Math.random() * array.length)], []);
 
     const selectRandomStyles = useCallback(() => {
@@ -112,13 +113,13 @@ const Page2 = () => {
         const MAX_RETRIES = 3;
         let attempts = 0;
         let success = false;
-        
+
         while (attempts < MAX_RETRIES && !success) {
             try {
                 setLoading(true);
                 const res = await axios.post('https://lolcards.link/api/cardBackground');
                 const fetchedData = res.data.data;
-                const shuffledData = shuffleArray([...fetchedData]); 
+                const shuffledData = shuffleArray([...fetchedData]);
                 setData(shuffledData);
                 setNoData(shuffledData.length === 0);
                 success = true;  // Mark success if data is fetched
@@ -134,7 +135,7 @@ const Page2 = () => {
             }
         }
     }, []);
-    
+
 
     useEffect(() => {
         getData();
@@ -151,28 +152,28 @@ const Page2 = () => {
 
     const handleNextClick = useCallback(() => {
         // Prepare the data to store
-        const formData = { 
-            avatar, 
-            inputValues, 
-            username, 
-            nickname, 
+        const formData = {
+            avatar,
+            inputValues,
+            username,
+            nickname,
             data2,
             cardBg: selectedImage,
             font,    // Add font
             color,   // Add color
-            shape    // Add shape
+            userLocation    // Add userLocation
         };
-    
+
         // Store data in sessionStorage
         sessionStorage.setItem('formData', JSON.stringify(formData));
-    
+
         // Capture the image and store it before navigation
         handleCapture(() => {
             // Use window.location.href to navigate after capture is complete
             window.location.href = `/${username}/step3`;
         });
-    }, [avatar, inputValues, username, nickname, data2, selectedImage, font, color, shape]);
-    
+    }, [avatar, inputValues, username, nickname, data2, selectedImage, font, color, userLocation]);
+
 
 
     if (loading) return <LoadingComponent />;
@@ -294,8 +295,8 @@ const PreviewOffcanvas = React.memo(({
         <OffcanvasBody className='text-center p-0'>
             <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
                 <Col sm={9} xl={5}>
-                {/* save gallery */}
-                <div
+                    {/* save gallery */}
+                    <div
                         className="shadow rounded-4 mx-auto p-0 " id='captureDiv'
                         style={{
                             width: "300px",
@@ -351,7 +352,7 @@ const PreviewOffcanvas = React.memo(({
                     </div>
                     <div className='w-100 p-3 pt-0'>
                         <Suspense fallback={<div><Loading /></div>}>
-                            <MessageBtn color="#A9A9A9"/>
+                            <MessageBtn color="#A9A9A9" />
                         </Suspense>
                     </div>
                 </Col>
