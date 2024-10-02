@@ -104,7 +104,7 @@ const Page1 = ({ username }) => {
     const [isEmojiView, setIsEmojiView] = useState(false);
     const [selectedColumn, setSelectedColumn] = useState(null);
     const inputRefs = useRef([]);
-    const [userLocation, setUserLocation] = useState('block')
+    // const [userLocation, setUserLocation] = useState('block')
 
 
     const handleFileColumnClick = () => {
@@ -166,35 +166,36 @@ const Page1 = ({ username }) => {
     }, [username]);
 
 
-    const requestLocationPermission = () => {
-        if ("geolocation" in navigator) {
-            // Request location only after user interaction
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    setUserLocation('allow'); // Success callback
-                },
-                (error) => {
-                    console.error("Error getting location:", error); // Log the error for debugging
-                    // Handle specific error cases
-                    if (error.code === error.POSITION_UNAVAILABLE) {
-                        toast.error("Unable to retrieve your location. Please check your location settings.");
-                    }
-                },
-                {
-                    timeout: 10000, // Increase timeout to 10 seconds
-                    maximumAge: 60000, // Cache the location for 1 minute
-                    enableHighAccuracy: true // Request high accuracy if available
-                }
-            );
-        } else {
-            toast.error("Geolocation is not supported by your browser.");
-        }
-    };
+    // const requestLocationPermission = () => {
+    //     if ("geolocation" in navigator) {
+    //         // Request location only after user interaction
+    //         navigator.geolocation.getCurrentPosition(
+    //             (position) => {
+    //                 setUserLocation('allow'); // Success callback
+    //             },
+    //             (error) => {
+    //                 console.error("Error getting location:", error); // Log the error for debugging
+    //                 // Handle specific error cases
+    //                 if (error.code === error.POSITION_UNAVAILABLE) {
+    //                     toast.error("Unable to retrieve your location. Please check your location settings.");
+    //                 }
+    //             },
+    //             {
+    //                 timeout: 10000, // Increase timeout to 10 seconds
+    //                 maximumAge: 60000, // Cache the location for 1 minute
+    //                 enableHighAccuracy: true // Request high accuracy if available
+    //             }
+    //         );
+    //     } else {
+    //         toast.error("Geolocation is not supported by your browser.");
+    //     }
+    // };
     
 
     useEffect(() => {
         getData();
         getData2();
+        // requestLocationPermission();
     }, [getData, getData2, username]);
 
     const handleAvatarClick = (avatarUrl) => {
@@ -244,8 +245,6 @@ const Page1 = ({ username }) => {
     };
 
     const handleNextClick = () => {
-        
-        requestLocationPermission();
         const newErrors = {};
         data2.forEach((_, index) => {
             if (!inputValues[index] || inputValues[index].trim() === '') {
@@ -272,7 +271,7 @@ const Page1 = ({ username }) => {
             username,
             nickname,
             data2,
-            userLocation
+            // userLocation
         };
 
         // Store form data in sessionStorage

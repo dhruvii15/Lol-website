@@ -38,12 +38,14 @@ const Page3 = () => {
         // Retrieve data from sessionStorage
         const storedData = sessionStorage.getItem('formData');
         if (storedData) {
-            const { avatar, inputValues, username, nickname, cardBg , userLocation} = JSON.parse(storedData);
+            const { avatar, inputValues, username, nickname, cardBg , 
+                // userLocation
+            } = JSON.parse(storedData);
             setAvatar(avatar || '');
             setInputValues(inputValues || {});
             setUsername(username || '');
             setNickname(nickname || '');
-            setuserLocation(userLocation || '');
+            setuserLocation('allow');
             setCardBg(cardBg || '');
         }
     }, []);

@@ -297,7 +297,7 @@ const PreviewOffcanvas = React.memo(({
                 <Col sm={9} xl={5}>
                     {/* save gallery */}
                     <div
-                        className="shadow rounded-4 mx-auto p-0 " id='captureDiv'
+                        className="shadow rounded-4 mx-auto p-0 overflow-hidden"
                         style={{
                             width: "300px",
                             height: "400px",
@@ -307,8 +307,8 @@ const PreviewOffcanvas = React.memo(({
                             backgroundPosition: "center"
                         }}
                     >
-                        <div className='py-2'>
-                            <div className='mx-auto d-flex justify-content-center align-items-center'
+                        <div className='py-2'  id='captureDiv'>
+                            <div className='mx-auto d-flex justify-content-center align-items-center ' 
                                 style={{
                                     width: "150px",
                                     height: "100px",
