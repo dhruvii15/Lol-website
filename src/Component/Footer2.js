@@ -13,7 +13,7 @@ import appstore from "../img/appstore.svg"
 const Footer2 = () => {
 
     const handleInstaClick = () => {
-        const instaUrl = 'https://www.instagram.com/lots_of_laugh2024?igsh=ZHpxa2RzcG90Z3Fl';
+        const instaUrl = 'https://www.instagram.com/lolfuncard?igsh=ZHpxa2RzcG90Z3Fl';
 
         window.open(instaUrl, '_blank');
     };

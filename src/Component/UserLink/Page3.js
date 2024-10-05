@@ -39,13 +39,13 @@ const Page3 = () => {
         const storedData = sessionStorage.getItem('formData');
         if (storedData) {
             const { avatar, inputValues, username, nickname, cardBg , 
-                // userLocation
+                userLocation
             } = JSON.parse(storedData);
             setAvatar(avatar || '');
             setInputValues(inputValues || {});
             setUsername(username || '');
             setNickname(nickname || '');
-            setuserLocation('allow');
+            setuserLocation(userLocation || '');
             setCardBg(cardBg || '');
         }
     }, []);

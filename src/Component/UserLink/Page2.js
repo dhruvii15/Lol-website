@@ -24,14 +24,11 @@ const capitalizeFirstLetter = (string) => {
 const Page2 = () => {
     const handleCapture = (callback) => {
         const divToCapture = document.getElementById('captureDiv');
-    
         if (!divToCapture) {
             console.error("Div to capture not found.");
             return;
         }
-    
         const scale = 2; // Increase this for higher resolution, but be mindful of performance
-    
         html2canvas(divToCapture, {
             scale: scale,
             useCORS: true,
@@ -55,20 +52,20 @@ const Page2 = () => {
             perfectedCanvas.width = canvas.width;
             perfectedCanvas.height = canvas.height;
             const ctx = perfectedCanvas.getContext('2d');
-    
+
             // Apply image smoothing
             ctx.imageSmoothingEnabled = true;
             ctx.imageSmoothingQuality = 'high';
-    
+
             // Draw the original canvas onto the new one
             ctx.drawImage(canvas, 0, 0);
-    
+
             // Convert to a high-quality PNG
             const image = perfectedCanvas.toDataURL('image/png', 1.0);
-    
+
             // Store the captured image in session storage
             sessionStorage.setItem('capturedImage', image);
-    
+
             // Execute the callback to proceed to the next step
             if (callback) {
                 callback();
@@ -110,9 +107,11 @@ const Page2 = () => {
     const [noData, setNoData] = useState(false);
     const [show, setShow] = useState(false);
     const [selectedImage, setSelectedImage] = useState('');
-    const [avatarURL, setAvatarURL] = useState('');
+    // const [avatarURL, setAvatarURL] = useState('');
 
-    const imageUrl = avatarURL || defaultAvatarURL;
+    const imageUrl = 
+    avatar || 
+    defaultAvatarURL;
 
     const getRandomElement = useCallback((array) => array[Math.floor(Math.random() * array.length)], []);
 
@@ -172,15 +171,15 @@ const Page2 = () => {
     useEffect(() => {
         getData();
 
-        if (avatar instanceof File) {
-            const url = URL.createObjectURL(avatar);
-            setAvatarURL(url);
-            return () => URL.revokeObjectURL(url);
-        } else {
-            setAvatarURL(avatar);
-        }
+        // if (avatar instanceof File) {
+        //     const url = URL.createObjectURL(avatar);
+        //     setAvatarURL(url);
+        //     return () => URL.revokeObjectURL(url);
+        // } else {
+        //     setAvatarURL(avatar);
+        // }
 
-    }, [getData, avatar]);
+    }, [getData]);
 
     const handleNextClick = useCallback(() => {
         // Prepare the data to store
