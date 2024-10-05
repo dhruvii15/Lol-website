@@ -8,6 +8,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 // img
 import gallery from "../../img/gallery.svg";
 import emoji from "../../img/avataremoji.svg";
+import policy from "../../img/policyIcon.svg";
 import Loading from '../Loading';
 import { useTranslation } from 'react-i18next';
 
@@ -169,11 +170,11 @@ const Page1 = ({ username }) => {
     const requestLocationPermission = () => {
         if (navigator.geolocation) {
             setUserLocation('allow')
-          } else {
+        } else {
             console.log("Geolocation is not supported by this browser.");
-          }          
+        }
     };
-    
+
 
     useEffect(() => {
         getData();
@@ -268,19 +269,30 @@ const Page1 = ({ username }) => {
         <div className='page1-bg orange-bg'>
             <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
                 <Col sm={9} xl={5}>
-                    <div className='py-3 pt-4 d-flex justify-content-center align-items-center'>
-                        <div className='num-circle bg-black text-white'><p>1</p></div>
-                        <div className='bg-black' style={{ width: '40px', height: '2px' }} />
-                        <div className='num-circle bg-white rounded-circle'><p>2</p></div>
-                        <div className='bg-white' style={{ width: '40px', height: '2px' }} />
-                        <div className='num-circle bg-white rounded-circle'><p>3</p></div>
+                    <div className="py-3 pt-4 d-flex justify-content-between align-items-center">
+                        <div className="flex-grow-1 d-flex justify-content-center align-items-center">
+                            <div className="d-flex justify-content-center align-items-center ms-5">
+                                <div className="num-circle bg-black text-white"><p>1</p></div>
+                                <div className="bg-black" style={{ width: '40px', height: '2px' }} />
+                                <div className="num-circle bg-white rounded-circle"><p>2</p></div>
+                                <div className="bg-white" style={{ width: '40px', height: '2px' }} />
+                                <div className="num-circle bg-white rounded-circle"><p>3</p></div>
+                            </div>
+                        </div>
+                        <img
+                            src={policy}
+                            alt="policy"
+                            className='me-4 cursor'
+                            onClick={() => window.open("/privacy-policy", "_blank")}
+                            width={30}
+                        />
                     </div>
 
                     <div className='bg-white page1-whitebox mx-1 rounded-5 shadow text-center overflow-hidden'>
                         <p className='pt-3 fs-5'>
                             {getlanguageText('create')}
                             <small className='fw-bolder'>
-                            {name ? `  ${name.charAt(0).toUpperCase() + name.slice(1)}'s  ` : ''}
+                                {name ? `  ${name.charAt(0).toUpperCase() + name.slice(1)}'s  ` : ''}
                             </small>
                             {getlanguageText('card')}
                         </p>
@@ -381,7 +393,7 @@ const Page1 = ({ username }) => {
                             <span className='fs-5 text-decoration-none text-black'>{t('next')}</span>
                         </Button>
                         <Suspense fallback={<div><Loading /></div>}>
-                            <MessageBtn color="#fff"/>
+                            <MessageBtn color="#fff" />
                         </Suspense>
                     </div>
 

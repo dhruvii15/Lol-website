@@ -4,6 +4,14 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { logEvent } from 'firebase/analytics';
 import { analytics } from '../Component/firebase-config';
+import {
+  Modal,
+  ModalBody,
+  Button,
+} from 'reactstrap';
+
+
+import policy from "../img/policyPOPUP.svg";
 
 // Lazy load components
 const Page1 = lazy(() => import('../Component/UserLink/Page1'));
@@ -18,6 +26,7 @@ const UserLink = () => {
   const [pauseLink, setPauseLink] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [showLocationPopup, setShowLocationPopup] = useState(false);
 
   const getData2 = useCallback(() => {
     setLoading(true);
@@ -47,50 +56,52 @@ const UserLink = () => {
   useEffect(() => {
     getData2();
     document.title = username ? `@${username}` : 'LOL';
+
+    // Check if the location popup has been shown before
+    const hasSeenLocationPopup = localStorage.getItem('hasSeenLocationPopup');
+    if (!hasSeenLocationPopup) {
+      setShowLocationPopup(true);
+    }
   }, [getData2, username]);
 
-  // Snap Pixel tracking for page view
+  // Existing tracking code...
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const isFromSnapAd = queryParams.get('sc_referrer') === 'snapchat';
-    // const isFromFacebookAd = queryParams.get('fbclid') !== null; // Check for Facebook Click ID
-  
-    // Snap Pixel tracking
+
     if (window.snaptr) {
-      // console.log('Snaptr is available. Sending VIEW_CONTENT event...');
       window.snaptr('track', 'VIEW_CONTENT', {
         'page_name': 'user_link',
         'page_url': `https://lolcards.link/${username}`,
         'sc_referrer': isFromSnapAd ? 'snapchat' : 'other'
       });
-    } else {
-      // console.warn('Snap Pixel (snaptr) is not available.');
     }
-  
-    // Facebook Pixel tracking
+
     if (window.fbq) {
-      // console.log('Facebook Pixel is available. Sending ViewContent event...');
       window.fbq('track', 'ViewContent', {
         content_name: 'user_link',
         content_category: 'UserProfile',
         content_ids: [username],
         content_type: 'product',
       });
-    } else {
-      // console.warn('Facebook Pixel (fbq) is not available.');
     }
 
-    // Log page view event with Firebase Analytics
     logEvent(analytics, 'view_content', {
       page_title: 'user_link',
       page_location: window.location.href,
       page_path: window.location.pathname
-  });
-  
+    });
   }, [username, location.search]);
 
   // Memoized derived state
   const memoizedData2 = useMemo(() => data2, [data2]);
+
+  const handleAcceptLocation = () => {
+    localStorage.setItem('hasSeenLocationPopup', 'true');
+    setShowLocationPopup(false);
+    // Here you would typically call a function to get and store the user's location
+    // For example: getUserLocation();
+  };
 
   if (loading) {
     return (
@@ -121,7 +132,27 @@ const UserLink = () => {
       {memoizedData2.length === 0 ? (
         <NoUserFound />
       ) : (
-        <Page1 username={username} data={memoizedData2} />
+        <>
+          <Page1 username={username} data={memoizedData2} />
+          <Modal centered isOpen={showLocationPopup} backdrop="static" keyboard={false} className='mx-5 mx-sm-auto'>
+            <ModalBody className='px-3 shadow text-center'>
+              <img src={policy} alt="policy" className='img-fluid py-3' width={55} />
+              <h4 className='fw-bold pb-3'>We Value Your Privacy</h4>
+              <p>We take your location information for LOL App premium users.</p>
+              <div className='w-100 text-center'>
+                <Button onClick={handleAcceptLocation} className='bg-transparent border-0 px-5 rounded-pill text-white orange-bg'>OK</Button></div>
+
+              <p
+                className='text-center cursor pt-4 m-0 text-decoration-underline'
+                style={{ fontSize: "13px", color: "#FA5153" }}
+                onClick={() => window.open("/privacy-policy", "_blank")}
+              >
+                Privacy Policy
+              </p>
+
+            </ModalBody>
+          </Modal>
+        </>
       )}
     </Suspense>
   );

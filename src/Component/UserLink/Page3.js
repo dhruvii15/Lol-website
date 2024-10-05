@@ -14,6 +14,7 @@ import GirlFriend from "../../img/GirlFriend.svg";
 import BoyFriend from "../../img/BoyFriend.svg";
 import Enemy from "../../img/Enemy.svg";
 import Stranger from "../../img/Stranger.svg";
+import policy from "../../img/policyIcon.svg";
 import Loading from '../Loading';
 import { useTranslation } from 'react-i18next';
 
@@ -29,7 +30,7 @@ const Page3 = () => {
     const [userLocation, setuserLocation] = useState('');
     const [username, setUsername] = useState('');
     const [nickname, setNickname] = useState('');
-    
+
     const [hint, setHint] = useState('');
     const [selectedRelation, setSelectedRelation] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -38,7 +39,7 @@ const Page3 = () => {
         // Retrieve data from sessionStorage
         const storedData = sessionStorage.getItem('formData');
         if (storedData) {
-            const { avatar, inputValues, username, nickname, cardBg , 
+            const { avatar, inputValues, username, nickname, cardBg,
                 userLocation
             } = JSON.parse(storedData);
             setAvatar(avatar || '');
@@ -95,7 +96,7 @@ const Page3 = () => {
             });
 
             if (response.status === 201) {
-                navigate(`/${username}/success`, { state: { username } });if (window.snaptr) {
+                navigate(`/${username}/success`, { state: { username } }); if (window.snaptr) {
                     window.snaptr('track', 'CUSTOM_EVENT_2', {
                         'event_name': 'Card_Send',
                         'page_name': 'LOL',
@@ -104,7 +105,7 @@ const Page3 = () => {
                 } else {
                     console.warn('Snap Pixel (snaptr) is not available.');
                 }
-    
+
                 // Facebook Pixel tracking
                 if (window.fbq) {
                     window.fbq('track', 'Card_Send', {
@@ -114,7 +115,7 @@ const Page3 = () => {
                 } else {
                     console.warn('Facebook Pixel (fbq) is not available.');
                 }
-    
+
                 // Firebase Analytics custom event
                 logEvent(analytics, 'card_send', {
                     event_category: 'engagement',
@@ -138,12 +139,23 @@ const Page3 = () => {
             <div className='page1-bg orange-bg'>
                 <Row className='d-flex justify-content-center align-items-center h-100 m-0'>
                     <Col sm={9} xl={5}>
-                        <div className='py-3 pt-4 d-flex justify-content-center align-items-center'>
-                            <div className='num-circle bg-black text-white rounded-circle'><p>1</p></div>
-                            <div className='bg-black' style={{ width: '40px', height: '2px' }} />
-                            <div className='num-circle bg-black text-white rounded-circle'><p>2</p></div>
-                            <div className='bg-black' style={{ width: '40px', height: '2px' }} />
-                            <div className='num-circle bg-black text-white'><p>3</p></div>
+                        <div className="py-3 pt-4 d-flex justify-content-between align-items-center">
+                            <div className="flex-grow-1 d-flex justify-content-center align-items-center">
+                                <div className="d-flex justify-content-center align-items-center ms-5">
+                                    <div className='num-circle bg-black text-white rounded-circle'><p>1</p></div>
+                                    <div className='bg-black' style={{ width: '40px', height: '2px' }} />
+                                    <div className='num-circle bg-black text-white rounded-circle'><p>2</p></div>
+                                    <div className='bg-black' style={{ width: '40px', height: '2px' }} />
+                                    <div className='num-circle bg-black text-white'><p>3</p></div>
+                                </div>
+                            </div>
+                            <img
+                                src={policy}
+                                alt="policy"
+                                className='me-4 cursor'
+                                onClick={() => window.open("/privacy-policy", "_blank")}
+                                width={30}
+                            />
                         </div>
                         <h3 className='text-center text-white pt-4'>{t('page3.0')}</h3>
                         <p className='text-center text-white fs-5 pb-3 m-0'>{t('page3.1')}</p>
@@ -183,7 +195,7 @@ const Page3 = () => {
                             </Button>
 
                             <Suspense fallback={<div><Loading /></div>}>
-                                <MessageBtn color="#fff"/>
+                                <MessageBtn color="#fff" />
                             </Suspense>
                         </div>
                     </Col>
